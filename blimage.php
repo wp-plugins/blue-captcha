@@ -219,7 +219,7 @@ if ($layer == "double")
 // TODO : Don't set session in preview mode
 $_SESSION["captcha"] = sha1 ($secret . $secret2);
 
-$path = realpath (".") . "/wp-content/plugins/bluecaptcha/";
+$path = realpath (".") . "/wp-content/plugins/blue-captcha/";
 
 
 header ("Content-type: image/gif");
