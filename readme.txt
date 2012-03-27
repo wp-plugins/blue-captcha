@@ -11,7 +11,7 @@ Blue Captcha is a powerful and highly customized WordPress plugin that effective
 
 == Description ==
 
-Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons. It is easily installed and provides high protection against spammers, bots or unwanted persons
+Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons. It is easily installed and provides high protection against spammers, bots or unwanted persons.
 
 Features:
 --------
@@ -31,7 +31,7 @@ Features:
 * It can export the entire log file into CSV file (Excel)
 * With the help of log file, it's easy to track down the IP address of spammers or unwanted persons and ban them for ever
 
-You can visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue Captcha Page</a> for more information
+You can visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue Captcha Page</a> for more information.
 
 
 == Installation ==
