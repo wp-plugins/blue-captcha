@@ -411,7 +411,7 @@ function blcap_process_ip_list ($list)
 	echo "\t\tdocument.getElementById (t + 'color' + i).disabled = en;\n";
 	echo "\tfor (i=1;i<=3;i++)\n";
 	echo "\t\tdocument.getElementById (t + 'rotate' + i).disabled = en;\n";
-	echo "\tfor (i=1;i<=4;i++)\n";
+	echo "\tfor (i=1;i<=5;i++)\n";
 	echo "\t\tdocument.getElementById (t + 'background' + i).disabled = en;\n";
 	echo "\tfor (i=1;i<=6;i++)\n";
 	echo "\t\tdocument.getElementById (t + 'extra' + i).disabled = en;\n";
@@ -502,6 +502,7 @@ function blcap_process_ip_list ($list)
 	echo "\tif (document.getElementById (t + 'background2').checked) qq = qq + '&background=mosaic';\n";
 	echo "\tif (document.getElementById (t + 'background3').checked) qq = qq + '&background=image';\n";
 	echo "\tif (document.getElementById (t + 'background4').checked) qq = qq + '&background=palette';\n";
+	echo "\tif (document.getElementById (t + 'background5').checked) qq = qq + '&background=random';\n";
 	echo "\tif (document.getElementById (t + 'availbg1').checked) qq = qq + '&availbg_1=1';\n";    
   	echo "\tif (document.getElementById (t + 'availbg2').checked) qq = qq + '&availbg_2=1';\n"; 
 	echo "\tif (document.getElementById (t + 'availbg3').checked) qq = qq + '&availbg_3=1';\n"; 
@@ -536,6 +537,19 @@ function blcap_process_ip_list ($list)
 	echo "\treturn;\n";
 	echo "}\n";
 		
+	echo "function blcap_generate_key ()\n";
+	echo "{\n";
+	echo "\tvar charset = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\";\n";
+	echo "\tvar key = '';\n";
+	echo "\tvar i, x;\n";
+	echo "\tfor (x=0;x<16;x++)\n";
+	echo "\t{\n";
+	echo "\t\ti = Math.floor (Math.random () * 36);\n";
+	echo "\t\tkey = key + charset.charAt (i);\n";
+	echo "\t}\n";
+	echo "\tdocument.getElementById ('blcap_protection_key').value = key;\n";
+	echo "}\n";
+    
 	echo "\n";
 	echo "</script>\n";
 	echo "\n";
@@ -580,10 +594,19 @@ function blcap_process_ip_list ($list)
 		
 		add_option ("blcap_settings", $settings);
 		update_option ("blcap_settings", $settings);
+        
+        $blcap_protection_key = (isset ($_REQUEST["blcap_protection_key"]) ? $_REQUEST["blcap_protection_key"] : "");
+        $blcap_protection_key = stripslashes (str_replace ("\"", "'", $blcap_protection_key));
+		
+        add_option ("blcap_protection_key", $blcap_protection_key);
+		update_option ("blcap_protection_key", $blcap_protection_key);        
 	}
 	
-	$blcap_setser = get_option ("blcap_settings");
+    $blcap_protection_key = "";
+    $blcap_protection_key = get_option ("blcap_protection_key");
     
+	$blcap_setser = get_option ("blcap_settings");
+
 	if ($blcap_setser != "")
 	{
 		if (is_array ($blcap_setser))
@@ -716,6 +739,44 @@ function blcap_process_ip_list ($list)
 	echo "<input type=\"radio\" name=\"gen_refresh\" value=\"yes\" $checked2/>&nbsp;Available &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
+    
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Keep Captcha Data In\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["gen_use_sessions"]) ? $blcap_set["gen_use_sessions"] : "1");
+	if ($vv == "yes") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "no") $checked2 = "checked "; else $checked2 = "";
+	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
+	echo "<input type=\"radio\" name=\"gen_use_sessions\" value=\"yes\" $checked1/>&nbsp;Sessions &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_use_sessions\" value=\"no\" $checked2/>&nbsp;Database &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+	
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Extra Protection Key\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$key = $blcap_protection_key;
+	echo "<input type=\"text\" name=\"blcap_protection_key\" id=\"blcap_protection_key\" value=\"" . $key . "\" > &nbsp;&nbsp; <input type=\"button\" class=\"button-secondary\" title=\"Click here to generate a new random key\" onclick=\"blcap_generate_key ();\" value=\"Generate New Key\" />\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+    
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Auto Generate New Key Daily\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["gen_autogeneratekey"]) ? $blcap_set["gen_autogeneratekey"] : "yes");
+	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
+	echo "<input type=\"radio\" name=\"gen_autogeneratekey\" value=\"no\" $checked1/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_autogeneratekey\" value=\"yes\" $checked2/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";      
 	
 	echo "</tbody>\n";
 	
@@ -794,7 +855,7 @@ function blcap_process_ip_list ($list)
 	if ($vv == "random") $checked4 = "checked "; else $checked4 = "";
 	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "") $checked3 = "checked ";	
 	echo "<input type=\"radio\" id=\"log_type1\" name=\"log_type\" onchange=\"blcap_change_prof('log');\" value=\"numbers\" $checked1/>&nbsp;Only Numbers &nbsp;&nbsp;\n";
-	echo "<input type=\"radio\" id=\"log_type2\" name=\"log_type\" onchange=\"blcap_change_prof('log');\" blcap_change_prof('log')value=\"letters\" $checked2/>&nbsp;Only Letters &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" id=\"log_type2\" name=\"log_type\" onchange=\"blcap_change_prof('log');\" value=\"letters\" $checked2/>&nbsp;Only Letters &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"log_type3\" name=\"log_type\" onchange=\"blcap_change_prof('log');\" value=\"numbers_letters\" $checked3/>&nbsp;Numbers & Letters &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"log_type4\" name=\"log_type\" onchange=\"blcap_change_prof('log');\" value=\"random\" $checked4/>&nbsp;Random &nbsp;&nbsp;\n";
 	echo "</td>\n";
@@ -912,11 +973,13 @@ function blcap_process_ip_list ($list)
 	if ($vv == "mosaic") $checked2 = "checked "; else $checked2 = "";
 	if ($vv == "image") $checked3 = "checked "; else $checked3 = "";
 	if ($vv == "palette") $checked4 = "checked "; else $checked4 = "";
-	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "") $checked4 = "checked ";	
+	if ($vv == "random") $checked5 = "checked "; else $checked5 = "";
+	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "" && $checked5 == "") $checked4 = "checked ";
 	echo "<input type=\"radio\" id=\"log_background1\" name=\"log_background\" onchange=\"blcap_change_prof('log');\" value=\"color\" $checked1/>&nbsp;Single Color &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"log_background2\" name=\"log_background\" onchange=\"blcap_change_prof('log');\" value=\"mosaic\" $checked2/>&nbsp;Mosaic &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"log_background3\" name=\"log_background\" onchange=\"blcap_change_prof('log');\" value=\"image\" $checked3/>&nbsp;Image &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"log_background4\" name=\"log_background\" onchange=\"blcap_change_prof('log');\" value=\"palette\" $checked4/>&nbsp;Image Palette &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" id=\"log_background5\" name=\"log_background\" onchange=\"blcap_change_prof('log');\" value=\"random\" $checked5/>&nbsp;Random &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 	
@@ -1126,7 +1189,7 @@ function blcap_process_ip_list ($list)
 	if ($vv == "random") $checked4 = "checked "; else $checked4 = "";
 	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "") $checked3 = "checked ";	
 	echo "<input type=\"radio\" id=\"reg_type1\" name=\"reg_type\" onchange=\"blcap_change_prof('reg');\" value=\"numbers\" $checked1/>&nbsp;Only Numbers &nbsp;&nbsp;\n";
-	echo "<input type=\"radio\" id=\"reg_type2\" name=\"reg_type\" onchange=\"blcap_change_prof('reg');\" blcap_change_prof('reg')value=\"letters\" $checked2/>&nbsp;Only Letters &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" id=\"reg_type2\" name=\"reg_type\" onchange=\"blcap_change_prof('reg');\" value=\"letters\" $checked2/>&nbsp;Only Letters &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"reg_type3\" name=\"reg_type\" onchange=\"blcap_change_prof('reg');\" value=\"numbers_letters\" $checked3/>&nbsp;Numbers & Letters &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"reg_type4\" name=\"reg_type\" onchange=\"blcap_change_prof('reg');\" value=\"random\" $checked4/>&nbsp;Random &nbsp;&nbsp;\n";
 	echo "</td>\n";
@@ -1244,11 +1307,13 @@ function blcap_process_ip_list ($list)
 	if ($vv == "mosaic") $checked2 = "checked "; else $checked2 = "";
 	if ($vv == "image") $checked3 = "checked "; else $checked3 = "";
 	if ($vv == "palette") $checked4 = "checked "; else $checked4 = "";
-	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "") $checked4 = "checked ";	
+	if ($vv == "random") $checked5 = "checked "; else $checked5 = "";
+	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "" && $checked5 == "") $checked4 = "checked ";
 	echo "<input type=\"radio\" id=\"reg_background1\" name=\"reg_background\" onchange=\"blcap_change_prof('reg');\" value=\"color\" $checked1/>&nbsp;Single Color &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"reg_background2\" name=\"reg_background\" onchange=\"blcap_change_prof('reg');\" value=\"mosaic\" $checked2/>&nbsp;Mosaic &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"reg_background3\" name=\"reg_background\" onchange=\"blcap_change_prof('reg');\" value=\"image\" $checked3/>&nbsp;Image &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"reg_background4\" name=\"reg_background\" onchange=\"blcap_change_prof('reg');\" value=\"palette\" $checked4/>&nbsp;Image Palette &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" id=\"reg_background5\" name=\"reg_background\" onchange=\"blcap_change_prof('reg');\" value=\"random\" $checked5/>&nbsp;Random &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 	
@@ -1458,7 +1523,7 @@ function blcap_process_ip_list ($list)
 	if ($vv == "random") $checked4 = "checked "; else $checked4 = "";
 	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "") $checked3 = "checked ";	
 	echo "<input type=\"radio\" id=\"pwd_type1\" name=\"pwd_type\" onchange=\"blcap_change_prof('pwd');\" value=\"numbers\" $checked1/>&nbsp;Only Numbers &nbsp;&nbsp;\n";
-	echo "<input type=\"radio\" id=\"pwd_type2\" name=\"pwd_type\" onchange=\"blcap_change_prof('pwd');\" blcap_change_prof('pwd')value=\"letters\" $checked2/>&nbsp;Only Letters &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" id=\"pwd_type2\" name=\"pwd_type\" onchange=\"blcap_change_prof('pwd');\" value=\"letters\" $checked2/>&nbsp;Only Letters &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"pwd_type3\" name=\"pwd_type\" onchange=\"blcap_change_prof('pwd');\" value=\"numbers_letters\" $checked3/>&nbsp;Numbers & Letters &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"pwd_type4\" name=\"pwd_type\" onchange=\"blcap_change_prof('pwd');\" value=\"random\" $checked4/>&nbsp;Random &nbsp;&nbsp;\n";
 	echo "</td>\n";
@@ -1576,11 +1641,13 @@ function blcap_process_ip_list ($list)
 	if ($vv == "mosaic") $checked2 = "checked "; else $checked2 = "";
 	if ($vv == "image") $checked3 = "checked "; else $checked3 = "";
 	if ($vv == "palette") $checked4 = "checked "; else $checked4 = "";
-	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "") $checked4 = "checked ";	
+	if ($vv == "random") $checked5 = "checked "; else $checked5 = "";
+	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "" && $checked5 == "") $checked4 = "checked ";
 	echo "<input type=\"radio\" id=\"pwd_background1\" name=\"pwd_background\" onchange=\"blcap_change_prof('pwd');\" value=\"color\" $checked1/>&nbsp;Single Color &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"pwd_background2\" name=\"pwd_background\" onchange=\"blcap_change_prof('pwd');\" value=\"mosaic\" $checked2/>&nbsp;Mosaic &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"pwd_background3\" name=\"pwd_background\" onchange=\"blcap_change_prof('pwd');\" value=\"image\" $checked3/>&nbsp;Image &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"pwd_background4\" name=\"pwd_background\" onchange=\"blcap_change_prof('pwd');\" value=\"palette\" $checked4/>&nbsp;Image Palette &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" id=\"pwd_background5\" name=\"pwd_background\" onchange=\"blcap_change_prof('pwd');\" value=\"random\" $checked5/>&nbsp;Random &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 	
@@ -1790,7 +1857,7 @@ function blcap_process_ip_list ($list)
 	if ($vv == "random") $checked4 = "checked "; else $checked4 = "";
 	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "") $checked3 = "checked ";	
 	echo "<input type=\"radio\" id=\"com_type1\" name=\"com_type\" onchange=\"blcap_change_prof('com');\" value=\"numbers\" $checked1/>&nbsp;Only Numbers &nbsp;&nbsp;\n";
-	echo "<input type=\"radio\" id=\"com_type2\" name=\"com_type\" onchange=\"blcap_change_prof('com');\" blcap_change_prof('com')value=\"letters\" $checked2/>&nbsp;Only Letters &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" id=\"com_type2\" name=\"com_type\" onchange=\"blcap_change_prof('com');\" value=\"letters\" $checked2/>&nbsp;Only Letters &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"com_type3\" name=\"com_type\" onchange=\"blcap_change_prof('com');\" value=\"numbers_letters\" $checked3/>&nbsp;Numbers & Letters &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"com_type4\" name=\"com_type\" onchange=\"blcap_change_prof('com');\" value=\"random\" $checked4/>&nbsp;Random &nbsp;&nbsp;\n";
 	echo "</td>\n";
@@ -1908,11 +1975,13 @@ function blcap_process_ip_list ($list)
 	if ($vv == "mosaic") $checked2 = "checked "; else $checked2 = "";
 	if ($vv == "image") $checked3 = "checked "; else $checked3 = "";
 	if ($vv == "palette") $checked4 = "checked "; else $checked4 = "";
-	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "") $checked4 = "checked ";	
+	if ($vv == "random") $checked5 = "checked "; else $checked5 = "";
+	if ($checked1 == "" && $checked2 == "" && $checked3 == "" && $checked4 == "" && $checked5 == "") $checked4 = "checked ";
 	echo "<input type=\"radio\" id=\"com_background1\" name=\"com_background\" onchange=\"blcap_change_prof('com');\" value=\"color\" $checked1/>&nbsp;Single Color &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"com_background2\" name=\"com_background\" onchange=\"blcap_change_prof('com');\" value=\"mosaic\" $checked2/>&nbsp;Mosaic &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"com_background3\" name=\"com_background\" onchange=\"blcap_change_prof('com');\" value=\"image\" $checked3/>&nbsp;Image &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" id=\"com_background4\" name=\"com_background\" onchange=\"blcap_change_prof('com');\" value=\"palette\" $checked4/>&nbsp;Image Palette &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" id=\"com_background5\" name=\"com_background\" onchange=\"blcap_change_prof('com');\" value=\"random\" $checked5/>&nbsp;Random &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 	

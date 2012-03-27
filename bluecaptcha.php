@@ -4,7 +4,7 @@
 Plugin Name: Blue Captcha
 Plugin URI: http://mybluestuff.blogspot.com/
 Description: Blue Captcha
-Version: 1.0
+Version: 1.1
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
@@ -30,6 +30,7 @@ error_reporting (E_ALL);
 
 function blcap_errorhandler ($errno, $errstr, $errfile, $errline)
 {
+	//echo "Error : $errstr ($errno) in file $errfile ($errline)<br>";
 	//@error_log ("* " . date ("d/m/Y , H:i:s") . " : $errstr [$errno] in line $errline\r\n", 3, "blcap_errors.log");
 }
 set_error_handler ("blcap_errorhandler", E_ALL);
@@ -81,18 +82,32 @@ function blcap_install ()
 	$blcap_cur_version = "";
 	$blcap_cur_version = get_option ("blcap_version");
 	
-	$blcap_version = "1.0";
+	$blcap_version = "1.1";
 	add_option ("blcap_version", $blcap_version);
 	update_option ("blcap_version", $blcap_version);
 	
+    if ($blcap_cur_version == "")
+    {
+		$settings = "a:92:{s:13:\"gen_activated\";s:3:\"yes\";s:7:\"gen_log\";s:3:\"yes\";s:12:\"gen_keepinfo\";s:3:\"yes\";s:11:\"gen_keeppwd\";s:2:\"no\";s:13:\"gen_layersize\";s:1:\"1\";s:11:\"gen_refresh\";s:3:\"yes\";s:16:\"gen_use_sessions\";s:2:\"no\";s:19:\"gen_autogeneratekey\";s:3:\"yes\";s:11:\"log_enabled\";s:2:\"no\";s:8:\"log_user\";s:1:\"0\";s:10:\"log_char_3\";s:1:\"3\";s:8:\"log_type\";s:7:\"numbers\";s:10:\"log_letter\";s:9:\"uppercase\";s:8:\"log_font\";s:4:\"yes1\";s:15:\"log_availfont_1\";s:1:\"1\";s:15:\"log_size_larger\";s:6:\"larger\";s:9:\"log_color\";s:6:\"color1\";s:10:\"log_rotate\";s:2:\"no\";s:14:\"log_background\";s:5:\"color\";s:9:\"log_extra\";s:2:\"no\";s:9:\"log_lines\";s:2:\"no\";s:11:\"log_trlevel\";s:1:\"1\";s:9:\"log_layer\";s:6:\"single\";s:11:\"log_profile\";s:1:\"1\";s:11:\"reg_enabled\";s:3:\"yes\";s:8:\"reg_user\";s:1:\"0\";s:10:\"reg_char_5\";s:1:\"5\";s:8:\"reg_type\";s:15:\"numbers_letters\";s:10:\"reg_letter\";s:9:\"uppercase\";s:8:\"reg_font\";s:4:\"yes1\";s:15:\"reg_availfont_1\";s:1:\"1\";s:15:\"reg_availfont_2\";s:1:\"2\";s:15:\"reg_availfont_3\";s:1:\"3\";s:15:\"reg_availfont_4\";s:1:\"4\";s:15:\"reg_size_larger\";s:6:\"larger\";s:9:\"reg_color\";s:6:\"colorn\";s:10:\"reg_rotate\";s:3:\"yes\";s:14:\"reg_background\";s:5:\"image\";s:13:\"reg_availbg_1\";s:1:\"1\";s:13:\"reg_availbg_2\";s:1:\"2\";s:13:\"reg_availbg_3\";s:1:\"3\";s:13:\"reg_availbg_4\";s:1:\"4\";s:13:\"reg_availbg_5\";s:1:\"5\";s:9:\"reg_extra\";s:2:\"no\";s:9:\"reg_lines\";s:2:\"no\";s:11:\"reg_trlevel\";s:1:\"1\";s:9:\"reg_layer\";s:6:\"single\";s:11:\"reg_profile\";s:1:\"3\";s:11:\"pwd_enabled\";s:3:\"yes\";s:8:\"pwd_user\";s:1:\"0\";s:10:\"pwd_char_4\";s:1:\"4\";s:8:\"pwd_type\";s:15:\"numbers_letters\";s:10:\"pwd_letter\";s:9:\"uppercase\";s:8:\"pwd_font\";s:4:\"yes1\";s:15:\"pwd_availfont_1\";s:1:\"1\";s:15:\"pwd_availfont_2\";s:1:\"2\";s:15:\"pwd_availfont_3\";s:1:\"3\";s:15:\"pwd_availfont_4\";s:1:\"4\";s:15:\"pwd_size_larger\";s:6:\"larger\";s:9:\"pwd_color\";s:8:\"colorful\";s:10:\"pwd_rotate\";s:2:\"no\";s:14:\"pwd_background\";s:5:\"color\";s:9:\"pwd_extra\";s:2:\"no\";s:9:\"pwd_lines\";s:2:\"no\";s:11:\"pwd_trlevel\";s:1:\"1\";s:9:\"pwd_layer\";s:6:\"single\";s:11:\"pwd_profile\";s:1:\"2\";s:11:\"com_enabled\";s:3:\"yes\";s:8:\"com_user\";s:1:\"0\";s:10:\"com_char_6\";s:1:\"6\";s:8:\"com_type\";s:15:\"numbers_letters\";s:10:\"com_letter\";s:9:\"uppercase\";s:8:\"com_font\";s:4:\"yes1\";s:15:\"com_availfont_1\";s:1:\"1\";s:15:\"com_availfont_2\";s:1:\"2\";s:15:\"com_availfont_3\";s:1:\"3\";s:15:\"com_availfont_4\";s:1:\"4\";s:14:\"com_size_large\";s:5:\"large\";s:9:\"com_color\";s:6:\"colorn\";s:10:\"com_rotate\";s:3:\"yes\";s:14:\"com_background\";s:7:\"palette\";s:13:\"com_availbg_1\";s:1:\"1\";s:13:\"com_availbg_2\";s:1:\"2\";s:13:\"com_availbg_3\";s:1:\"3\";s:13:\"com_availbg_4\";s:1:\"4\";s:13:\"com_availbg_5\";s:1:\"5\";s:9:\"com_extra\";s:2:\"no\";s:9:\"com_lines\";s:2:\"no\";s:11:\"com_trlevel\";s:1:\"1\";s:9:\"com_layer\";s:6:\"single\";s:11:\"com_profile\";s:1:\"4\";s:10:\"ban_iplist\";s:0:\"\";}";
+        $settings_arr = @unserialize ($settings);
+        add_option ("blcap_settings", $settings_arr);
+        update_option ("blcap_settings", $settings_arr);
+    }
+    
+    $blcap_protection_key = "";
+    $charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    for ($i = 0 ; $i < 16 ; $i++)
+        $blcap_protection_key .= $charset[mt_rand (0, strlen ($charset)-1)];
+	add_option ("blcap_protection_key", $blcap_protection_key);
+	update_option ("blcap_protection_key", $blcap_protection_key);
+    
+    $blcap_date = date ("Y/m/d");
+	add_option ("blcap_date", $blcap_date);
+	update_option ("blcap_date", $blcap_date);    
+     
 	add_option ("blcap_sessions", "");
 	update_option ("blcap_sessions", "");
-    
-    $settings = "a:90:{s:13:\"gen_activated\";s:3:\"yes\";s:7:\"gen_log\";s:3:\"yes\";s:12:\"gen_keepinfo\";s:3:\"yes\";s:11:\"gen_keeppwd\";s:2:\"no\";s:13:\"gen_layersize\";s:1:\"1\";s:11:\"gen_refresh\";s:3:\"yes\";s:11:\"log_enabled\";s:2:\"no\";s:8:\"log_user\";s:1:\"0\";s:10:\"log_char_3\";s:1:\"3\";s:8:\"log_type\";s:7:\"numbers\";s:10:\"log_letter\";s:9:\"uppercase\";s:8:\"log_font\";s:4:\"yes1\";s:15:\"log_availfont_1\";s:1:\"1\";s:15:\"log_size_larger\";s:6:\"larger\";s:9:\"log_color\";s:6:\"color1\";s:10:\"log_rotate\";s:2:\"no\";s:14:\"log_background\";s:5:\"color\";s:9:\"log_extra\";s:2:\"no\";s:9:\"log_lines\";s:2:\"no\";s:11:\"log_trlevel\";s:1:\"1\";s:9:\"log_layer\";s:6:\"single\";s:11:\"log_profile\";s:1:\"1\";s:11:\"reg_enabled\";s:3:\"yes\";s:8:\"reg_user\";s:1:\"0\";s:10:\"reg_char_5\";s:1:\"5\";s:8:\"reg_type\";s:15:\"numbers_letters\";s:10:\"reg_letter\";s:9:\"uppercase\";s:8:\"reg_font\";s:4:\"yes1\";s:15:\"reg_availfont_1\";s:1:\"1\";s:15:\"reg_availfont_2\";s:1:\"2\";s:15:\"reg_availfont_3\";s:1:\"3\";s:15:\"reg_availfont_4\";s:1:\"4\";s:15:\"reg_size_larger\";s:6:\"larger\";s:9:\"reg_color\";s:6:\"colorn\";s:10:\"reg_rotate\";s:3:\"yes\";s:14:\"reg_background\";s:5:\"image\";s:13:\"reg_availbg_1\";s:1:\"1\";s:13:\"reg_availbg_2\";s:1:\"2\";s:13:\"reg_availbg_3\";s:1:\"3\";s:13:\"reg_availbg_4\";s:1:\"4\";s:13:\"reg_availbg_5\";s:1:\"5\";s:9:\"reg_extra\";s:2:\"no\";s:9:\"reg_lines\";s:2:\"no\";s:11:\"reg_trlevel\";s:1:\"1\";s:9:\"reg_layer\";s:6:\"single\";s:11:\"reg_profile\";s:1:\"3\";s:11:\"pwd_enabled\";s:3:\"yes\";s:8:\"pwd_user\";s:1:\"0\";s:10:\"pwd_char_4\";s:1:\"4\";s:8:\"pwd_type\";s:2:\"on\";s:10:\"pwd_letter\";s:9:\"uppercase\";s:8:\"pwd_font\";s:4:\"yes1\";s:15:\"pwd_availfont_1\";s:1:\"1\";s:15:\"pwd_availfont_2\";s:1:\"2\";s:15:\"pwd_availfont_3\";s:1:\"3\";s:15:\"pwd_availfont_4\";s:1:\"4\";s:15:\"pwd_size_larger\";s:6:\"larger\";s:9:\"pwd_color\";s:8:\"colorful\";s:10:\"pwd_rotate\";s:2:\"no\";s:14:\"pwd_background\";s:5:\"color\";s:9:\"pwd_extra\";s:2:\"no\";s:9:\"pwd_lines\";s:2:\"no\";s:11:\"pwd_trlevel\";s:1:\"1\";s:9:\"pwd_layer\";s:6:\"single\";s:11:\"pwd_profile\";s:1:\"2\";s:11:\"com_enabled\";s:3:\"yes\";s:8:\"com_user\";s:1:\"0\";s:10:\"com_char_6\";s:1:\"6\";s:8:\"com_type\";s:15:\"numbers_letters\";s:10:\"com_letter\";s:9:\"uppercase\";s:8:\"com_font\";s:4:\"yes1\";s:15:\"com_availfont_1\";s:1:\"1\";s:15:\"com_availfont_2\";s:1:\"2\";s:15:\"com_availfont_3\";s:1:\"3\";s:15:\"com_availfont_4\";s:1:\"4\";s:14:\"com_size_large\";s:5:\"large\";s:9:\"com_color\";s:6:\"colorn\";s:10:\"com_rotate\";s:3:\"yes\";s:14:\"com_background\";s:7:\"palette\";s:13:\"com_availbg_1\";s:1:\"1\";s:13:\"com_availbg_2\";s:1:\"2\";s:13:\"com_availbg_3\";s:1:\"3\";s:13:\"com_availbg_4\";s:1:\"4\";s:13:\"com_availbg_5\";s:1:\"5\";s:9:\"com_extra\";s:2:\"no\";s:9:\"com_lines\";s:2:\"no\";s:11:\"com_trlevel\";s:1:\"1\";s:9:\"com_layer\";s:6:\"single\";s:11:\"com_profile\";s:1:\"4\";s:10:\"ban_iplist\";s:0:\"\";}";
-    $settings_arr = @unserialize ($settings);
-    add_option ("blcap_settings", $settings_arr);
-	update_option ("blcap_settings", $settings_arr);  
-    
+
 	$charset = "utf8";
 	if (defined("DB_CHARSET")) $charset = DB_CHARSET;
 	if ($charset == "") $charset = "utf8";
@@ -120,6 +135,24 @@ function blcap_install ()
 		dbDelta($sql);
 	}
 
+	$blcap_table = $prefix . "sessions";
+	if ($wpdb->get_var("SHOW TABLES LIKE '" . $blcap_table . "'") != $blcap_table)
+	{
+		$sql = "CREATE TABLE `$blcap_table` (
+			`no` int(11) NOT NULL auto_increment,
+			`capid` text NOT NULL,
+			`ip` text NOT NULL,
+			`captcha` text NOT NULL,
+			`original` text NOT NULL,
+			`caprefresh` text NOT NULL,
+			`captime` text NOT NULL,
+			`capurl` text NOT NULL,
+			PRIMARY KEY  (`no`)
+			) ENGINE=MyISAM DEFAULT CHARSET=$charset";
+			
+		dbDelta($sql);
+	}
+    
 	$blcap_table = $prefix . "banlog";
 	if ($wpdb->get_var("SHOW TABLES LIKE '" . $blcap_table . "'") != $blcap_table)
 	{
@@ -140,20 +173,22 @@ function blcap_install ()
 	}
 }
 
+function blcap_uninstall ()
+{
+	delete_option ("blcap_version");
+	delete_option ("blcap_protection_key");
+	delete_option ("blcap_date");
+	delete_option ("blcap_sessions");
+	delete_option ("blcap_settings");
+	blcap_remove_db ();
+}
+
 function blcap_add_menus ()
 {
 	add_menu_page ('Blue Captcha', 'Blue Captcha', 'administrator', 'blcap_main_page', 'blcap_main');
 
 	add_submenu_page ('blcap_main_page', 'Options', 'Options', 'administrator', 'blcap_options_page', 'blcap_options');
 	add_submenu_page ('blcap_main_page', 'Log', 'Log', 'administrator', 'blcap_logs_page', 'blcap_logs');
-}
-
-function blcap_uninstall ()
-{
-	delete_option ("blcap_version");
-	delete_option ("blcap_sessions");    
-	delete_option ("blcap_settings");
-	blcap_remove_db ();
 }
 
 function blcap_main ()
@@ -307,7 +342,10 @@ function blcap_get_ip ()
 		$ip_forward = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
 	if ($ip_forward == "-") $ip_forward = $ip_client;
-		
+	
+	if ($ip_forward != "-")
+		return array ($ip_forward, $ip_remote);
+
 	return array ($ip_remote, $ip_forward);
 }
 
@@ -343,6 +381,33 @@ function blcap_compare_ip ($remoteip, $list)
     return false;
 }
 
+function blcap_check_date ($gen_autogeneratekey = "yes")
+{
+	global $wpdb;
+	
+	$current_date = date ("Y/m/d");
+	$blcap_date = get_option ("blcap_date");
+    
+	if ($blcap_date != $current_date)
+	{
+		add_option ("blcap_date", $current_date);
+		update_option ("blcap_date", $current_date);
+		
+		if ($gen_autogeneratekey == "yes")
+		{
+			$new_protection_key = "";
+			$keycharset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			for ($i = 0 ; $i < 16 ; $i++)
+				$new_protection_key .= $keycharset[mt_rand (0, strlen ($keycharset)-1)];
+			add_option ("blcap_protection_key", $new_protection_key);
+			update_option ("blcap_protection_key", $new_protection_key);
+        }
+		
+		// truncate DB table of Captcha Sessions Data
+		$r = $wpdb->get_results ("TRUNCATE TABLE blcap_sessions");
+    }
+}
+
 function blcap_loginform ()
 {
 	global $current_user;
@@ -359,32 +424,42 @@ function blcap_loginform ()
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");
 	$captcha_enabled = (isset ($sss["log_enabled"]) ? $sss["log_enabled"] : "yes");
 	$captcha_user = (isset ($sss["log_user"]) ? $sss["log_user"] : "0");
-	
+	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+    
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
 		{
-			if (!isset ($_SESSION)) @session_start ();
-			
-			$sid = "L";
-			$charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789";
-			for ($i = 0 ; $i < 15 ; $i++)
-				$sid = $sid . $charset[mt_rand (0, strlen ($charset)-1)];
-
-			if ($sid == "") $sid = $sid . "ABC123";
-			
 			$time = microtime();
 			$time = explode(" ", $time);
 			$time = $time[1] + $time[0];
 			$start_time = $time;
-
-			$_SESSION["capid"] = $sid;
-			$_SESSION["caprefresh"] = -1;
-			$_SESSION["captime"] = $start_time;
-			$_SESSION["capurl"] = blcap_get_current_url ();
+            
+			$sid = "L";
+			list ($ip, $remote) = blcap_get_ip ();
+			$ip_str = str_replace (".", "", $ip);
+			$time_str = str_replace (".", "", (string)$time);
+			$sid = $sid . $ip_str . $time_str;
+			
+			$gen_autogeneratekey = (isset ($sss["gen_autogeneratekey"]) ? $sss["gen_autogeneratekey"] : "yes");
+			blcap_check_date ($gen_autogeneratekey);
+			
+			if ($captcha_use_sessions == "yes")
+			{
+				if (!isset ($_SESSION)) @session_start ();
+                
+				$_SESSION["capid"] = $sid;
+				$_SESSION["caprefresh"] = -1;
+				$_SESSION["captime"] = $start_time;
+				$_SESSION["capurl"] = blcap_get_current_url ();
+			}
+			else
+			{
+				@include_once ("blfuncs.php");
+				
+				blcap_add_captcha_session ($sid, $ip, "", "", -1, $start_time, blcap_get_current_url ());
+			}
 			
 			$captchaurl = get_option ("siteurl") . "?bcapact=gen&id=" . $sid;
-			$pluginurl = get_option ("siteurl") . "/wp-content/plugins/bluecaptcha/";
-			$noiseurl = $pluginurl . "noise.gif";
 			
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
@@ -445,29 +520,50 @@ function blcap_loginact ()
 	$user_level = (isset ($current_user->user_level) ? $current_user->user_level : -1);
 	
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
-	$captcha_enabled = (isset ($sss["log_enabled"]) ? $sss["log_enabled"] : "yes");
+	$captcha_enabled = (isset ($sss["log_enabled"]) ? $sss["log_enabled"] : "no");
 	$captcha_user = (isset ($sss["log_user"]) ? $sss["log_user"] : "0");
+	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user && isset ($_REQUEST["log"]) && isset ($_REQUEST["pwd"]))
 		{
-			if (!isset ($_SESSION)) @session_start ();
-
 			$time = microtime();
 			$time = explode(" ", $time);
 			$time = $time[1] + $time[0];
 			$end_time = $time;
-
-			$user_captcha = (isset ($_REQUEST["user_captcha"]) ? $_REQUEST["user_captcha"] : "");
-			$captcha = (isset ($_SESSION["captcha"]) ? $_SESSION["captcha"] : "");
-			$start_time = (isset ($_SESSION["captime"]) ? $_SESSION["captime"] : 0);
-			$capurl = (isset ($_SESSION["capurl"]) ? $_SESSION["capurl"] : "");
-			$refresh = (isset ($_SESSION["caprefresh"]) ? $_SESSION["caprefresh"] : 0);
-			if ($refresh < 0) $refresh = 0;
-
-			$captcha_to_check = str_replace (" ", "", $user_captcha);
+            
+            $user_captcha = (isset ($_REQUEST["user_captcha"]) ? $_REQUEST["user_captcha"] : "");
+			$captcha_id = (isset ($_REQUEST["captcha_id"]) ? $_REQUEST["captcha_id"] : "");
+	
+			@include_once ("blfuncs.php");
 			
-			if ($captcha != sha1 ($captcha_to_check) || $captcha_to_check == "") $success = false;
+            if ($captcha_use_sessions == "yes")
+            {
+                if (!isset ($_SESSION)) @session_start ();
+                
+                $captcha = (isset ($_SESSION["captcha"]) ? $_SESSION["captcha"] : "");
+                $start_time = (isset ($_SESSION["captime"]) ? $_SESSION["captime"] : 0);
+                $capurl = (isset ($_SESSION["capurl"]) ? $_SESSION["capurl"] : "");
+                $refresh = (isset ($_SESSION["caprefresh"]) ? $_SESSION["caprefresh"] : 0);
+				if ($refresh < 0) $refresh = 0;
+            }
+            else
+            {        
+				$res = blcap_get_captcha_session ($captcha_id);
+                
+				$captcha = (isset ($res["captcha"]) ? $res["captcha"] : "");
+				$start_time = (isset ($res["captime"]) ? $res["captime"] : 0);
+				$capurl = (isset ($res["capurl"]) ? $res["capurl"] : "");
+				$refresh = (isset ($res["caprefresh"]) ? $res["caprefresh"] : 0);
+				if ($refresh < 0) $refresh = 0;
+            }
+
+			$protection_key = "";
+			$protection_key = get_option ("blcap_protection_key");
+			$user_captcha = str_replace (" ", "", $user_captcha);
+			$captcha_to_check = $protection_key . $user_captcha;
+            
+			if ($captcha != sha1 ($captcha_to_check) || $user_captcha == "" || $captcha == "") $success = false;
 			else $success = true;
 	
 			$gen_log = (isset ($sss["gen_log"]) ? $sss["gen_log"] : "yes");
@@ -491,7 +587,7 @@ function blcap_loginact ()
 				$total_time = number_format ($total_time, 2, ".", "");
 				
 				$iparr = blcap_get_ip ();
-				
+			
 				$ip = (isset ($iparr[0]) ? $iparr[0] : "-");
 				$proxy = (isset ($iparr[1]) ? $iparr[1] : "-");
 				if ($ip == $proxy) $proxy = "-";
@@ -522,7 +618,6 @@ function blcap_loginact ()
 				else $result = "FAIL";
                 if ($banresult == true) $result = "BANNED";
 
-				@include_once ("blfuncs.php");
 				$logres = blcap_add_log ($ip, $proxy, $total_time, "LOGIN", $user_captcha, $refresh, $result, $info,  $logdate, $logtime);
 			}
 		
@@ -534,6 +629,13 @@ function blcap_loginact ()
 					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
 				die (0);
 			}
+            else
+            {
+				if ($captcha_use_sessions == "yes")
+					$_SESSION["captcha"] = "";
+				else
+					blcap_delete_captcha_session ($captcha_id);
+            }
 		}
 }
 
@@ -553,32 +655,42 @@ function blcap_registerform ()
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
 	$captcha_enabled = (isset ($sss["reg_enabled"]) ? $sss["reg_enabled"] : "yes");
 	$captcha_user = (isset ($sss["reg_user"]) ? $sss["reg_user"] : "0");
+	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
 		{
-			if (!isset ($_SESSION)) @session_start ();
-			
-			$sid = "R";
-			$charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789";
-			for ($i = 0 ; $i < 15 ; $i++)
-				$sid = $sid . $charset[mt_rand (0, strlen ($charset)-1)];
-
-			if ($sid == "") $sid = $sid . "ABC123";
-			
 			$time = microtime();
 			$time = explode(" ", $time);
 			$time = $time[1] + $time[0];
 			$start_time = $time;
-
-			$_SESSION["capid"] = $sid;
-			$_SESSION["caprefresh"] = -1;
-			$_SESSION["captime"] = $start_time;
-			$_SESSION["capurl"] = blcap_get_current_url ();
+            
+			$sid = "R";
+			list ($ip, $remote) = blcap_get_ip ();
+			$ip_str = str_replace (".", "", $ip);
+			$time_str = str_replace (".", "", (string)$time);
+			$sid = $sid . $ip_str . $time_str;		
+			
+			$gen_autogeneratekey = (isset ($sss["gen_autogeneratekey"]) ? $sss["gen_autogeneratekey"] : "yes");
+			blcap_check_date ($gen_autogeneratekey);
+			
+			if ($captcha_use_sessions == "yes")
+			{
+				if (!isset ($_SESSION)) @session_start ();
+                
+				$_SESSION["capid"] = $sid;
+				$_SESSION["caprefresh"] = -1;
+				$_SESSION["captime"] = $start_time;
+				$_SESSION["capurl"] = blcap_get_current_url ();
+			}
+			else
+			{
+				@include_once ("blfuncs.php");
+				
+				blcap_add_captcha_session ($sid, $ip, "", "", -1, $start_time, blcap_get_current_url ());
+			}
 			
 			$captchaurl = get_option ("siteurl") . "?bcapact=gen&id=" . $sid;
-			$pluginurl = get_option ("siteurl") . "/wp-content/plugins/bluecaptcha/";
-			$noiseurl = $pluginurl . "noise.gif";
 			
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
@@ -641,27 +753,48 @@ function blcap_registerflt ($err)
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
 	$captcha_enabled = (isset ($sss["reg_enabled"]) ? $sss["reg_enabled"] : "yes");
 	$captcha_user = (isset ($sss["reg_user"]) ? $sss["reg_user"] : "0");
-
+	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
 		{
-			if (!isset ($_SESSION)) @session_start ();
-
 			$time = microtime();
 			$time = explode(" ", $time);
 			$time = $time[1] + $time[0];
 			$end_time = $time;
-
-			$user_captcha = (isset ($_REQUEST["user_captcha"]) ? $_REQUEST["user_captcha"] : "");
-			$captcha = (isset ($_SESSION["captcha"]) ? $_SESSION["captcha"] : "");
-			$start_time = (isset ($_SESSION["captime"]) ? $_SESSION["captime"] : 0);
-			$capurl = (isset ($_SESSION["capurl"]) ? $_SESSION["capurl"] : "");
-			$refresh = (isset ($_SESSION["caprefresh"]) ? $_SESSION["caprefresh"] : 0);
-			if ($refresh < 0) $refresh = 0;
-
-			$captcha_to_check = str_replace (" ", "", $user_captcha);
+            
+            $user_captcha = (isset ($_REQUEST["user_captcha"]) ? $_REQUEST["user_captcha"] : "");
+			$captcha_id = (isset ($_REQUEST["captcha_id"]) ? $_REQUEST["captcha_id"] : "");
+	
+			@include_once ("blfuncs.php");
 			
-			if ($captcha != sha1 ($captcha_to_check) || $captcha_to_check == "") $success = false;
+            if ($captcha_use_sessions == "yes")
+            {
+                if (!isset ($_SESSION)) @session_start ();
+                
+                $captcha = (isset ($_SESSION["captcha"]) ? $_SESSION["captcha"] : "");
+                $start_time = (isset ($_SESSION["captime"]) ? $_SESSION["captime"] : 0);
+                $capurl = (isset ($_SESSION["capurl"]) ? $_SESSION["capurl"] : "");
+                $refresh = (isset ($_SESSION["caprefresh"]) ? $_SESSION["caprefresh"] : 0);
+				if ($refresh < 0) $refresh = 0;
+            }
+            else
+            {        
+				$res = blcap_get_captcha_session ($captcha_id);
+                
+				$captcha = (isset ($res["captcha"]) ? $res["captcha"] : "");
+				$start_time = (isset ($res["captime"]) ? $res["captime"] : 0);
+				$capurl = (isset ($res["capurl"]) ? $res["capurl"] : "");
+				$refresh = (isset ($res["caprefresh"]) ? $res["caprefresh"] : 0);
+				if ($refresh < 0) $refresh = 0;
+            }
+
+			$protection_key = "";
+			$protection_key = get_option ("blcap_protection_key");
+			$user_captcha = str_replace (" ", "", $user_captcha);
+			$captcha_to_check = $protection_key . $user_captcha;
+            
+			if ($captcha != sha1 ($captcha_to_check) || $user_captcha == "" || $captcha == "") $success = false;
 			else $success = true;
 
 			$gen_log = (isset ($sss["gen_log"]) ? $sss["gen_log"] : "yes");
@@ -715,7 +848,6 @@ function blcap_registerflt ($err)
 				else $result = "FAIL";
                 if ($banresult == true) $result = "BANNED";
 
-				@include_once ("blfuncs.php");
 				$logres = blcap_add_log ($ip, $proxy, $total_time, "REGISTER", $user_captcha, $refresh, $result, $info,  $logdate, $logtime);
 			}
 
@@ -727,6 +859,13 @@ function blcap_registerflt ($err)
 					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
 				die (0);
 			}
+            else
+            {
+				if ($captcha_use_sessions == "yes")
+					$_SESSION["captcha"] = "";
+				else
+					blcap_delete_captcha_session ($captcha_id);
+            }            
 	}
 	
 	return $err;
@@ -748,33 +887,43 @@ function blcap_lostpasswordform ()
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
 	$captcha_enabled = (isset ($sss["pwd_enabled"]) ? $sss["pwd_enabled"] : "yes");
 	$captcha_user = (isset ($sss["pwd_user"]) ? $sss["pwd_user"] : "0");
+	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
 		{
-			if (!isset ($_SESSION)) @session_start ();
-			
-			$sid = "P";
-			$charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789";
-			for ($i = 0 ; $i < 15 ; $i++)
-				$sid = $sid . $charset[mt_rand (0, strlen ($charset)-1)];
-
-			if ($sid == "") $sid = $sid . "ABC123";
-			
 			$time = microtime();
 			$time = explode(" ", $time);
 			$time = $time[1] + $time[0];
 			$start_time = $time;
-
-			$_SESSION["capid"] = $sid;
-			$_SESSION["caprefresh"] = -1;
-			$_SESSION["captime"] = $start_time;
-			$_SESSION["capurl"] = blcap_get_current_url ();
+            
+			$sid = "P";
+			list ($ip, $remote) = blcap_get_ip ();
+			$ip_str = str_replace (".", "", $ip);
+			$time_str = str_replace (".", "", (string)$time);
+			$sid = $sid . $ip_str . $time_str;
+			
+			$gen_autogeneratekey = (isset ($sss["gen_autogeneratekey"]) ? $sss["gen_autogeneratekey"] : "yes");
+			blcap_check_date ($gen_autogeneratekey);
+			
+			if ($captcha_use_sessions == "yes")
+			{
+				if (!isset ($_SESSION)) @session_start ();
+                
+				$_SESSION["capid"] = $sid;
+				$_SESSION["caprefresh"] = -1;
+				$_SESSION["captime"] = $start_time;
+				$_SESSION["capurl"] = blcap_get_current_url ();
+			}
+			else
+			{
+				@include_once ("blfuncs.php");
+				
+				blcap_add_captcha_session ($sid, $ip, "", "", -1, $start_time, blcap_get_current_url ());
+			}
 			
 			$captchaurl = get_option ("siteurl") . "?bcapact=gen&id=" . $sid;
-			$pluginurl = get_option('siteurl') . "/wp-content/plugins/bluecaptcha/";
-			$noiseurl = $pluginurl . "noise.gif";
-				
+			
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
 
@@ -836,27 +985,48 @@ function blcap_lostpasswordact ()
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
 	$captcha_enabled = (isset ($sss["pwd_enabled"]) ? $sss["pwd_enabled"] : "yes");
 	$captcha_user = (isset ($sss["pwd_user"]) ? $sss["pwd_user"] : "0");
-
+	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
 		{
-			if (!isset ($_SESSION)) @session_start ();
-
 			$time = microtime();
 			$time = explode(" ", $time);
 			$time = $time[1] + $time[0];
 			$end_time = $time;
+            
+            $user_captcha = (isset ($_REQUEST["user_captcha"]) ? $_REQUEST["user_captcha"] : "");
+			$captcha_id = (isset ($_REQUEST["captcha_id"]) ? $_REQUEST["captcha_id"] : "");
+	
+			@include_once ("blfuncs.php");
 
-			$user_captcha = (isset ($_REQUEST["user_captcha"]) ? $_REQUEST["user_captcha"] : "");
-			$captcha = (isset ($_SESSION["captcha"]) ? $_SESSION["captcha"] : "");
-			$start_time = (isset ($_SESSION["captime"]) ? $_SESSION["captime"] : 0);
-			$capurl = (isset ($_SESSION["capurl"]) ? $_SESSION["capurl"] : "");
-			$refresh = (isset ($_SESSION["caprefresh"]) ? $_SESSION["caprefresh"] : 0);
-			if ($refresh < 0) $refresh = 0;
+            if ($captcha_use_sessions == "yes")
+            {
+                if (!isset ($_SESSION)) @session_start ();
+                
+                $captcha = (isset ($_SESSION["captcha"]) ? $_SESSION["captcha"] : "");
+                $start_time = (isset ($_SESSION["captime"]) ? $_SESSION["captime"] : 0);
+                $capurl = (isset ($_SESSION["capurl"]) ? $_SESSION["capurl"] : "");
+                $refresh = (isset ($_SESSION["caprefresh"]) ? $_SESSION["caprefresh"] : 0);
+				if ($refresh < 0) $refresh = 0;
+            }
+            else
+            {        
+				$res = blcap_get_captcha_session ($captcha_id);
+                
+				$captcha = (isset ($res["captcha"]) ? $res["captcha"] : "");
+				$start_time = (isset ($res["captime"]) ? $res["captime"] : 0);
+				$capurl = (isset ($res["capurl"]) ? $res["capurl"] : "");
+				$refresh = (isset ($res["caprefresh"]) ? $res["caprefresh"] : 0);
+				if ($refresh < 0) $refresh = 0;
+            }
 
-			$captcha_to_check = str_replace (" ", "", $user_captcha);
-			
-			if ($captcha != sha1 ($captcha_to_check) || $captcha_to_check == "") $success = false;
+			$protection_key = "";
+			$protection_key = get_option ("blcap_protection_key");
+			$user_captcha = str_replace (" ", "", $user_captcha);
+			$captcha_to_check = $protection_key . $user_captcha;
+            
+			if ($captcha != sha1 ($captcha_to_check) || $user_captcha == "" || $captcha == "") $success = false;
 			else $success = true;
 			
 			$gen_log = (isset ($sss["gen_log"]) ? $sss["gen_log"] : "yes");
@@ -906,8 +1076,7 @@ function blcap_lostpasswordact ()
 				if ($success == true) $result = "SUCCESS";
 				else $result = "FAIL";
                 if ($banresult == true) $result = "BANNED";
-			
-				@include_once ("blfuncs.php");
+				
 				$logres = blcap_add_log ($ip, $proxy, $total_time, "LOST_PASSWORD", $user_captcha, $refresh, $result, $info,  $logdate, $logtime);
 			}
 
@@ -919,6 +1088,13 @@ function blcap_lostpasswordact ()
 					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
 				die (0);
 			}
+            else
+            {
+				if ($captcha_use_sessions == "yes")
+					$_SESSION["captcha"] = "";
+				else
+					blcap_delete_captcha_session ($captcha_id);
+            }            
 	}
 }
 
@@ -938,32 +1114,42 @@ function blcap_commentform ()
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
 	$captcha_enabled = (isset ($sss["com_enabled"]) ? $sss["com_enabled"] : "yes");
 	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
+	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
 		{
-			if (!isset ($_SESSION)) @session_start ();
-			
-			$sid = "C";
-			$charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789";
-			for ($i = 0 ; $i < 15 ; $i++)
-				$sid = $sid . $charset[mt_rand (0, strlen ($charset)-1)];
-
-			if ($sid == "") $sid = $sid . "ABC123";
-			
 			$time = microtime();
 			$time = explode(" ", $time);
 			$time = $time[1] + $time[0];
 			$start_time = $time;
-
-			$_SESSION["capid"] = $sid;
-			$_SESSION["caprefresh"] = -1;
-			$_SESSION["captime"] = $start_time;
-			$_SESSION["capurl"] = blcap_get_current_url ();
+            
+			$sid = "C";
+			list ($ip, $remote) = blcap_get_ip ();
+			$ip_str = str_replace (".", "", $ip);
+			$time_str = str_replace (".", "", (string)$time);
+			$sid = $sid . $ip_str . $time_str;
+			
+			$gen_autogeneratekey = (isset ($sss["gen_autogeneratekey"]) ? $sss["gen_autogeneratekey"] : "yes");
+			blcap_check_date ($gen_autogeneratekey);
+			
+			if ($captcha_use_sessions == "yes")
+			{
+				if (!isset ($_SESSION)) @session_start ();
+                
+				$_SESSION["capid"] = $sid;
+				$_SESSION["caprefresh"] = -1;
+				$_SESSION["captime"] = $start_time;
+				$_SESSION["capurl"] = blcap_get_current_url ();
+			}
+			else
+			{
+				@include_once ("blfuncs.php");
+				
+				blcap_add_captcha_session ($sid, $ip, "", "", -1, $start_time, blcap_get_current_url ());
+			}
 			
 			$captchaurl = get_option ("siteurl") . "?bcapact=gen&id=" . $sid;
-			$pluginurl = get_option('siteurl') . "/wp-content/plugins/bluecaptcha/";
-			$noiseurl = $pluginurl . "noise.gif";
 			
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
@@ -1029,27 +1215,48 @@ function blcap_commentflt ($subcomment)
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
 	$captcha_enabled = (isset ($sss["com_enabled"]) ? $sss["com_enabled"] : "yes");
 	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
+	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
 		{
-			if (!isset ($_SESSION)) @session_start ();
-
 			$time = microtime();
 			$time = explode(" ", $time);
 			$time = $time[1] + $time[0];
 			$end_time = $time;
+            
+            $user_captcha = (isset ($_REQUEST["user_captcha"]) ? $_REQUEST["user_captcha"] : "");
+			$captcha_id = (isset ($_REQUEST["captcha_id"]) ? $_REQUEST["captcha_id"] : "");
+	
+			@include_once ("blfuncs.php");
 
-			$user_captcha = (isset ($_REQUEST["user_captcha"]) ? $_REQUEST["user_captcha"] : "");
-			$captcha = (isset ($_SESSION["captcha"]) ? $_SESSION["captcha"] : "");
-			$start_time = (isset ($_SESSION["captime"]) ? $_SESSION["captime"] : 0);
-			$capurl = (isset ($_SESSION["capurl"]) ? $_SESSION["capurl"] : "");
-			$refresh = (isset ($_SESSION["caprefresh"]) ? $_SESSION["caprefresh"] : 0);
-			if ($refresh < 0) $refresh = 0;
+            if ($captcha_use_sessions == "yes")
+            {
+                if (!isset ($_SESSION)) @session_start ();
+                
+                $captcha = (isset ($_SESSION["captcha"]) ? $_SESSION["captcha"] : "");
+                $start_time = (isset ($_SESSION["captime"]) ? $_SESSION["captime"] : 0);
+                $capurl = (isset ($_SESSION["capurl"]) ? $_SESSION["capurl"] : "");
+                $refresh = (isset ($_SESSION["caprefresh"]) ? $_SESSION["caprefresh"] : 0);
+				if ($refresh < 0) $refresh = 0;
+            }
+            else
+            {        
+				$res = blcap_get_captcha_session ($captcha_id);
+                
+				$captcha = (isset ($res["captcha"]) ? $res["captcha"] : "");
+				$start_time = (isset ($res["captime"]) ? $res["captime"] : 0);
+				$capurl = (isset ($res["capurl"]) ? $res["capurl"] : "");
+				$refresh = (isset ($res["caprefresh"]) ? $res["caprefresh"] : 0);
+				if ($refresh < 0) $refresh = 0;
+            }
 
-			$captcha_to_check = str_replace (" ", "", $user_captcha);
-			
-			if ($captcha != sha1 ($captcha_to_check) || $captcha_to_check == "") $success = false;
+			$protection_key = "";
+			$protection_key = get_option ("blcap_protection_key");
+			$user_captcha = str_replace (" ", "", $user_captcha);
+			$captcha_to_check = $protection_key . $user_captcha;
+            
+			if ($captcha != sha1 ($captcha_to_check) || $user_captcha == "" || $captcha == "") $success = false;
 			else $success = true;
 			
 			$gen_log = (isset ($sss["gen_log"]) ? $sss["gen_log"] : "yes");
@@ -1109,7 +1316,6 @@ function blcap_commentflt ($subcomment)
 				else $result = "FAIL";
                 if ($banresult == true) $result = "BANNED";
 				
-				@include_once ("blfuncs.php");
 				$logres = blcap_add_log ($ip, $proxy, $total_time, "COMMENT", $user_captcha, $refresh, $result, $info,  $logdate, $logtime);		
 			}
 			
@@ -1121,14 +1327,54 @@ function blcap_commentflt ($subcomment)
 					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
 				die (0);
 			}
+            else
+            {
+				if ($captcha_use_sessions == "yes")
+					$_SESSION["captcha"] = "";
+				else
+					blcap_delete_captcha_session ($captcha_id);
+            }            
 	}
 	
 	return $subcomment;
 }
 
-function bc_init ()
+function blcap_update_func ()
+{
+    blcap_install ();
+}
+
+function blcap_get_version ()
+{
+	if (!function_exists ("get_plugins"))
+		require_once (ABSPATH . "wp-admin/includes/plugin.php");
+	$plugin_folder = get_plugins ("/" . plugin_basename (dirname (__FILE__)));
+	$plugin_file = basename ((__FILE__));
+	return $plugin_folder[$plugin_file]["Version"];
+}
+
+function blcap_check_for_update ()
+{
+	$current_version = get_option ("blcap_version");
+	
+	if ($current_version == "") return;
+	
+	$new_version = blcap_get_version ();
+	
+	if ($new_version == $current_version) return;
+	if (version_compare ($current_version, $new_version, "<"))
+    {
+		blcap_update_func ();
+        add_option ("blcap_version", $new_version);
+        update_option ("blcap_version", $new_version);
+    }
+}
+
+function blcap_init ()
 {
 	global $current_user;
+	
+	//blcap_check_for_update ();
 	
 	@session_start ();
 	
@@ -1137,6 +1383,7 @@ function bc_init ()
 	if ($act == "gen")
 	{
 		$cid = (isset ($_REQUEST["id"]) ? $_REQUEST["id"] : "");
+        @include_once ("blfuncs.php");
 		@include_once ("blimage.php");
 		die (0);
 	}
@@ -1166,7 +1413,8 @@ function bc_init ()
 
 add_action ("admin_menu", "blcap_add_menus");
 
-add_action ("init", "bc_init");
+add_action ("init", "blcap_init");
+add_action ("plugins_loaded", "blcap_check_for_update");
 
 add_action ("login_form", "blcap_loginform");
 add_action ("wp_authenticate", "blcap_loginact", 10);

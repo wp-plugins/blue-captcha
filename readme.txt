@@ -3,7 +3,7 @@ Contributors: J. Kokkalis (BlueCoder), V. Kokkalis
 Tags: captcha, recaptcha, security, protection, safety, spam, antispam, anti-spam, spammer, login, comments, register, password recovery, blue captcha
 Requires at least: 2.8.6
 Tested up to: 3.3.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2
 
 Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons.
@@ -35,7 +35,7 @@ You can visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue
 
 
 == Installation ==
-1. Copy the full directory (bluecaptcha) into your wp-content/plugins directory or download the plugin from plugin administration page
+1. Copy the full directory (blue-captcha) into your wp-content/plugins directory or download the plugin from plugin administration page
 2. Activate the plugin at the plugin administration page
 
 
@@ -44,16 +44,29 @@ None for Now
 
 
 == Screenshots ==
-
 1. Login Options
-2. Log File
-3. Blue Captcha On Register Form
-4. Blue Captcha On Commentary Form #1
-5. Blue Captcha On Commentary Form #2
-6. Failed Captcha Checks - 99% of cases are bot attempts (especially A, B, C & D)
-7. Blocking Options
+2. Some Possible Customizations
+3. Log File
+4. Blue Captcha On Register Form
+5. Blue Captcha On Commentary Form #1
+6. Blue Captcha On Commentary Form #2
+7. Failed Captcha Checks - 99% of cases are bot attempts (especially A, B, C & D)
+8. Blocking Options
+9. General Options
+10. Typical examples of spam bots trying to bypass normal form submission
 
 == Changelog ==
 
+= 1.1 =
+* 26 Mar 2012
+* Database management was changed and all DB handling is now made through $wpdb
+* Image format returned by Blue Captcha is now "png" (changed from "gif")
+* "Random" choice was added to "Background" options
+* Captcha Sessions Data can be stored either into Sessions or Database
+* Some bugs were fixed
+* Security was further improved
+* Extra protection key was added
+
 = 1.0 =
+* 19 Mar 2012
 * Initial version of Blue Captcha WP Plugin

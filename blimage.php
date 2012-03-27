@@ -30,38 +30,73 @@ $capid = "";
 
 if ($cid == "preview")
 {
+	global $current_user;
+
+	$user_id = (isset ($current_user->ID) ? $current_user->ID : -1);
+	$user_level = (isset ($current_user->user_level) ? $current_user->user_level : -1);
+		
+	if ($user_id < 0 || $user_level < 10)
+	{
+		header ("Content-type: image/png");
+		$my_img = @imagecreate (200, 50);
+		
+		$clr = imagecolorallocate ($my_img, 128, 128, 128);
+		$text_color = imagecolorallocate ($my_img, 255, 0, 0);
+		
+		imagestring ($my_img, 4, 30, 5, "UNAUTHORIZED USAGE", $text_color);
+		imagestring ($my_img, 4, 60, 25, "OF CAPTCHA", $text_color);
+		
+		imagepng ($my_img);
+		imagedestroy ($my_img);
+		
+		die (0);	
+	}
+	
 	$pre = "";
 	$sss = $_REQUEST;
+	
 }
 else
 {
-	if (!isset ($_SESSION)) session_start ();
-	if (isset ($_SESSION["capid"])) $capid = $_SESSION["capid"];
+	$blcap_setser = get_option ("blcap_settings");
+	if (is_array ($blcap_setser))
+		$sss = $blcap_setser;
+	else
+		$sss = @unserialize ($blcap_setser);
+ 
+ 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+    
+    $capid = "";
+    if ($captcha_use_sessions == "yes")
+    {
+        if (!isset ($_SESSION)) session_start ();
+        
+        if (isset ($_SESSION["capid"])) $capid = $_SESSION["capid"];
+    }
+    else
+    {
+        $res = blcap_get_captcha_session ($cid);
+        $capid = (isset ($res["capid"]) ? $res["capid"] : "");
+        $caprefresh = (isset ($res["caprefresh"]) ? $res["caprefresh"] : 0);
+    }
 
 	if ($capid == "" || $capid != $cid)
 	{
-		header ("Content-type: image/gif");
+		header ("Content-type: image/png");
 		$my_img = @imagecreate (200, 50);
 		
 		$clr = imagecolorallocate ($my_img, 128, 128, 128);
 		$text_color = imagecolorallocate ($my_img, 255, 0, 0);
 		
 		imagestring ($my_img, 4, 10, 5, "CAPTCHA SESSION EXPIRED", $text_color);
-		imagestring ($my_img, 4, 10, 25, "RELOAD THE PAGE", $text_color);
+		imagestring ($my_img, 4, 40, 25, "RELOAD THE PAGE", $text_color);
 		
-		imagegif ($my_img);
+		imagepng ($my_img);
 		imagedestroy ($my_img);
 		
 		die (0);
 	}
-
-	$caprefresh = 0;
-	if (isset ($_SESSION["caprefresh"]))
-	{
-		$caprefresh = 1 + (int)$_SESSION["caprefresh"];
-		$_SESSION["caprefresh"] = $caprefresh;
-	}
-
+	
 	$form = substr ($capid, 0, 1);
 
 	if ($form == "L") $pre = "log_";
@@ -70,12 +105,6 @@ else
 	else
 	if ($form == "P") $pre = "pwd_";
 	else $pre = "com_";
-
-	$blcap_setser = get_option ("blcap_settings");
-	if (is_array ($blcap_setser))
-		$sss = $blcap_setser;
-	else
-		$sss = @unserialize ($blcap_setser);
 }
 
 $enabled = (isset ($sss[$pre . "enabled"]) ? $sss[$pre . "enabled"] : "yes");
@@ -162,7 +191,7 @@ else
 	if ($letter == "uppercase")
 		$charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789";
 	else
-		$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789012345678901234567890123456789";
+		$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789012345678901234567890123456789";
 }
 
 $charlen = strlen ($charset);
@@ -215,14 +244,58 @@ if ($layer == "double")
 	}
 }
 
+if ($cid != "preview")
+{     
+	$protection_key = "";
+	$protection_key = get_option ("blcap_protection_key");
 
-// TODO : Don't set session in preview mode
-$_SESSION["captcha"] = sha1 ($secret . $secret2);
+	$encrypted_captcha = sha1 ($protection_key . $secret . $secret2);
+	$original_captcha = $secret . $secret2;    
+	// $original_captcha = $encrypted_captcha;
+    
+	$gen_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
 
-$path = realpath (".") . "/wp-content/plugins/blue-captcha/";
+	if ($captcha_use_sessions == "yes")
+	{
+		$caprefresh = 0;
+		if (isset ($_SESSION["caprefresh"]))
+		{
+			$caprefresh = 1 + (int)$_SESSION["caprefresh"];
+			$_SESSION["caprefresh"] = $caprefresh;
+		}
+		
+		// protection against spammers
+		if ($gen_refresh != "yes" && $caprefresh > 0)
+			$encrypted_captcha = "";
+			
+		$_SESSION["captcha"] = $encrypted_captcha;       
+	}
+	else
+	{
+		if (!isset ($caprefresh)) $caprefresh = 0;
+		$caprefresh = $caprefresh + 1;
+		
+		// protection against spammers
+		if ($gen_refresh != "yes" && $caprefresh > 0)
+			$encrypted_captcha = "";
+			
+		blcap_update_captcha_session ($cid, $encrypted_captcha, $original_captcha, $caprefresh);
+    }
+}
 
+// plugin directory is "blue-captcha" usually
+$path = realpath (".") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/";
 
-header ("Content-type: image/gif");
+header ("Content-type: image/png");
+
+if ($background == "random")
+{
+    $chance = mt_rand (0, 3);
+    if ($chance == 0) $background = "color";
+    else if ($chance == 1) $background = "mosaic";
+    else if ($chance == 2) $background = "image";
+    else $background = "palette";
+}
 
 $noc = 3;
 if ($background == "color")
@@ -686,7 +759,7 @@ if ($addlineshor || $addlinesver)
 		}
 }
 	
-imagegif ($my_img);
+imagepng ($my_img);
 imagedestroy ($my_img);
 
 ?>

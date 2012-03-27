@@ -2,101 +2,31 @@
 
 function blcap_remove_db ()
 {
-	$server = DB_HOST;
-	$dbname = DB_NAME;
-	$dbuser = DB_USER;
-	$dbpasswd = DB_PASSWORD;
-
-	$result = "";
-
-	$connection = mysql_connect ($server, $dbuser, $dbpasswd);
-	if (!$connection)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error connecting to DB Server: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-	       
-	if (!mysql_select_db ($dbname, $connection))
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error selecting DataBase: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
+	global $wpdb;
 	
-	$table = "blcap_log";
+	$sql = "DROP TABLE blcap_log";
+	$wpdb->get_results ($sql);
 	
-	$sql = "DROP TABLE " . $table;
+	$sql2 = "DROP TABLE blcap_banlog";
+	$wpdb->get_results ($sql2);
 	
-	$r = mysql_query ($sql);
-	if (!$r)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error in sql query [$sql]: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;
-	}
-	
-	$table = "blcap_banlog";
-	
-	$sql = "DROP TABLE " . $table;
-	
-	$r = mysql_query ($sql);
-	if (!$r)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error in sql query [$sql]: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;
-	}
+	$sql3 = "DROP TABLE blcap_sessions";
+	$wpdb->get_results ($sql3);
 	
 	$result["result"] = "OK";
 	
-	return $result;
+	return $result;	
 }
 
 function blcap_get_logs ($date = "" , $sort = "", $kind = "", $type = "", $rpp = "", $page = 1, $last_page = "NO")
 {
-	$server = DB_HOST;
-	$dbname = DB_NAME;
-	$dbuser = DB_USER;
-	$dbpasswd = DB_PASSWORD;
-
+	global $wpdb;
+	
 	$result = "";
 
-	$connection = mysql_connect ($server, $dbuser, $dbpasswd);
-	if (!$connection)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error connecting to DB Server: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-	       
-	if (!mysql_select_db ($dbname, $connection))
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error selecting DataBase: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-
 	$table = "blcap_log";
-
-	if (isset ($date)) $date = mysql_real_escape_string (stripslashes ($date));
-	if (isset ($sort)) $sort = mysql_real_escape_string (stripslashes ($sort));
-	if (isset ($kind)) $kind = mysql_real_escape_string (stripslashes ($kind));
-	if (isset ($type)) $type = mysql_real_escape_string (stripslashes ($type));
-		
 	$str = "";
+	
 	if ($date != "") $str = " WHERE date='$date'";
 	else $str = "";
 	
@@ -115,19 +45,11 @@ function blcap_get_logs ($date = "" , $sort = "", $kind = "", $type = "", $rpp =
 	if ($sort != "") $str = $str . " ORDER BY $sort";
 	
 	$sql0 = "SELECT COUNT(id) AS total FROM " . $table . $str;
+
+	$r0 = $wpdb->get_results ($sql0);
 	
-	$r0 = mysql_query ($sql0);
-	if (!$r0)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error in sql query [$sql0]: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-	
-	$aa = mysql_fetch_array($r0);
-	if (isset ($aa["total"])) $total = $aa["total"];
+	if (isset ($r0[0]))
+		$total = $r0[0]->total;
 	else $total = 0;
 	
 	if ($total == 0) 
@@ -162,31 +84,23 @@ function blcap_get_logs ($date = "" , $sort = "", $kind = "", $type = "", $rpp =
 	
 	$sql = "SELECT * FROM " . $table . $str . $limitstr;
 	
-	$r = mysql_query ($sql);
-	if (!$r)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error in sql query [$sql]: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
+	$r1 = $wpdb->get_results ($sql);
 	
 	$x = 0;
-	while ($row = mysql_fetch_array($r))
+	foreach ($r1 as $row) 
 	{
-		$result[$x]["id"] = $row["id"];
-		$result[$x]["ip"] = $row["ip"];
-		$result[$x]["proxy"] = $row["proxy"];
-		$result[$x]["totaltime"] = $row["totaltime"];
-		$result[$x]["type"] = $row["type"];
-		$result[$x]["captcha"] = urldecode ($row["captcha"]);
-		$result[$x]["refresh"] = $row["refresh"];
-		$result[$x]["result"] = $row["result"];
-		$result[$x]["date"] = $row["date"];
-		$result[$x]["time"] = $row["time"];
-		$result[$x]["info"] = urldecode ($row["info"]);
-		$result[$x]["more"] = $row["more"];
+		$result[$x]["id"] = $row->id;
+		$result[$x]["ip"] = $row->ip;
+		$result[$x]["proxy"] = $row->proxy;
+		$result[$x]["totaltime"] = $row->totaltime;
+		$result[$x]["type"] = $row->type;
+		$result[$x]["captcha"] = urldecode ($row->captcha);
+		$result[$x]["refresh"] = $row->refresh;
+		$result[$x]["result"] = $row->result;
+		$result[$x]["date"] = $row->date;
+		$result[$x]["time"] = $row->time;
+		$result[$x]["info"] = urldecode ($row->info);
+		$result[$x]["more"] = $row->more;
 		$x++;
 	}
 	
@@ -196,114 +110,45 @@ function blcap_get_logs ($date = "" , $sort = "", $kind = "", $type = "", $rpp =
 	$result["currentpage"] = $curpage;		
 	$result["result"] = "OK";
 
-	return $result;
+	return $result;	
 }
 
 function blcap_add_log ($ip, $proxy, $totaltime, $type, $captcha, $refresh, $capres, $info,  $logdate, $logtime)
 {
-	$server = DB_HOST;
-	$dbname = DB_NAME;
-	$dbuser = DB_USER;
-	$dbpasswd = DB_PASSWORD;
-	
-	$connection = mysql_connect ($server, $dbuser, $dbpasswd);
-	if (!$connection)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error connecting to DB Server: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-	      
-	if (!mysql_select_db ($dbname, $connection))
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error selecting DataBase: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
+	global $wpdb;
 
-	$ip = mysql_real_escape_string (stripslashes ($ip));
-	$proxy = mysql_real_escape_string (stripslashes ($proxy));
-	$totaltime = mysql_real_escape_string (stripslashes ($totaltime));
-	$type = mysql_real_escape_string (stripslashes ($type));
-	$captcha = mysql_real_escape_string (stripslashes ($captcha));
-	$refresh = mysql_real_escape_string (stripslashes ($refresh));
-	$capres = mysql_real_escape_string (stripslashes ($capres));
-	$date = mysql_real_escape_string (stripslashes ($logdate));
-	$time = mysql_real_escape_string (stripslashes ($logtime));
+	$captcha = stripslashes (strip_tags ($captcha));
+	$info = stripslashes ($info);
+	$date = $logdate;
+	$time = $logtime;
 	$more = "";
-	$info = mysql_real_escape_string (stripslashes ($info));
 	
 	$captcha = urlencode ($captcha);
 	$info = urlencode ($info);
 
 	$table = "blcap_log";
 	
-	$sql = "INSERT INTO " . $table . " (ip , proxy , totaltime , type , captcha , refresh , result , info , more , date , time) VALUES ('$ip' , '$proxy' , '$totaltime' , '$type' , '$captcha' , '$refresh' , '$capres' , '$info' , '$more' , '$date' , '$time')";
-
-	$r = mysql_query ($sql);
-	if (!$r)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error in sql query [$sql]: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-
+	$r = $wpdb->insert ($table, array ("ip" => $ip, "proxy" => $proxy, "totaltime" => $totaltime, "type" => $type, "captcha" => $captcha, "refresh" => $refresh, "result" => $capres, "info" => $info, "more" => $more, "date" => $date, "time" => $time));
+	
 	$result["result"] = "OK";
 	return $result;	
 }
 
 function blcap_get_log_dates ()
 {
-	$server = DB_HOST;
-	$dbname = DB_NAME;
-	$dbuser = DB_USER;
-	$dbpasswd = DB_PASSWORD;
+	global $wpdb;
 
 	$result = "";
-
-	$connection = mysql_connect ($server, $dbuser, $dbpasswd);
-	if (!$connection)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error connecting to DB Server: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-	       
-	if (!mysql_select_db ($dbname, $connection))
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error selecting DataBase: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-
 	$table = "blcap_log";
 	
 	$sql = "SELECT DISTINCT date FROM " . $table . " ORDER BY date DESC";
 	
-	$r = mysql_query ($sql);
-	if (!$r)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error in sql query [$sql]: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-	
+	$r = $wpdb->get_results ($sql);
+
 	$x = 0;
-	while ($row = mysql_fetch_array($r))
+	foreach ($r as $row)
 	{
-		$result[$x]["date"] = $row["date"];
+		$result[$x]["date"] = $row->date;
 		$x++;
 	}
 	
@@ -315,32 +160,10 @@ function blcap_get_log_dates ()
 
 function blcap_delete_logs ($logs = "")
 {
-	$server = DB_HOST;
-	$dbname = DB_NAME;
-	$dbuser = DB_USER;
-	$dbpasswd = DB_PASSWORD;
-
+	global $wpdb;
+	
 	$result = "";
-
-	$connection = mysql_connect ($server, $dbuser, $dbpasswd);
-	if (!$connection)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error connecting to DB Server: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-	       
-	if (!mysql_select_db ($dbname, $connection))
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error selecting DataBase: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-
+	
 	$table = "blcap_log";
 	
 	$size = count ($logs);
@@ -348,15 +171,9 @@ function blcap_delete_logs ($logs = "")
 	if ($logs == "")
 	{
 		$sql0 = "DELETE FROM " . $table;
-		if (!mysql_query ($sql0))
-		{
-			$result["result"] = "ERROR";
-			$result["errormessage"] = "Error in sql query [$sql0]: " . mysql_error ();
-			$result["errorcode"] = mysql_errno ();
-			@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);			
-			return $result;	
-		}
 		
+		$r0 = $wpdb->get_results ($sql0);
+	
 		$result["result"] = "OK";
 		return $result;
 	}
@@ -365,16 +182,9 @@ function blcap_delete_logs ($logs = "")
 		if (isset ($logs[$i]))
 		{
 			$log_id = $logs[$i];
-			$sql = "DELETE FROM " . $table . " WHERE id='$log_id'";
 			
-			if (!mysql_query ($sql))
-			{
-				$result["result"] = "ERROR";
-				$result["errormessage"] = "Error in sql query [$sql]: " . mysql_error ();
-				$result["errorcode"] = mysql_errno ();
-				@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);				
-				return $result;	
-			}
+			$sql = "DELETE FROM " . $table . " WHERE id='$log_id'";
+			$r = $wpdb->get_results ($sql);
 		}
 	
 	$result["result"] = "OK";
@@ -384,65 +194,42 @@ function blcap_delete_logs ($logs = "")
 
 function blcap_create_csv ()
 {
-	$server = DB_HOST;
-	$dbname = DB_NAME;
-	$dbuser = DB_USER;
-	$dbpasswd = DB_PASSWORD;
-	
-	$connection = mysql_connect ($server, $dbuser, $dbpasswd);
-	if (!$connection)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error connecting to DB Server: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
-	      
-	if (!mysql_select_db ($dbname, $connection))
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error selecting DataBase: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
+	global $wpdb;
 	
 	$table = "blcap_log";
 	
 	$sql = "SELECT * FROM " . $table . " ORDER BY id";
 	
-	$r = mysql_query ($sql);
-	if (!$r)
-	{
-		$result["result"] = "ERROR";
-		$result["errormessage"] = "Error in sql query [$sql]: " . mysql_error ();
-		$result["errorcode"] = mysql_errno ();
-		@blcap_errorhandler (mysql_errno (), mysql_error (), __FILE__, __LINE__);
-		return $result;	
-	}
+	$r = $wpdb->get_results ($sql);
 	
 	$x = 0;
-	while ($row = mysql_fetch_array($r))
+	foreach ($r as $row) 
 	{
 		$x++;
-		$id = $row["id"];
-		$ip = $row["ip"];
-		$proxy = $row["proxy"];
-		$totaltime = $row["totaltime"];
+		$id = $row->id;
+		$ip = $row->ip;
+		$proxy = $row->proxy;
+		$totaltime = $row->totaltime;
 		$totaltime = str_replace (".", ",", $totaltime);
-		$type = $row["type"];
-		$captcha = $row["captcha"];
-		$refresh = $row["refresh"];
-		$capres = $row["result"];
-		$date = $row["date"];
-		$time = $row["time"];
-		$more = $row["more"];
+		$type = $row->type;
+		$captcha = $row->captcha;
+		$refresh = $row->refresh;
+		$capres = $row->result;
+		$date = $row->date;
+		$time = $row->time;
+		$more = $row->more;
+		$info = $row->info;
 
-		$captcha = urldecode ($row["captcha"]);
-		$info = urldecode ($row["info"]);
-		$info = str_replace (";", "?", $info);
+		$captcha = urldecode ($captcha);
+		$captcha = str_replace ("\"", "''", $captcha);
+		
+		$info = urldecode ($info);
+		$info = str_replace ("\"", "''", $info);
 		$info = str_replace ("<br>", chr (10), $info);
+
+		$ip = "\"" . $ip . "\"";
+		$proxy = "\"" . $proxy . "\"";
+		$captcha = "\"" . $captcha . "\"";
 		$info = "\"" . $info . "\"";
 		
 		echo $x . ";" . $date . ";" . $time . ";" . $ip . ";" . $proxy . ";" . $captcha . ";" . $refresh . ";" . $totaltime . ";" . $type . ";" . $capres . ";" . $info;
@@ -451,6 +238,89 @@ function blcap_create_csv ()
 
 	$result["result"] = "OK";
 	return $result;		
+}
+
+function blcap_get_captcha_session ($capid)
+{
+	global $wpdb;
+    
+    $table = "blcap_sessions";
+    
+	$sql = "SELECT * FROM " . $table . " WHERE capid='" . $capid . "'";
+	
+	$r = $wpdb->get_results ($sql);
+	
+  	if (isset ($r[0]))
+    {
+        $result["found"] = true;
+        $result["no"] = $r[0]->no;
+        $result["capid"] = $r[0]->capid;
+        $result["ip"] = $r[0]->ip;
+        $result["captcha"] = $r[0]->captcha;
+        $result["original"] = $r[0]->original;
+        $result["caprefresh"] = $r[0]->caprefresh;
+        $result["captime"] = $r[0]->captime;
+        $result["capurl"] = $r[0]->capurl;
+        
+        return $result;
+    }
+    
+	$result["found"] = false;
+	return $result;	
+}
+
+function blcap_add_captcha_session ($capid, $ip, $captcha, $original, $caprefresh, $captime, $capurl)
+{
+	global $wpdb;
+
+	$table = "blcap_sessions";
+	
+	$r = $wpdb->insert ($table, array ("capid" => $capid, "ip" => $ip, "captcha" => $captcha, "original" => $original, "caprefresh" => $caprefresh, "captime" => $captime, "capurl" => $capurl));
+	
+	$result["result"] = "OK";
+	return $result;	
+}
+
+function blcap_update_captcha_session ($capid, $captcha, $original, $caprefresh)
+{
+	global $wpdb;
+
+	$table = "blcap_sessions";
+	
+	$sql = "UPDATE " . $table . " SET captcha='" . $captcha . "', original='" . $original . "', caprefresh='" . $caprefresh . "' WHERE capid='" . $capid . "'";
+	
+	$r = $wpdb->get_results ($sql);
+
+	$result["result"] = "OK";
+	return $result;	
+}
+
+function blcap_delete_captcha_session ($capid)
+{
+	global $wpdb;
+
+	$table = "blcap_sessions";
+	
+	$sql = "DELETE FROM " . $table . " WHERE capid='" . $capid . "'";
+	
+	$r = $wpdb->get_results ($sql);
+
+	$result["result"] = "OK";
+	return $result;	
+}
+
+function blcap_truncate_captcha_session ()
+{
+	global $wpdb;
+
+	$table = "blcap_sessions";
+	
+	$sql = "TRUNCATE TABLE " . $table;
+	
+	$r = $wpdb->get_results ($sql);
+
+	$result["result"] = "OK";
+	return $result;	
 }
 
 ?>
