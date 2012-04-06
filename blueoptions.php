@@ -4,23 +4,23 @@ function blcap_valid_ip ($ip)
 {
 	if ($ip == "") return false;
 
-    $ip_arr = explode (".", $ip);
+	$ip_arr = explode (".", $ip);
     
-    $no = 0;
-    foreach ($ip_arr as $key => $part)
-    {
-        $no++;
-        if ($no > 4) return false;
-        if ($part == "*" && $no > 2) {}
-        else
-        {
-            if (intval ($part) < 0 || intval ($part) > 255 || (string)intval ($part) !== (string)$part)
-                return false;
-        }
-    }
-    if ($no != 4) return false;
-        
-    return true;
+	$no = 0;
+	foreach ($ip_arr as $key => $part)
+	{
+		$no++;
+		if ($no > 4) return false;
+		if ($part == "*" && $no > 2) {}
+		else
+		{
+			if (intval ($part) < 0 || intval ($part) > 255 || (string)intval ($part) !== (string)$part)
+			return false;
+		}
+	}
+	if ($no != 4) return false;
+
+	return true;
 }
 
 function blcap_process_ip_list ($list)
@@ -49,25 +49,25 @@ function blcap_process_ip_list ($list)
 
 	$invalid = 0;
 	$newno = 0;
-    $iparr = Array ();
+	$iparr = Array ();
 	for ($j = 0 ; $j < $no ; $j++) 
 	{
 		$pr = $iplist[$j];
 		$valid = blcap_valid_ip ($pr);
 		if ($valid == true) 
 		{
-            $iparr[$newno] = $pr;
+			$iparr[$newno] = $pr;
 			$newno++;
 		}
 		else 
-			$invalid++;
+		$invalid++;
 	} 
 	
-    sort ($iparr);
+	sort ($iparr);
     
 	$result["count"] = $newno;
 	$result["invalid"] = $invalid;
-    $result["ip"] = $iparr;
+	$result["ip"] = $iparr;
 	
 	return $result;
 }
@@ -574,36 +574,36 @@ function blcap_process_ip_list ($list)
 				$settings["$key"] = $value;
 		}
         
-        if (isset ($_REQUEST["ban_log"])) $settings["ban_log"] = 1;
-        if (isset ($_REQUEST["ban_reg"])) $settings["ban_reg"] = 1;
-        if (isset ($_REQUEST["ban_pwd"])) $settings["ban_pwd"] = 1;
-        if (isset ($_REQUEST["ban_com"])) $settings["ban_com"] = 1;
-        
-        $iplist = (isset ($_REQUEST["ban_iplist"]) ? $_REQUEST["ban_iplist"] : "");
-        $iplist_arr = blcap_process_ip_list ($iplist);
+		if (isset ($_REQUEST["ban_log"])) $settings["ban_log"] = 1;
+		if (isset ($_REQUEST["ban_reg"])) $settings["ban_reg"] = 1;
+		if (isset ($_REQUEST["ban_pwd"])) $settings["ban_pwd"] = 1;
+		if (isset ($_REQUEST["ban_com"])) $settings["ban_com"] = 1;
+
+		$iplist = (isset ($_REQUEST["ban_iplist"]) ? $_REQUEST["ban_iplist"] : "");
+		$iplist_arr = blcap_process_ip_list ($iplist);
 		$iplist_uniq = array_unique ($iplist_arr["ip"], SORT_STRING);
 
-        $list = "";
-        foreach ($iplist_uniq as $key => $thisip)
-            if ($list == "") $list = $list . $thisip;
-            else $list = $list . " , " . $thisip;
-        
-        $settings["ban_iplist"] = $list;
-        
+		$list = "";
+		foreach ($iplist_uniq as $key => $thisip)
+		    if ($list == "") $list = $list . $thisip;
+		    else $list = $list . " , " . $thisip;
+
+		$settings["ban_iplist"] = $list;
+
 		$menu = (isset ($_REQUEST["blcap_option"]) ? $_REQUEST["blcap_option"] : "general");
-		
+	
 		add_option ("blcap_settings", $settings);
 		update_option ("blcap_settings", $settings);
-        
-        $blcap_protection_key = (isset ($_REQUEST["blcap_protection_key"]) ? $_REQUEST["blcap_protection_key"] : "");
-        $blcap_protection_key = stripslashes (str_replace ("\"", "'", $blcap_protection_key));
-		
-        add_option ("blcap_protection_key", $blcap_protection_key);
+
+		$blcap_protection_key = (isset ($_REQUEST["blcap_protection_key"]) ? $_REQUEST["blcap_protection_key"] : "");
+		$blcap_protection_key = stripslashes (str_replace ("\"", "'", $blcap_protection_key));
+	
+		add_option ("blcap_protection_key", $blcap_protection_key);
 		update_option ("blcap_protection_key", $blcap_protection_key);        
 	}
 	
-    $blcap_protection_key = "";
-    $blcap_protection_key = get_option ("blcap_protection_key");
+	$blcap_protection_key = "";
+	$blcap_protection_key = get_option ("blcap_protection_key");
     
 	$blcap_setser = get_option ("blcap_settings");
 
@@ -2182,4 +2182,5 @@ function blcap_process_ip_list ($list)
 	echo "</form>\n";
 	
 	echo "</div>\n";
+
 ?>

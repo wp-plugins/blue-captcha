@@ -82,8 +82,7 @@
 			{
 				echo "<div align=\"center\"><div class=\"updated\">\n";
 				echo "<br>An error occurred.<br>";
-				echo $res2["errorcode"] . " : " . $res2["errormessage"];
-				echo "<br><br></div></div>\n";
+				echo "<br></div></div>\n";
 			}
 		}
 		else
@@ -336,7 +335,8 @@
 		
 		echo "<thead>\n";
 		echo "<tr>\n";
-		echo "<th width=\"4%\"><div align=\"center\"><input type=\"checkbox\" id=\"log_selall\" title=\"Select All / None\" onclick=\"blcap_logselall();\" /></div></th>\n";
+
+		echo "<th scope=\"col\" class=\"manage-column column-cb check-column\" style=\"\"><input type=\"checkbox\" id=\"log_selall\" title=\"Select All / None\" onclick=\"blcap_logselall();\" /></th>\n";
 
 		echo "<th width=\"5%\"><div align=\"center\">No</div></th>\n";
 		
@@ -346,14 +346,15 @@
 
 		echo "<th width=\"12%\"><div align=\"center\">Captcha<br>(# Refreshes)</div></th>\n";
 
-		echo "<th width=\"12%\"><div align=\"center\">Response Time</div></th>\n";
+		echo "<th width=\"13%\"><div align=\"center\">Response Time<br>(# Given Chars)</div></th>\n";
 		
-		echo "<th width=\"11%\"><div align=\"center\">Type</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">Type</div></th>\n";
 
-		echo "<th width=\"10%\"><div align=\"center\">Result</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">Result<br>(% Spam P.)</div></th>\n";
 		
 		echo "<th width=\"25%\"><div align=\"center\">Additional Info</div></th>\n";
-		
+
+		echo "</tr>\n";
 		echo "</thead>\n";
 		
 		$chclass = 'iedit';
@@ -373,7 +374,17 @@
 			$date = $res[$i]["date"];
 			$time = $res[$i]["time"];
 			$info = $res[$i]["info"];
+			$more = $res[$i]["more"];
 
+			$more_arr = explode ("#", $more);
+			$totalchars = (isset ($more_arr[0]) ? $more_arr[0] : "");
+			$pos = (isset ($more_arr[1]) ? $more_arr[1] : "");
+
+			if ($totalchars == "") $totalchars = "?";
+			if ($pos == "") $pos = "-"; else $pos = $pos . " %";
+
+			if ($type == "LOST_PASSWORD") $type = "LOST PASSWORD";
+            
 			if (strtoupper ($capres) == "SUCCESS") $rescolor = "green";
 			else if (strtoupper ($capres) == "BANNED") $rescolor = "blue";
 			else $rescolor = "red";
@@ -383,17 +394,17 @@
 			else $chclass = "iedit";
 						
 			echo "<tr class=\"$chclass\">\n";
-			echo "<td><div align=\"center\"><input type=\"checkbox\" id=\"log" . ($i+1) . "\" name=\"logs[]\" value=\"$log_id\"></div></td>\n";
+
+			echo "<th scope=\"row\" class=\"check-column\"><input type=\"checkbox\" id=\"log" . ($i+1) . "\" name=\"logs[]\" value=\"$log_id\"></th>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$no</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$date<br>$time</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$ip<br>($proxy)</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$captcha<br>($refresh)</font></div></td>\n";
-			echo "<td><div align=\"center\"><font color=\"$rescolor\">$totaltime</font></div></td>\n";
+			echo "<td><div align=\"center\"><font color=\"$rescolor\">$totaltime<br>($totalchars)</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$type</font></div></td>\n";
-			echo "<td><div align=\"center\"><font color=\"$rescolor\">$capres</font></div></td>\n";
-			
-			echo "<td><div align=\"left\"><font color=\"$rescolor\">$info</font></div></td>\n";			
-			
+			echo "<td><div align=\"center\"><font color=\"$rescolor\">$capres<br>($pos)</font></div></td>\n";
+			echo "<td><div align=\"left\"><font color=\"$rescolor\">$info</font></div></td>\n";
+	
 			echo "</tr>\n";
 		}
 		
@@ -447,10 +458,9 @@
 	}
 	else 
 	{
-		echo "<div class='updated'>\n";
+		echo "<div align='center'><div class='updated'>\n";
 		echo "<br>An error occurred.<br>";
-		echo $res["errorcode"] . " : " . $res["errormessage"];
-		echo "<br><br></div>\n";
+		echo "<br></div></div>\n";
 	}
 	
 ?>

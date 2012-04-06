@@ -3,7 +3,7 @@ Contributors: J. Kokkalis (BlueCoder), V. Kokkalis
 Tags: captcha, recaptcha, security, protection, safety, spam, antispam, anti-spam, spammer, login, comments, register, password recovery, blue captcha
 Requires at least: 2.8.6
 Tested up to: 3.3.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2
 
 Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons.
@@ -27,9 +27,10 @@ Features:
 * It can display up to 20(!) characters on Captcha Images
 * It is capable of adding extra drawing (lines, circles, grid, transparent lines) on CAPTCHA image
 * It is capable of keeping log file which registers all activities concerning user logins, user registrations, user comments and password recovery
+* It has "Hall of Shame" (HoS)
 * It provides blocking options as well
-* It can export the entire log file into CSV file (Excel)
-* With the help of log file, it's easy to track down the IP address of spammers or unwanted persons and ban them for ever
+* It can export the entire log file or HoS into CSV file (Excel)
+* With the help of log file and HoS, it's easy to track down the IP address of spammers or unwanted persons and ban them for ever
 
 You can visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue Captcha Page</a> for more information.
 
@@ -40,7 +41,7 @@ You can visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue
 
 
 == Frequently Asked Questions == 
-None for Now
+Visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue Captcha Page</a> for more information.
 
 
 == Screenshots ==
@@ -54,8 +55,16 @@ None for Now
 8. Blocking Options
 9. General Options
 10. Typical examples of spam bots trying to bypass normal form submission
+11. Hall of Shame
 
 == Changelog ==
+
+= 1.2 =
+* 06 Apr 2012
+* "LOST_PASSWORD" type was changed to "LOST PASSWORD" in Log File
+* Blue Captcha is now able to estimate Spam Probability
+* "# Given Chars" and "% Spam Probability" indicators were added in Log File
+* "Hall of Shame" (HoS) was introduced
 
 = 1.1 =
 * 26 Mar 2012
