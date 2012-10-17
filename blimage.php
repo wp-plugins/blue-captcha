@@ -66,19 +66,19 @@ else
  
  	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
     
-    $capid = "";
-    if ($captcha_use_sessions == "yes")
-    {
-        if (!isset ($_SESSION)) session_start ();
-        
-        if (isset ($_SESSION["capid"])) $capid = $_SESSION["capid"];
-    }
-    else
-    {
-        $res = blcap_get_captcha_session ($cid);
-        $capid = (isset ($res["capid"]) ? $res["capid"] : "");
-        $caprefresh = (isset ($res["caprefresh"]) ? $res["caprefresh"] : 0);
-    }
+	$capid = "";
+	if ($captcha_use_sessions == "yes")
+	{
+		if (!isset ($_SESSION)) session_start ();
+
+		if (isset ($_SESSION["capid"])) $capid = $_SESSION["capid"];
+	}
+	else
+	{
+		$res = blcap_get_captcha_session ($cid);
+		$capid = (isset ($res["capid"]) ? $res["capid"] : "");
+		$caprefresh = (isset ($res["caprefresh"]) ? $res["caprefresh"] : 0);
+	}
 
 	if ($capid == "" || $capid != $cid)
 	{
@@ -106,6 +106,10 @@ else
 	if ($form == "P") $pre = "pwd_";
 	else $pre = "com_";
 }
+
+
+$AVAILABLE_BG_IMAGES = 30;
+
 
 $enabled = (isset ($sss[$pre . "enabled"]) ? $sss[$pre . "enabled"] : "yes");
 $user = (isset ($sss[$pre . "user"]) ? $sss[$pre . "user"] : "-1");
@@ -142,6 +146,12 @@ if (isset ($sss[$pre . "availbg_2"])) $available_images[] = 2;
 if (isset ($sss[$pre . "availbg_3"])) $available_images[] = 3;
 if (isset ($sss[$pre . "availbg_4"])) $available_images[] = 4;
 if (isset ($sss[$pre . "availbg_5"])) $available_images[] = 5;
+if (isset ($sss[$pre . "availbg_6"]))
+{
+	for ($i = 0 ; $i < $AVAILABLE_BG_IMAGES ; $i++)
+		$available_images[$i] = $i+1;
+}
+
 $extra = (isset ($sss[$pre . "extra"]) ? $sss[$pre . "extra"] : "no");
 $lines = (isset ($sss[$pre . "lines"]) ? $sss[$pre . "lines"] : "no");
 $lineslevel = (isset ($sss[$pre . "trlevel"]) ? $sss[$pre . "trlevel"] : "1");
@@ -280,7 +290,7 @@ if ($cid != "preview")
 			$encrypted_captcha = "";
 			
 		blcap_update_captcha_session ($cid, $encrypted_captcha, $original_captcha, $caprefresh);
-    }
+	}
 }
 
 // plugin directory is "blue-captcha" usually
@@ -290,11 +300,11 @@ header ("Content-type: image/png");
 
 if ($background == "random")
 {
-    $chance = mt_rand (0, 3);
-    if ($chance == 0) $background = "color";
-    else if ($chance == 1) $background = "mosaic";
-    else if ($chance == 2) $background = "image";
-    else $background = "palette";
+	$chance = mt_rand (0, 3);
+	if ($chance == 0) $background = "color";
+	else if ($chance == 1) $background = "mosaic";
+	else if ($chance == 2) $background = "image";
+	else $background = "palette";
 }
 
 $noc = 3;
@@ -333,15 +343,15 @@ else if ($background == "mosaic")
 }
 else
 {
-    if (count ($available_images) < 1)
-        $bg = "";
-    else
-    {
-        $b = mt_rand (1, count ($available_images)) - 1;
-        $bgfile = "bg/" . "bg" . $available_images[$b] . ".jpg";
-        $bg = $path . $bgfile;
-        if (!file_exists ($bg)) $bg = "";
-    }
+	if (count ($available_images) < 1)
+		$bg = "";
+	else
+	{
+		$b = mt_rand (1, count ($available_images)) - 1;
+		$bgfile = "bg/" . "bg" . $available_images[$b] . ".jpg";
+		$bg = $path . $bgfile;
+		if (!file_exists ($bg)) $bg = "";
+	}
 	
 	if ($bg == "")
 	{
@@ -495,15 +505,15 @@ if ($usefont == "random")
 $font = "";
 if ($usefont == "yes1")
 {
-    if (count ($available_fonts) < 1)
-        $font = "";
-    else
-    {
-        $f = mt_rand (1, count ($available_fonts)) - 1;
-        $ffile = "fonts/" . "font" . $available_fonts[$f] . ".ttf";
-        $font = $path . $ffile;
-        if (!file_exists ($font)) $font = "";
-    }
+	if (count ($available_fonts) < 1)
+		$font = "";
+	else
+	{
+		$f = mt_rand (1, count ($available_fonts)) - 1;
+		$ffile = "fonts/" . "font" . $available_fonts[$f] . ".ttf";
+		$font = $path . $ffile;
+		if (!file_exists ($font)) $font = "";
+	}
 }
 if ($usefont == "no") $font = "";
 
@@ -552,15 +562,15 @@ for ($i = 0 ; $i < $totalchars ; $i++)
 	
 	if ($usefont == "yes2")
 	{
-        if (count ($available_fonts) < 1)
-            $font = "";
-        else
-        {
-            $f = mt_rand (1, count ($available_fonts)) - 1;
-            $ffile = "fonts/" . "font" . $available_fonts[$f] . ".ttf";
-            $font = $path . $ffile;
-            if (!file_exists ($font)) $font = "";
-        }
+        	if (count ($available_fonts) < 1)
+			$font = "";
+		else
+		{
+			$f = mt_rand (1, count ($available_fonts)) - 1;
+			$ffile = "fonts/" . "font" . $available_fonts[$f] . ".ttf";
+			$font = $path . $ffile;
+			if (!file_exists ($font)) $font = "";
+		}
 	} 
 	
 	if ($color != "color1" || ($color == "color1" && !isset ($rnd_col)))

@@ -2,9 +2,9 @@
 
 /*
 Plugin Name: Blue Captcha
-Plugin URI: http://mybluestuff.blogspot.com/
+Plugin URI: http://wordpress.org/extend/plugins/blue-captcha/
 Description: Blue Captcha
-Version: 1.2
+Version: 1.3
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
@@ -82,13 +82,14 @@ function blcap_install ()
 	$blcap_cur_version = "";
 	$blcap_cur_version = get_option ("blcap_version");
 	
-	$blcap_version = "1.2";
+	$blcap_version = "1.3";
 	add_option ("blcap_version", $blcap_version);
 	update_option ("blcap_version", $blcap_version);
 	
 	if ($blcap_cur_version == "")
 	{
-		$settings = "a:92:{s:13:\"gen_activated\";s:3:\"yes\";s:7:\"gen_log\";s:3:\"yes\";s:12:\"gen_keepinfo\";s:3:\"yes\";s:11:\"gen_keeppwd\";s:2:\"no\";s:13:\"gen_layersize\";s:1:\"1\";s:11:\"gen_refresh\";s:3:\"yes\";s:16:\"gen_use_sessions\";s:2:\"no\";s:19:\"gen_autogeneratekey\";s:3:\"yes\";s:11:\"log_enabled\";s:2:\"no\";s:8:\"log_user\";s:1:\"0\";s:10:\"log_char_3\";s:1:\"3\";s:8:\"log_type\";s:7:\"numbers\";s:10:\"log_letter\";s:9:\"uppercase\";s:8:\"log_font\";s:4:\"yes1\";s:15:\"log_availfont_1\";s:1:\"1\";s:15:\"log_size_larger\";s:6:\"larger\";s:9:\"log_color\";s:6:\"color1\";s:10:\"log_rotate\";s:2:\"no\";s:14:\"log_background\";s:5:\"color\";s:9:\"log_extra\";s:2:\"no\";s:9:\"log_lines\";s:2:\"no\";s:11:\"log_trlevel\";s:1:\"1\";s:9:\"log_layer\";s:6:\"single\";s:11:\"log_profile\";s:1:\"1\";s:11:\"reg_enabled\";s:3:\"yes\";s:8:\"reg_user\";s:1:\"0\";s:10:\"reg_char_5\";s:1:\"5\";s:8:\"reg_type\";s:15:\"numbers_letters\";s:10:\"reg_letter\";s:9:\"uppercase\";s:8:\"reg_font\";s:4:\"yes1\";s:15:\"reg_availfont_1\";s:1:\"1\";s:15:\"reg_availfont_2\";s:1:\"2\";s:15:\"reg_availfont_3\";s:1:\"3\";s:15:\"reg_availfont_4\";s:1:\"4\";s:15:\"reg_size_larger\";s:6:\"larger\";s:9:\"reg_color\";s:6:\"colorn\";s:10:\"reg_rotate\";s:3:\"yes\";s:14:\"reg_background\";s:5:\"image\";s:13:\"reg_availbg_1\";s:1:\"1\";s:13:\"reg_availbg_2\";s:1:\"2\";s:13:\"reg_availbg_3\";s:1:\"3\";s:13:\"reg_availbg_4\";s:1:\"4\";s:13:\"reg_availbg_5\";s:1:\"5\";s:9:\"reg_extra\";s:2:\"no\";s:9:\"reg_lines\";s:2:\"no\";s:11:\"reg_trlevel\";s:1:\"1\";s:9:\"reg_layer\";s:6:\"single\";s:11:\"reg_profile\";s:1:\"3\";s:11:\"pwd_enabled\";s:3:\"yes\";s:8:\"pwd_user\";s:1:\"0\";s:10:\"pwd_char_4\";s:1:\"4\";s:8:\"pwd_type\";s:15:\"numbers_letters\";s:10:\"pwd_letter\";s:9:\"uppercase\";s:8:\"pwd_font\";s:4:\"yes1\";s:15:\"pwd_availfont_1\";s:1:\"1\";s:15:\"pwd_availfont_2\";s:1:\"2\";s:15:\"pwd_availfont_3\";s:1:\"3\";s:15:\"pwd_availfont_4\";s:1:\"4\";s:15:\"pwd_size_larger\";s:6:\"larger\";s:9:\"pwd_color\";s:8:\"colorful\";s:10:\"pwd_rotate\";s:2:\"no\";s:14:\"pwd_background\";s:5:\"color\";s:9:\"pwd_extra\";s:2:\"no\";s:9:\"pwd_lines\";s:2:\"no\";s:11:\"pwd_trlevel\";s:1:\"1\";s:9:\"pwd_layer\";s:6:\"single\";s:11:\"pwd_profile\";s:1:\"2\";s:11:\"com_enabled\";s:3:\"yes\";s:8:\"com_user\";s:1:\"0\";s:10:\"com_char_6\";s:1:\"6\";s:8:\"com_type\";s:15:\"numbers_letters\";s:10:\"com_letter\";s:9:\"uppercase\";s:8:\"com_font\";s:4:\"yes1\";s:15:\"com_availfont_1\";s:1:\"1\";s:15:\"com_availfont_2\";s:1:\"2\";s:15:\"com_availfont_3\";s:1:\"3\";s:15:\"com_availfont_4\";s:1:\"4\";s:14:\"com_size_large\";s:5:\"large\";s:9:\"com_color\";s:6:\"colorn\";s:10:\"com_rotate\";s:3:\"yes\";s:14:\"com_background\";s:7:\"palette\";s:13:\"com_availbg_1\";s:1:\"1\";s:13:\"com_availbg_2\";s:1:\"2\";s:13:\"com_availbg_3\";s:1:\"3\";s:13:\"com_availbg_4\";s:1:\"4\";s:13:\"com_availbg_5\";s:1:\"5\";s:9:\"com_extra\";s:2:\"no\";s:9:\"com_lines\";s:2:\"no\";s:11:\"com_trlevel\";s:1:\"1\";s:9:\"com_layer\";s:6:\"single\";s:11:\"com_profile\";s:1:\"4\";s:10:\"ban_iplist\";s:0:\"\";}";
+		$settings = "a:93:{s:13:\"gen_activated\";s:3:\"yes\";s:13:\"gen_pingtrack\";s:3:\"yes\";s:7:\"gen_log\";s:3:\"yes\";s:12:\"gen_keepinfo\";s:3:\"yes\";s:11:\"gen_keeppwd\";s:2:\"no\";s:13:\"gen_layersize\";s:1:\"1\";s:11:\"gen_refresh\";s:3:\"yes\";s:16:\"gen_use_sessions\";s:2:\"no\";s:19:\"gen_autogeneratekey\";s:3:\"yes\";s:11:\"log_enabled\";s:3:\"yes\";s:8:\"log_user\";s:2:\"10\";s:10:\"log_char_6\";s:1:\"6\";s:8:\"log_type\";s:15:\"numbers_letters\";s:10:\"log_letter\";s:9:\"uppercase\";s:8:\"log_font\";s:4:\"yes1\";s:15:\"log_availfont_1\";s:1:\"1\";s:15:\"log_availfont_2\";s:1:\"2\";s:15:\"log_availfont_3\";s:1:\"3\";s:15:\"log_availfont_4\";s:1:\"4\";s:14:\"log_size_large\";s:5:\"large\";s:9:\"log_color\";s:6:\"colorn\";s:10:\"log_rotate\";s:3:\"yes\";s:14:\"log_background\";s:7:\"palette\";s:13:\"log_availbg_1\";s:1:\"1\";s:13:\"log_availbg_2\";s:1:\"2\";s:13:\"log_availbg_3\";s:1:\"3\";s:13:\"log_availbg_4\";s:1:\"4\";s:13:\"log_availbg_5\";s:1:\"5\";s:9:\"log_extra\";s:2:\"no\";s:9:\"log_lines\";s:2:\"no\";s:11:\"log_trlevel\";s:1:\"1\";s:9:\"log_layer\";s:6:\"single\";s:11:\"log_profile\";s:1:\"4\";s:11:\"reg_enabled\";s:3:\"yes\";s:8:\"reg_user\";s:2:\"10\";s:10:\"reg_char_4\";s:1:\"4\";s:8:\"reg_type\";s:7:\"letters\";s:10:\"reg_letter\";s:9:\"uppercase\";s:8:\"reg_font\";s:4:\"yes1\";s:15:\"reg_availfont_1\";s:1:\"1\";s:15:\"reg_availfont_2\";s:1:\"2\";s:15:\"reg_availfont_3\";s:1:\"3\";s:15:\"reg_availfont_4\";s:1:\"4\";s:15:\"reg_size_larger\";s:6:\"larger\";s:9:\"reg_color\";s:8:\"colorful\";s:10:\"reg_rotate\";s:2:\"no\";s:14:\"reg_background\";s:5:\"color\";s:9:\"reg_extra\";s:2:\"no\";s:9:\"reg_lines\";s:2:\"no\";s:11:\"reg_trlevel\";s:1:\"1\";s:9:\"reg_layer\";s:6:\"single\";s:11:\"reg_profile\";s:1:\"2\";s:11:\"pwd_enabled\";s:3:\"yes\";s:8:\"pwd_user\";s:2:\"10\";s:10:\"pwd_char_3\";s:1:\"3\";s:8:\"pwd_type\";s:7:\"numbers\";s:10:\"pwd_letter\";s:9:\"uppercase\";s:8:\"pwd_font\";s:4:\"yes1\";s:15:\"pwd_availfont_1\";s:1:\"1\";s:15:\"pwd_size_larger\";s:6:\"larger\";s:9:\"pwd_color\";s:6:\"color1\";s:10:\"pwd_rotate\";s:2:\"no\";s:14:\"pwd_background\";s:5:\"color\";s:9:\"pwd_extra\";s:2:\"no\";s:9:\"pwd_lines\";s:2:\"no\";s:11:\"pwd_trlevel\";s:1:\"1\";s:9:\"pwd_layer\";s:6:\"single\";s:11:\"pwd_profile\";s:1:\"1\";s:11:\"com_enabled\";s:3:\"yes\";s:8:\"com_user\";s:2:\"10\";s:10:\"com_char_5\";s:1:\"5\";s:8:\"com_type\";s:15:\"numbers_letters\";s:10:\"com_letter\";s:9:\"uppercase\";s:8:\"com_font\";s:4:\"yes1\";s:15:\"com_availfont_1\";s:1:\"1\";s:15:\"com_availfont_2\";s:1:\"2\";s:15:\"com_availfont_3\";s:1:\"3\";s:15:\"com_availfont_4\";s:1:\"4\";s:15:\"com_size_larger\";s:6:\"larger\";s:9:\"com_color\";s:6:\"colorn\";s:10:\"com_rotate\";s:3:\"yes\";s:14:\"com_background\";s:5:\"image\";s:13:\"com_availbg_1\";s:1:\"1\";s:13:\"com_availbg_2\";s:1:\"2\";s:13:\"com_availbg_3\";s:1:\"3\";s:13:\"com_availbg_4\";s:1:\"4\";s:13:\"com_availbg_5\";s:1:\"5\";s:9:\"com_extra\";s:2:\"no\";s:9:\"com_lines\";s:2:\"no\";s:11:\"com_trlevel\";s:1:\"1\";s:9:\"com_layer\";s:6:\"single\";s:11:\"com_profile\";s:1:\"3\";s:10:\"ban_iplist\";s:0:\"\";}";
+
 		$settings_arr = @unserialize ($settings);
 		add_option ("blcap_settings", $settings_arr);
 		update_option ("blcap_settings", $settings_arr);
@@ -101,6 +102,13 @@ function blcap_install ()
 	add_option ("blcap_protection_key", $blcap_protection_key);
 	update_option ("blcap_protection_key", $blcap_protection_key);
     
+	if ($current_version == "" || version_compare ($current_version, "1.2", "<="))
+	{
+		$default_ip_informer_url = "http://whatismyipaddress.com/ip/{ip}";
+		add_option ("blcap_ip_informer_url", $default_ip_informer_url);
+		update_option ("blcap_ip_informer_url", $default_ip_informer_url);
+	}
+
 	$blcap_date = date ("Y/m/d");
 	add_option ("blcap_date", $blcap_date);
 	update_option ("blcap_date", $blcap_date);    
@@ -186,6 +194,7 @@ function blcap_uninstall ()
 {
 	delete_option ("blcap_version");
 	delete_option ("blcap_protection_key");
+	delete_option ("blcap_ip_informer_url");
 	delete_option ("blcap_date");
 	delete_option ("blcap_sessions");
 	delete_option ("blcap_settings");
@@ -752,9 +761,9 @@ function blcap_loginact ()
 			if ($success == false)
 			{
 				if ($capurl != "")
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
 				die (0);
 			}
 			else
@@ -1041,17 +1050,17 @@ function blcap_registerflt ($err)
 			if ($success == false)
 			{
 				if ($capurl != "")
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
 				die (0);
 			}
 			else
 			{
-					if ($captcha_use_sessions == "yes")
-						$_SESSION["captcha"] = "";
-					else
-						blcap_delete_captcha_session ($captcha_id);
+				if ($captcha_use_sessions == "yes")
+					$_SESSION["captcha"] = "";
+				else
+					blcap_delete_captcha_session ($captcha_id);
 			}
 		}
 	
@@ -1327,9 +1336,9 @@ function blcap_lostpasswordact ()
 			if ($success == false)
 			{
 				if ($capurl != "")
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
 				die (0);
 			}
 			else
@@ -1418,6 +1427,7 @@ function blcap_commentform ()
 			echo "\t\t<div align=\"left\">\n";
 			echo "\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "tabindex=\"40\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
 			echo "\t\t<label>Captcha<br />\n";
+
 			echo "\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"50\" /></label><br /><br />\n";
 			echo "\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
@@ -1445,9 +1455,6 @@ function blcap_commentflt ($subcomment)
 {
 	global $current_user;
 	
-	if ($subcomment["comment_type"] == "pingback" || $subcomment["comment_type"] == "trackback")
-		return $subcomment;
-
 	$blcap_setser = get_option ("blcap_settings");
 	if (is_array ($blcap_setser))
 		$sss = $blcap_setser;
@@ -1458,8 +1465,19 @@ function blcap_commentflt ($subcomment)
 	
 	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
 	$captcha_enabled = (isset ($sss["com_enabled"]) ? $sss["com_enabled"] : "yes");
+	$captcha_allow_pingtrack = (isset ($sss["gen_pingtrack"]) ? $sss["gen_pingtrack"] : "yes");
 	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+
+	if ($subcomment["comment_type"] == "pingback" || $subcomment["comment_type"] == "trackback")
+	{
+		if ($captcha_active == "yes" && $captcha_allow_pingtrack == "no")
+		{
+			$captcha_enabled = "yes";
+			$user_level = -1;
+		}
+		else return $subcomment;
+	}
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -1535,22 +1553,41 @@ function blcap_commentflt ($subcomment)
 				$info = "";
 				if ($gen_keepinfo == "yes")
 				{
-					$MAX_LEN = 64;
+					$MAX_LEN = 512;
+					$MAX_COMMENT_LEN = 4096;
 					
 					$author = (isset ($subcomment["comment_author"]) ? $subcomment["comment_author"] : "-");
 					$email = (isset ($subcomment["comment_author_email"]) ? $subcomment["comment_author_email"] : "-");
-					$url = (isset ($subcomment["comment_author_url"]) ? $subcomment["comment_author_url"] : "-");
+					$authorurl = (isset ($subcomment["comment_author_url"]) ? $subcomment["comment_author_url"] : "-");
+					$targeturl = (isset ($capurl) ? $capurl : "");
 					$comment = (isset ($subcomment["comment_content"]) ? $subcomment["comment_content"] : "-");
-					
+					if (trim ($targeturl) == "") $targeturl = blcap_get_current_url();
+
+					$author = trim (strip_tags ($author));
+					$email = trim (strip_tags ($email));
+					$authorurl = trim (strip_tags ($authorurl));
+					$targeturl = trim (strip_tags ($targeturl));
+					$comment = trim (strip_tags ($comment));
+
 					if (strlen ($author) > $MAX_LEN) $author = substr ($author, 0, $MAX_LEN) . "...";
 					if (strlen ($email) > $MAX_LEN) $email = substr ($email, 0, $MAX_LEN) . "...";
-					if (strlen ($url) > $MAX_LEN) $url = substr ($url, 0, $MAX_LEN) . "...";
-					if (strlen ($comment) > $MAX_LEN) $comment = substr ($comment, 0, $MAX_LEN) . "...";
+					if (strlen ($authorurl) > $MAX_LEN) $authorurl = substr ($authorurl, 0, $MAX_LEN) . "...";
+					if (strlen ($targeturl) > $MAX_LEN) $targeturl = substr ($targeturl, 0, $MAX_LEN) . "...";
+					if (strlen ($comment) > $MAX_COMMENT_LEN) $comment = substr ($comment, 0, $MAX_COMMENT_LEN) . "...";
 					
+					$comment_type = (isset ($subcomment["comment_type"]) ? $subcomment["comment_type"] : "");
+
+					if ($comment_type == "pingback" || $comment_type == "trackback")
+					{
+						$comment_type = " (" . $comment_type . ")";
+					}
+					else $comment_type = "";
+
 					$info = $info . "Author: " . $author . "<br>";
 					$info = $info . "Email: " . $email . "<br>";
-					$info = $info . "URL: " . $url . "<br>";
-					$info = $info . "Comment: " . $comment;
+					$info = $info . "Author URL: " . $authorurl . "<br>";
+					$info = $info . "Target URL: " . $targeturl . "<br>";
+					$info = $info . "Comment" . $comment_type . ": " . $comment;
 					
 					$info = strip_tags ($info, "<br>");
 				}
@@ -1630,17 +1667,17 @@ function blcap_commentflt ($subcomment)
 			if ($success == false)
 			{	
 				if ($capurl != "")
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
 				die (0);
 			}
 			else
 			{
-					if ($captcha_use_sessions == "yes")
-						$_SESSION["captcha"] = "";
-					else
-						blcap_delete_captcha_session ($captcha_id);
+				if ($captcha_use_sessions == "yes")
+					$_SESSION["captcha"] = "";
+				else
+					blcap_delete_captcha_session ($captcha_id);
 			}            
 		}
 	

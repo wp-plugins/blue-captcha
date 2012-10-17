@@ -1,9 +1,9 @@
 ﻿=== Blue Captcha ===
-Contributors: J. Kokkalis (BlueCoder), V. Kokkalis
+Contributors: J. Kokkalis (BlueCoder)
 Tags: captcha, recaptcha, security, protection, safety, spam, antispam, anti-spam, spammer, login, comments, register, password recovery, blue captcha
 Requires at least: 2.8.6
-Tested up to: 3.3.1
-Stable tag: 1.2
+Tested up to: 3.4.2
+Stable tag: 1.3
 License: GPLv2
 
 Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons.
@@ -22,7 +22,7 @@ Features:
 * It can apply the same or totally different CAPTCHA settings on login form, registration form, commentary form and password recovery form
 * It can display CAPTCHA to only non-registered users or registered users
 * It can preview CAPTCHA image before applying it
-* It supports 5 different fonts and 5 different background images
+* It supports 5 different fonts and 30 different background images
 * It supports single or double CAPTCHA layer
 * It can display up to 20(!) characters on Captcha Images
 * It is capable of adding extra drawing (lines, circles, grid, transparent lines) on CAPTCHA image
@@ -41,7 +41,7 @@ You can visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue
 
 
 == Frequently Asked Questions == 
-Visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue Captcha Page</a> for more information.
+None for Now
 
 
 == Screenshots ==
@@ -56,8 +56,16 @@ Visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue Captcha
 9. General Options
 10. Typical examples of spam bots trying to bypass normal form submission
 11. Hall of Shame
+12. Typical Brute Force Attack spotted in Log File
 
 == Changelog ==
+
+= 1.3 =
+* 17 Oct 2012
+* "IP Informer URL" option was added in General Options
+* "Allow Pingbacks & Trackbacks" option was added in General Options
+* More details about Comments are provided in Log File
+* 25 new background images were added (30 background images are now available in total)
 
 = 1.2 =
 * 06 Apr 2012

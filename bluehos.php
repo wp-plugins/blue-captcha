@@ -4,15 +4,15 @@
 	echo "\n";
 	echo "a.blcap_pagenum\n";
 	echo "{\n";
-	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; border: 1px solid blue; background: cyan; color: black; font-family: arial; font-weight: bold; border-radius: 5px; text-decoration: none;\n";
+	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\"; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; -webkit-opacity: 0.7; border: 1px solid blue; background: cyan; color: black; font-family: arial; font-weight: bold; border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; text-decoration: none;\n";
 	echo "}\n";
 	echo "a.blcap_pagenum:hover\n";
 	echo "{\n";
-	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; border: 1px solid cyan; background: lightblue; color: red; font-family: arial; font-weight: bold; border-radius: 5px; text-decoration: none;\n";
+	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\"; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; -webkit-opacity: 0.7; border: 1px solid cyan; background: lightblue; color: red; font-family: arial; font-weight: bold; border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; text-decoration: none;\n";
 	echo "}\n";
 	echo ".blcap_pagenumsel\n";
 	echo "{\n";
-	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; border: 1px solid cyan; background: lightblue; color: red; font-family: arial; font-weight: bold; border-radius: 5px; text-decoration: none;\n";
+	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\"; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; -webkit-opacity: 0.7; border: 1px solid cyan; background: lightblue; color: red; font-family: arial; font-weight: bold; border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; text-decoration: none;\n";
 	echo "}\n";
 	echo "\n";
 	echo "</style>\n";
@@ -317,6 +317,10 @@
 		if (is_array ($blcap_setser)) $sss = $blcap_setser;
 		else $sss = "";
 
+		$blcap_ip_informer_url = get_option ("blcap_ip_informer_url");
+		if (!isset ($blcap_ip_informer_url)) $blcap_ip_informer_url = "";
+		$informer_site = (isset ($blcap_ip_informer_url) ? $blcap_ip_informer_url : "");
+
 		$ban_iplist = (isset ($sss["ban_iplist"]) ? $sss["ban_iplist"] : "");
 		
 		$current_date = date ("Y/m/d");
@@ -376,12 +380,21 @@
 			if ($chclass == "iedit")
 				$chclass = "alternate iedit";
 			else $chclass = "iedit";
-						
+
+			$ip_str = $ip;
+			if ($informer_site != "")
+			{
+				$informer_site1 = str_replace ("{ip}", $ip, $informer_site);
+				$ip_str = "<a href=\"" . $informer_site1 . "\" title=\"Click here to get details about this IP\" rel=\"noreferrer\" target=\"_blank\">";
+				$ip_str = $ip_str . $ip;
+				$ip_str = $ip_str . "</a>";
+			}
+
 			echo "<tr class=\"$chclass\">\n";
 
 			echo "<th scope=\"row\" class=\"check-column\"><input type=\"checkbox\" id=\"hos" . ($i+1) . "\" name=\"hos[]\" value=\"$ip\"></th>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$no</font></div></td>\n";
-			echo "<td><div align=\"center\"><font color=\"$rescolor\">$ip</font></div></td>\n";
+			echo "<td><div align=\"center\"><font color=\"$rescolor\">$ip_str</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$banned</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$date<br>$time</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$failstoday</font></div></td>\n";

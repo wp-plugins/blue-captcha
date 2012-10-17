@@ -83,6 +83,10 @@ function blcap_process_ip_list ($list)
 	echo "\tmargin: 5px;\n";
 	echo "\tborder: 2px solid cyan;\n";
 	echo "\tborder-radius: 10px;\n";
+	echo "\t-moz-border-radius: 10px;\n";
+	echo "\t-khtml-border-radius: 10px;\n";
+	echo "\t-webkit-border-radius: 10px;\n";
+	echo "\t-o-border-radius: 10px;\n";
 	echo "\tbackground: lightcyan;\n";
 	echo "}\n";
 	echo ".blcapmenu:hover\n";
@@ -95,6 +99,10 @@ function blcap_process_ip_list ($list)
 	echo "\tmargin: 5px;\n";
 	echo "\tborder: 2px solid cyan;\n";
 	echo "\tborder-radius: 10px;\n";
+	echo "\t-moz-border-radius: 10px;\n";
+	echo "\t-khtml-border-radius: 10px;\n";
+	echo "\t-webkit-border-radius: 10px;\n";
+	echo "\t-o-border-radius: 10px;\n";
 	echo "\tbackground: lightblue;\n";
 	echo "}\n";
 	echo ".blcapmenusel\n";
@@ -107,8 +115,12 @@ function blcap_process_ip_list ($list)
 	echo "\tmargin: 5px;\n";
 	echo "\tborder: 2px solid cyan;\n";
 	echo "\tborder-radius: 10px;\n";
+	echo "\t-moz-border-radius: 10px;\n";
+	echo "\t-khtml-border-radius: 10px;\n";
+	echo "\t-webkit-border-radius: 10px;\n";
+	echo "\t-o-border-radius: 10px;\n";
 	echo "\tbackground: lightblue;\n";
-	echo "}\n";		
+	echo "}\n";
 	echo "</style>\n";
 	echo "\n";
 	
@@ -153,6 +165,7 @@ function blcap_process_ip_list ($list)
 	echo "\t\tdocument.getElementById (t + 'availbg3').checked = false;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg4').checked = false;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg5').checked = false;\n";	
+	echo "\t\tdocument.getElementById (t + 'availbg6').checked = false;\n";	
 	echo "\t\tdocument.getElementById (t + 'extra1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'lines1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'trlevel1').checked = true;\n";
@@ -189,7 +202,8 @@ function blcap_process_ip_list ($list)
 	echo "\t\tdocument.getElementById (t + 'availbg2').checked = false;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg3').checked = false;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg4').checked = false;\n";
-	echo "\t\tdocument.getElementById (t + 'availbg5').checked = false;\n";		
+	echo "\t\tdocument.getElementById (t + 'availbg5').checked = false;\n";
+	echo "\t\tdocument.getElementById (t + 'availbg6').checked = false;\n";		
 	echo "\t\tdocument.getElementById (t + 'extra1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'lines1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'trlevel1').checked = true;\n";
@@ -226,7 +240,8 @@ function blcap_process_ip_list ($list)
 	echo "\t\tdocument.getElementById (t + 'availbg2').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg3').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg4').checked = true;\n";
-	echo "\t\tdocument.getElementById (t + 'availbg5').checked = true;\n";		
+	echo "\t\tdocument.getElementById (t + 'availbg5').checked = true;\n";
+	echo "\t\tdocument.getElementById (t + 'availbg6').checked = false;\n";
 	echo "\t\tdocument.getElementById (t + 'extra1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'lines1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'trlevel1').checked = true;\n";
@@ -263,7 +278,8 @@ function blcap_process_ip_list ($list)
 	echo "\t\tdocument.getElementById (t + 'availbg2').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg3').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg4').checked = true;\n";
-	echo "\t\tdocument.getElementById (t + 'availbg5').checked = true;\n";		
+	echo "\t\tdocument.getElementById (t + 'availbg5').checked = true;\n";
+	echo "\t\tdocument.getElementById (t + 'availbg6').checked = false;\n";
 	echo "\t\tdocument.getElementById (t + 'extra1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'lines1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'trlevel1').checked = true;\n";
@@ -300,7 +316,8 @@ function blcap_process_ip_list ($list)
 	echo "\t\tdocument.getElementById (t + 'availbg2').checked = false;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg3').checked = false;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg4').checked = false;\n";
-	echo "\t\tdocument.getElementById (t + 'availbg5').checked = false;\n";		
+	echo "\t\tdocument.getElementById (t + 'availbg5').checked = false;\n";
+	echo "\t\tdocument.getElementById (t + 'availbg6').checked = false;\n";	
 	echo "\t\tdocument.getElementById (t + 'extra1').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'lines4').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'trlevel3').checked = true;\n";
@@ -337,7 +354,8 @@ function blcap_process_ip_list ($list)
 	echo "\t\tdocument.getElementById (t + 'availbg2').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg3').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg4').checked = true;\n";
-	echo "\t\tdocument.getElementById (t + 'availbg5').checked = true;\n";		
+	echo "\t\tdocument.getElementById (t + 'availbg5').checked = true;\n";
+	echo "\t\tdocument.getElementById (t + 'availbg6').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'extra5').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'lines2').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'trlevel5').checked = true;\n";
@@ -374,7 +392,8 @@ function blcap_process_ip_list ($list)
 	echo "\t\tdocument.getElementById (t + 'availbg2').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg3').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'availbg4').checked = true;\n";
-	echo "\t\tdocument.getElementById (t + 'availbg5').checked = true;\n";		
+	echo "\t\tdocument.getElementById (t + 'availbg5').checked = true;\n";
+	echo "\t\tdocument.getElementById (t + 'availbg6').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'extra4').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'lines2').checked = true;\n";
 	echo "\t\tdocument.getElementById (t + 'trlevel3').checked = true;\n";
@@ -508,6 +527,7 @@ function blcap_process_ip_list ($list)
 	echo "\tif (document.getElementById (t + 'availbg3').checked) qq = qq + '&availbg_3=1';\n"; 
 	echo "\tif (document.getElementById (t + 'availbg4').checked) qq = qq + '&availbg_4=1';\n"; 
 	echo "\tif (document.getElementById (t + 'availbg5').checked) qq = qq + '&availbg_5=1';\n"; 	
+	echo "\tif (document.getElementById (t + 'availbg6').checked) qq = qq + '&availbg_6=1';\n"; 	
 	echo "\tif (document.getElementById (t + 'extra1').checked) qq = qq + '&extra=no';\n";
 	echo "\tif (document.getElementById (t + 'extra2').checked) qq = qq + '&extra=lines';\n";
 	echo "\tif (document.getElementById (t + 'extra3').checked) qq = qq + '&extra=circles';\n";
@@ -590,6 +610,9 @@ function blcap_process_ip_list ($list)
 
 		$settings["ban_iplist"] = $list;
 
+		// Print the serialized settings on the screen in order to get the string & use it as default settings
+		// echo "<br>" . @serialize($settings); echo "<br><br>";
+
 		$menu = (isset ($_REQUEST["blcap_option"]) ? $_REQUEST["blcap_option"] : "general");
 	
 		add_option ("blcap_settings", $settings);
@@ -599,12 +622,21 @@ function blcap_process_ip_list ($list)
 		$blcap_protection_key = stripslashes (str_replace ("\"", "'", $blcap_protection_key));
 	
 		add_option ("blcap_protection_key", $blcap_protection_key);
-		update_option ("blcap_protection_key", $blcap_protection_key);        
+		update_option ("blcap_protection_key", $blcap_protection_key);
+
+		$blcap_ip_informer_url = (isset ($_REQUEST["blcap_ip_informer_url"]) ? $_REQUEST["blcap_ip_informer_url"] : "");
+		$blcap_ip_informer_url = stripslashes (str_replace ("\"", "'", $blcap_ip_informer_url));
+
+		add_option ("blcap_ip_informer_url", $blcap_ip_informer_url);
+		update_option ("blcap_ip_informer_url", $blcap_ip_informer_url);
 	}
 	
 	$blcap_protection_key = "";
 	$blcap_protection_key = get_option ("blcap_protection_key");
-    
+
+	$blcap_ip_informer_url = "";
+	$blcap_ip_informer_url = get_option ("blcap_ip_informer_url");
+
 	$blcap_setser = get_option ("blcap_settings");
 
 	if ($blcap_setser != "")
@@ -669,7 +701,31 @@ function blcap_process_ip_list ($list)
 	echo "<input type=\"radio\" name=\"gen_activated\" value=\"yes\" $checked2/>&nbsp;Yes &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
-	
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "IP Informer URL\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$ip_url = $blcap_ip_informer_url;
+	echo "<input type=\"text\" name=\"blcap_ip_informer_url\" id=\"blcap_ip_informer_url\" value=\"" . $ip_url . "\" size=\"40\" />\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Allow Pingbacks & Trackbacks\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["gen_pingtrack"]) ? $blcap_set["gen_pingtrack"] : "yes");
+	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
+	echo "<input type=\"radio\" name=\"gen_pingtrack\" value=\"no\" $checked1/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_pingtrack\" value=\"yes\" $checked2/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
 	echo "\n<tr>\n";
 	echo "<td width=\"25%\">\n";
 	echo "Keep Actions In Log\n";
@@ -732,11 +788,11 @@ function blcap_process_ip_list ($list)
 	echo "</td>\n";
 	echo "<td width=\"75%\">\n";
 	$vv = (isset ($blcap_set["gen_refresh"]) ? $blcap_set["gen_refresh"] : "yes");
-	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
 	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
 	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
-	echo "<input type=\"radio\" name=\"gen_refresh\" value=\"no\" $checked1/>&nbsp;Unavailable &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" name=\"gen_refresh\" value=\"yes\" $checked2/>&nbsp;Available &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_refresh\" value=\"no\" $checked1/>&nbsp;Unavailable &nbsp;&nbsp;[ Safer ]\n";
 	echo "</td>\n";
 	echo "</tr>\n";
     
@@ -750,7 +806,7 @@ function blcap_process_ip_list ($list)
 	if ($vv == "no") $checked2 = "checked "; else $checked2 = "";
 	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
 	echo "<input type=\"radio\" name=\"gen_use_sessions\" value=\"yes\" $checked1/>&nbsp;Sessions &nbsp;&nbsp;\n";
-	echo "<input type=\"radio\" name=\"gen_use_sessions\" value=\"no\" $checked2/>&nbsp;Database &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_use_sessions\" value=\"no\" $checked2/>&nbsp;Database &nbsp;&nbsp;[ Safer ]\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 	
@@ -760,7 +816,7 @@ function blcap_process_ip_list ($list)
 	echo "</td>\n";
 	echo "<td width=\"75%\">\n";
 	$key = $blcap_protection_key;
-	echo "<input type=\"text\" name=\"blcap_protection_key\" id=\"blcap_protection_key\" value=\"" . $key . "\" > &nbsp;&nbsp; <input type=\"button\" class=\"button-secondary\" title=\"Click here to generate a new random key\" onclick=\"blcap_generate_key ();\" value=\"Generate New Key\" />\n";
+	echo "<input type=\"text\" name=\"blcap_protection_key\" id=\"blcap_protection_key\" value=\"" . $key . "\" /> &nbsp;&nbsp; <input type=\"button\" class=\"button-secondary\" title=\"Click here to generate a new random key\" onclick=\"blcap_generate_key ();\" value=\"Generate New Key\" />\n";
 	echo "</td>\n";
 	echo "</tr>\n";
     
@@ -988,10 +1044,11 @@ function blcap_process_ip_list ($list)
 	echo "Available BG Images\n";
 	echo "</td>\n\n";
 	echo "<td width=\"75%\">\n";
-	for ($i = 1 ; $i <= 5 ; $i++)
+	for ($i = 1 ; $i <= 6 ; $i++)
 	{
+		$inpvalue = (($i <= 5) ? "Image" . $i : "All");
 		if (isset ($blcap_set["log_availbg_" . $i])) $checked = "checked "; else $checked = "";
-		echo "<input type=\"checkbox\" id=\"log_availbg" . $i . "\" name=\"log_availbg_" . $i . "\" onchange=\"blcap_change_prof('log');\" value=\"" . $i . "\" $checked/>&nbsp;" . "Image" . $i . " &nbsp;&nbsp;\n";
+		echo "<input type=\"checkbox\" id=\"log_availbg" . $i . "\" name=\"log_availbg_" . $i . "\" onchange=\"blcap_change_prof('log');\" value=\"" . $i . "\" $checked/>&nbsp;" . $inpvalue . " &nbsp;&nbsp;\n";
 	}	
 	echo "</td>\n";
 	echo "</tr>\n";
@@ -1322,10 +1379,11 @@ function blcap_process_ip_list ($list)
 	echo "Available BG Images\n";
 	echo "</td>\n\n";
 	echo "<td width=\"75%\">\n";
-	for ($i = 1 ; $i <= 5 ; $i++)
+	for ($i = 1 ; $i <= 6 ; $i++)
 	{
+		$inpvalue = (($i <= 5) ? "Image" . $i : "All");
 		if (isset ($blcap_set["reg_availbg_" . $i])) $checked = "checked "; else $checked = "";
-		echo "<input type=\"checkbox\" id=\"reg_availbg" . $i . "\" name=\"reg_availbg_" . $i . "\" onchange=\"blcap_change_prof('reg');\" value=\"" . $i . "\" $checked/>&nbsp;" . "Image" . $i . " &nbsp;&nbsp;\n";
+		echo "<input type=\"checkbox\" id=\"reg_availbg" . $i . "\" name=\"reg_availbg_" . $i . "\" onchange=\"blcap_change_prof('reg');\" value=\"" . $i . "\" $checked/>&nbsp;" . $inpvalue . " &nbsp;&nbsp;\n";
 	}	
 	echo "</td>\n";
 	echo "</tr>\n";
@@ -1656,10 +1714,11 @@ function blcap_process_ip_list ($list)
 	echo "Available BG Images\n";
 	echo "</td>\n\n";
 	echo "<td width=\"75%\">\n";
-	for ($i = 1 ; $i <= 5 ; $i++)
+	for ($i = 1 ; $i <= 6 ; $i++)
 	{
+		$inpvalue = (($i <= 5) ? "Image" . $i : "All");
 		if (isset ($blcap_set["pwd_availbg_" . $i])) $checked = "checked "; else $checked = "";
-		echo "<input type=\"checkbox\" id=\"pwd_availbg" . $i . "\" name=\"pwd_availbg_" . $i . "\" onchange=\"blcap_change_prof('pwd');\" value=\"" . $i . "\" $checked/>&nbsp;" . "Image" . $i . " &nbsp;&nbsp;\n";
+		echo "<input type=\"checkbox\" id=\"pwd_availbg" . $i . "\" name=\"pwd_availbg_" . $i . "\" onchange=\"blcap_change_prof('pwd');\" value=\"" . $i . "\" $checked/>&nbsp;" . $inpvalue . " &nbsp;&nbsp;\n";
 	}	
 	echo "</td>\n";
 	echo "</tr>\n";
@@ -1990,10 +2049,11 @@ function blcap_process_ip_list ($list)
 	echo "Available BG Images\n";
 	echo "</td>\n\n";
 	echo "<td width=\"75%\">\n";
-	for ($i = 1 ; $i <= 5 ; $i++)
+	for ($i = 1 ; $i <= 6 ; $i++)
 	{
+		$inpvalue = (($i <= 5) ? "Image" . $i : "All");
 		if (isset ($blcap_set["com_availbg_" . $i])) $checked = "checked "; else $checked = "";
-		echo "<input type=\"checkbox\" id=\"com_availbg" . $i . "\" name=\"com_availbg_" . $i . "\" onchange=\"blcap_change_prof('com');\" value=\"" . $i . "\" $checked/>&nbsp;" . "Image" . $i . " &nbsp;&nbsp;\n";
+		echo "<input type=\"checkbox\" id=\"com_availbg" . $i . "\" name=\"com_availbg_" . $i . "\" onchange=\"blcap_change_prof('com');\" value=\"" . $i . "\" $checked/>&nbsp;" . $inpvalue . " &nbsp;&nbsp;\n";
 	}
 	echo "</td>\n";
 	echo "</tr>\n";

@@ -4,19 +4,21 @@
 	echo "\n";
 	echo "a.blcap_pagenum\n";
 	echo "{\n";
-	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; border: 1px solid blue; background: cyan; color: black; font-family: arial; font-weight: bold; border-radius: 5px; text-decoration: none;\n";
+	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\"; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; -webkit-opacity: 0.7; border: 1px solid blue; background: cyan; color: black; font-family: arial; font-weight: bold; border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; text-decoration: none;\n";
 	echo "}\n";
 	echo "a.blcap_pagenum:hover\n";
 	echo "{\n";
-	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; border: 1px solid cyan; background: lightblue; color: red; font-family: arial; font-weight: bold; border-radius: 5px; text-decoration: none;\n";
+	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\"; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; -webkit-opacity: 0.7; border: 1px solid cyan; background: lightblue; color: red; font-family: arial; font-weight: bold; border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; text-decoration: none;\n";
 	echo "}\n";
 	echo ".blcap_pagenumsel\n";
 	echo "{\n";
-	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; border: 1px solid cyan; background: lightblue; color: red; font-family: arial; font-weight: bold; border-radius: 5px; text-decoration: none;\n";
+	echo "\tpadding: 4px; margin: 1px; opacity: 0.7; -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\"; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; -webkit-opacity: 0.7; border: 1px solid cyan; background: lightblue; color: red; font-family: arial; font-weight: bold; border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; text-decoration: none;\n";
 	echo "}\n";
 	echo "\n";
 	echo "</style>\n";
 	
+	$MIN_INFO_LEN = 128;
+
 	$rpp_logs = 25;
 		
 	$action = "";
@@ -357,6 +359,10 @@
 		echo "</tr>\n";
 		echo "</thead>\n";
 		
+		$blcap_ip_informer_url = get_option ("blcap_ip_informer_url");
+		if (!isset ($blcap_ip_informer_url)) $blcap_ip_informer_url = "";
+		$informer_site = (isset ($blcap_ip_informer_url) ? $blcap_ip_informer_url : "");
+
 		$chclass = 'iedit';
 		$startfrom = (($pagef - 1) * $resf) + 1;
 		for ($i = 0 ; $i < $size ; $i++)
@@ -392,18 +398,67 @@
 			if ($chclass == "iedit")
 				$chclass = "alternate iedit";
 			else $chclass = "iedit";
-						
+
+			$info_special = "";
+			if ($type != "COMMENT" || $info == "-" || strlen ($info) <= 2 * $MIN_INFO_LEN)
+			{
+				$info_special = $info;
+			}
+			else
+			{
+				$cut_info = "";
+				$info_pieces = "";
+				$info_pieces = explode ("<br>", $info);
+				if (is_array ($info_pieces))
+					foreach ($info_pieces as $key => $val)
+					{
+						$len = ($key < 3 ? (int)($MIN_INFO_LEN / 2) : $MIN_INFO_LEN);
+						$piece = ( strlen ($val) <= $len) ? $val : substr ($val, 0, $len) . "...";
+						if ($cut_info != "") $cut_info = $cut_info . "<br>";
+						$cut_info = $cut_info . $piece;
+					}
+
+				if ($cut_info == "") $cut_info = substr ($info, 0, 2 * $MIN_INFO_LEN) . "...";
+
+				$info_special = "<span id=\"blcap_cutinfo_$i\" style=\"display: inline;\">";
+				$info_special = $info_special . $cut_info;
+				$info_special = $info_special . "</span>";
+				$info_special = $info_special . "<span id=\"blcap_info_$i\" style=\"display: none;\">";
+				$info_special = $info_special . $info;
+				$info_special = $info_special . "</span>";
+				$info_special = $info_special . "<input id=\"blcap_button_$i\" type=\"button\" title=\"Show/Hide more details\" value=\">\" onclick=\"blcap_show_details($i);\" \>";			
+			}
+
+			$ip_str = $ip;
+			$proxy_str = $proxy;
+			if ($informer_site != "")
+			{
+				$informer_site1 = str_replace ("{ip}", $ip, $informer_site);
+				$ip_str = "<a href=\"" . $informer_site1 . "\" title=\"Click here to get details about this IP\" rel=\"noreferrer\" target=\"_blank\">";
+				$ip_str = $ip_str . $ip;
+				$ip_str = $ip_str . "</a>";
+
+				if ($proxy_str != "-")
+				{
+					$informer_site2 = str_replace ("{ip}", $proxy, $informer_site);
+					$proxy_str = "<a href=\"" . $informer_site2 . "\" title=\"Click here to get details about this IP\" rel=\"noreferrer\" target=\"_blank\">";
+					$proxy_str = $proxy_str . $proxy;
+					$proxy_str = $proxy_str . "</a>";					
+				}
+			}
+
+
 			echo "<tr class=\"$chclass\">\n";
 
 			echo "<th scope=\"row\" class=\"check-column\"><input type=\"checkbox\" id=\"log" . ($i+1) . "\" name=\"logs[]\" value=\"$log_id\"></th>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$no</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$date<br>$time</font></div></td>\n";
-			echo "<td><div align=\"center\"><font color=\"$rescolor\">$ip<br>($proxy)</font></div></td>\n";
+			echo "<td><div align=\"center\"><font color=\"$rescolor\">$ip_str<br>($proxy_str)</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$captcha<br>($refresh)</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$totaltime<br>($totalchars)</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$type</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$capres<br>($pos)</font></div></td>\n";
-			echo "<td><div align=\"left\"><font color=\"$rescolor\">$info</font></div></td>\n";
+			echo "<td><div align=\"left\"><font color=\"$rescolor\">$info_special</font></div></td>\n";
 	
 			echo "</tr>\n";
 		}
@@ -453,7 +508,31 @@
 		echo "\t for (i=1;i<=$size;i++)\n";
 		echo "\t\t document.getElementById (\"log\"+i).checked = tt;\n";
 		echo "}\n";			
-		echo "\n";	
+		echo "\n";
+		echo "function blcap_show_details (id)\n";
+		echo "{\n";
+		echo "try {\n";
+		echo "\t var btnElem = document.getElementById(\"blcap_button_\" + id);\n";
+		echo "\t var infoElem = document.getElementById(\"blcap_info_\" + id);\n";
+		echo "\t var cutinfoElem = document.getElementById(\"blcap_cutinfo_\" + id);\n";
+		echo "\t if (btnElem && infoElem && cutinfoElem)\n";
+		echo "\t {\n";
+		echo "\t\t if (btnElem.value == \">\")\n";
+		echo "\t\t {\n";
+		echo "\t\t\t cutinfoElem.style.display = \"none\";\n";
+		echo "\t\t\t infoElem.style.display = \"inline\";\n";
+		echo "\t\t\t btnElem.value = \"<\";\n";
+		echo "\t\t }\n";
+		echo "\t\t else\n";
+		echo "\t\t {\n";
+		echo "\t\t\t infoElem.style.display = \"none\";\n";
+		echo "\t\t\t cutinfoElem.style.display = \"inline\";\n";
+		echo "\t\t\t btnElem.value = \">\";\n";
+		echo "\t\t }\n";
+		echo "\t }\n";
+		echo "} catch (e) {alert(e);}\n";
+		echo "}\n";
+		echo "\n";
 		echo "</script>\n";
 	}
 	else 
