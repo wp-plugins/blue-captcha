@@ -704,6 +704,48 @@ function blcap_process_ip_list ($list)
 
 	echo "\n<tr>\n";
 	echo "<td width=\"25%\">\n";
+	echo "Make Empty Captcha Check Before Form Submission\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["gen_empty_check"]) ? $blcap_set["gen_empty_check"] : "no");
+	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
+	echo "<input type=\"radio\" name=\"gen_empty_check\" value=\"no\" $checked1/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_empty_check\" value=\"yes\" $checked2/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Keep Comment After Failed Captcha\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["gen_keepcomment"]) ? $blcap_set["gen_keepcomment"] : "no");
+	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
+	echo "<input type=\"radio\" name=\"gen_keepcomment\" value=\"no\" $checked1/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_keepcomment\" value=\"yes\" $checked2/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Ignore Case Sensitivity In Characters\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["gen_ignore_case"]) ? $blcap_set["gen_ignore_case"] : "no");
+	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
+	echo "<input type=\"radio\" name=\"gen_ignore_case\" value=\"no\" $checked1/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_ignore_case\" value=\"yes\" $checked2/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
 	echo "IP Informer URL\n";
 	echo "</td>\n";
 	echo "<td width=\"75%\">\n";
@@ -882,6 +924,22 @@ function blcap_process_ip_list ($list)
 	echo "<input type=\"radio\" name=\"log_user\" value=\"0\" $checked2/>&nbsp;Guests & Subscribers&nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" name=\"log_user\" value=\"7\" $checked3/>&nbsp;Everyone Except Admin &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" name=\"log_user\" value=\"10\" $checked4/>&nbsp;Everyone &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Ignore Case Sensitivity In Characters\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["log_ignore_case"]) ? $blcap_set["log_ignore_case"] : "general");
+	if ($vv == "general") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "no") $checked2 = "checked "; else $checked2 = "";
+	if ($vv == "yes") $checked3 = "checked "; else $checked3 = "";
+	if ($checked1 == "" && $checked2 == "" && $checked3 == "") $checked1 = "checked ";
+	echo "<input type=\"radio\" name=\"log_ignore_case\" value=\"general\" $checked1/>&nbsp;Same As General Options &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"log_ignore_case\" value=\"no\" $checked2/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"log_ignore_case\" value=\"yes\" $checked3/>&nbsp;Yes &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 	
@@ -1219,6 +1277,22 @@ function blcap_process_ip_list ($list)
 	echo "<input type=\"radio\" name=\"reg_user\" value=\"10\" $checked4/>&nbsp;Everyone &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Ignore Case Sensitivity In Characters\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["reg_ignore_case"]) ? $blcap_set["reg_ignore_case"] : "general");
+	if ($vv == "general") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "no") $checked2 = "checked "; else $checked2 = "";
+	if ($vv == "yes") $checked3 = "checked "; else $checked3 = "";
+	if ($checked1 == "" && $checked2 == "" && $checked3 == "") $checked1 = "checked ";
+	echo "<input type=\"radio\" name=\"reg_ignore_case\" value=\"general\" $checked1/>&nbsp;Same As General Options &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"reg_ignore_case\" value=\"no\" $checked2/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"reg_ignore_case\" value=\"yes\" $checked3/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
 	
 	echo "\n<tr>\n";
 	echo "<td width=\"25%\">\n";
@@ -1554,7 +1628,23 @@ function blcap_process_ip_list ($list)
 	echo "<input type=\"radio\" name=\"pwd_user\" value=\"10\" $checked4/>&nbsp;Everyone &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
-	
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Ignore Case Sensitivity In Characters\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["pwd_ignore_case"]) ? $blcap_set["pwd_ignore_case"] : "general");
+	if ($vv == "general") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "no") $checked2 = "checked "; else $checked2 = "";
+	if ($vv == "yes") $checked3 = "checked "; else $checked3 = "";
+	if ($checked1 == "" && $checked2 == "" && $checked3 == "") $checked1 = "checked ";
+	echo "<input type=\"radio\" name=\"pwd_ignore_case\" value=\"general\" $checked1/>&nbsp;Same As General Options &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"pwd_ignore_case\" value=\"no\" $checked2/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"pwd_ignore_case\" value=\"yes\" $checked3/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
 	echo "\n<tr>\n";
 	echo "<td width=\"25%\">\n";
 	echo "Number of Chars\n";
@@ -1890,6 +1980,22 @@ function blcap_process_ip_list ($list)
 	echo "</td>\n";
 	echo "</tr>\n";
 	
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
+	echo "Ignore Case Sensitivity In Characters\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["com_ignore_case"]) ? $blcap_set["com_ignore_case"] : "general");
+	if ($vv == "general") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "no") $checked2 = "checked "; else $checked2 = "";
+	if ($vv == "yes") $checked3 = "checked "; else $checked3 = "";
+	if ($checked1 == "" && $checked2 == "" && $checked3 == "") $checked1 = "checked ";
+	echo "<input type=\"radio\" name=\"com_ignore_case\" value=\"general\" $checked1/>&nbsp;Same As General Options &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"com_ignore_case\" value=\"no\" $checked2/>&nbsp;No &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"com_ignore_case\" value=\"yes\" $checked3/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
 	echo "\n<tr>\n";
 	echo "<td width=\"25%\">\n";
 	echo "Number of Chars\n";

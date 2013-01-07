@@ -4,7 +4,7 @@
 Plugin Name: Blue Captcha
 Plugin URI: http://wordpress.org/extend/plugins/blue-captcha/
 Description: Blue Captcha
-Version: 1.3
+Version: 1.4
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
@@ -82,13 +82,15 @@ function blcap_install ()
 	$blcap_cur_version = "";
 	$blcap_cur_version = get_option ("blcap_version");
 	
-	$blcap_version = "1.3";
+	$blcap_version = "1.4";
 	add_option ("blcap_version", $blcap_version);
 	update_option ("blcap_version", $blcap_version);
 	
 	if ($blcap_cur_version == "")
 	{
-		$settings = "a:93:{s:13:\"gen_activated\";s:3:\"yes\";s:13:\"gen_pingtrack\";s:3:\"yes\";s:7:\"gen_log\";s:3:\"yes\";s:12:\"gen_keepinfo\";s:3:\"yes\";s:11:\"gen_keeppwd\";s:2:\"no\";s:13:\"gen_layersize\";s:1:\"1\";s:11:\"gen_refresh\";s:3:\"yes\";s:16:\"gen_use_sessions\";s:2:\"no\";s:19:\"gen_autogeneratekey\";s:3:\"yes\";s:11:\"log_enabled\";s:3:\"yes\";s:8:\"log_user\";s:2:\"10\";s:10:\"log_char_6\";s:1:\"6\";s:8:\"log_type\";s:15:\"numbers_letters\";s:10:\"log_letter\";s:9:\"uppercase\";s:8:\"log_font\";s:4:\"yes1\";s:15:\"log_availfont_1\";s:1:\"1\";s:15:\"log_availfont_2\";s:1:\"2\";s:15:\"log_availfont_3\";s:1:\"3\";s:15:\"log_availfont_4\";s:1:\"4\";s:14:\"log_size_large\";s:5:\"large\";s:9:\"log_color\";s:6:\"colorn\";s:10:\"log_rotate\";s:3:\"yes\";s:14:\"log_background\";s:7:\"palette\";s:13:\"log_availbg_1\";s:1:\"1\";s:13:\"log_availbg_2\";s:1:\"2\";s:13:\"log_availbg_3\";s:1:\"3\";s:13:\"log_availbg_4\";s:1:\"4\";s:13:\"log_availbg_5\";s:1:\"5\";s:9:\"log_extra\";s:2:\"no\";s:9:\"log_lines\";s:2:\"no\";s:11:\"log_trlevel\";s:1:\"1\";s:9:\"log_layer\";s:6:\"single\";s:11:\"log_profile\";s:1:\"4\";s:11:\"reg_enabled\";s:3:\"yes\";s:8:\"reg_user\";s:2:\"10\";s:10:\"reg_char_4\";s:1:\"4\";s:8:\"reg_type\";s:7:\"letters\";s:10:\"reg_letter\";s:9:\"uppercase\";s:8:\"reg_font\";s:4:\"yes1\";s:15:\"reg_availfont_1\";s:1:\"1\";s:15:\"reg_availfont_2\";s:1:\"2\";s:15:\"reg_availfont_3\";s:1:\"3\";s:15:\"reg_availfont_4\";s:1:\"4\";s:15:\"reg_size_larger\";s:6:\"larger\";s:9:\"reg_color\";s:8:\"colorful\";s:10:\"reg_rotate\";s:2:\"no\";s:14:\"reg_background\";s:5:\"color\";s:9:\"reg_extra\";s:2:\"no\";s:9:\"reg_lines\";s:2:\"no\";s:11:\"reg_trlevel\";s:1:\"1\";s:9:\"reg_layer\";s:6:\"single\";s:11:\"reg_profile\";s:1:\"2\";s:11:\"pwd_enabled\";s:3:\"yes\";s:8:\"pwd_user\";s:2:\"10\";s:10:\"pwd_char_3\";s:1:\"3\";s:8:\"pwd_type\";s:7:\"numbers\";s:10:\"pwd_letter\";s:9:\"uppercase\";s:8:\"pwd_font\";s:4:\"yes1\";s:15:\"pwd_availfont_1\";s:1:\"1\";s:15:\"pwd_size_larger\";s:6:\"larger\";s:9:\"pwd_color\";s:6:\"color1\";s:10:\"pwd_rotate\";s:2:\"no\";s:14:\"pwd_background\";s:5:\"color\";s:9:\"pwd_extra\";s:2:\"no\";s:9:\"pwd_lines\";s:2:\"no\";s:11:\"pwd_trlevel\";s:1:\"1\";s:9:\"pwd_layer\";s:6:\"single\";s:11:\"pwd_profile\";s:1:\"1\";s:11:\"com_enabled\";s:3:\"yes\";s:8:\"com_user\";s:2:\"10\";s:10:\"com_char_5\";s:1:\"5\";s:8:\"com_type\";s:15:\"numbers_letters\";s:10:\"com_letter\";s:9:\"uppercase\";s:8:\"com_font\";s:4:\"yes1\";s:15:\"com_availfont_1\";s:1:\"1\";s:15:\"com_availfont_2\";s:1:\"2\";s:15:\"com_availfont_3\";s:1:\"3\";s:15:\"com_availfont_4\";s:1:\"4\";s:15:\"com_size_larger\";s:6:\"larger\";s:9:\"com_color\";s:6:\"colorn\";s:10:\"com_rotate\";s:3:\"yes\";s:14:\"com_background\";s:5:\"image\";s:13:\"com_availbg_1\";s:1:\"1\";s:13:\"com_availbg_2\";s:1:\"2\";s:13:\"com_availbg_3\";s:1:\"3\";s:13:\"com_availbg_4\";s:1:\"4\";s:13:\"com_availbg_5\";s:1:\"5\";s:9:\"com_extra\";s:2:\"no\";s:9:\"com_lines\";s:2:\"no\";s:11:\"com_trlevel\";s:1:\"1\";s:9:\"com_layer\";s:6:\"single\";s:11:\"com_profile\";s:1:\"3\";s:10:\"ban_iplist\";s:0:\"\";}";
+
+		$settings = "a:100:{s:13:\"gen_activated\";s:3:\"yes\";s:15:\"gen_empty_check\";s:2:\"no\";s:15:\"gen_keepcomment\";s:2:\"no\";s:15:\"gen_ignore_case\";s:2:\"no\";s:13:\"gen_pingtrack\";s:3:\"yes\";s:7:\"gen_log\";s:3:\"yes\";s:12:\"gen_keepinfo\";s:3:\"yes\";s:11:\"gen_keeppwd\";s:2:\"no\";s:13:\"gen_layersize\";s:1:\"1\";s:11:\"gen_refresh\";s:3:\"yes\";s:16:\"gen_use_sessions\";s:2:\"no\";s:19:\"gen_autogeneratekey\";s:3:\"yes\";s:11:\"log_enabled\";s:3:\"yes\";s:8:\"log_user\";s:2:\"10\";s:15:\"log_ignore_case\";s:7:\"general\";s:10:\"log_char_6\";s:1:\"6\";s:8:\"log_type\";s:15:\"numbers_letters\";s:10:\"log_letter\";s:9:\"uppercase\";s:8:\"log_font\";s:4:\"yes1\";s:15:\"log_availfont_1\";s:1:\"1\";s:15:\"log_availfont_2\";s:1:\"2\";s:15:\"log_availfont_3\";s:1:\"3\";s:15:\"log_availfont_4\";s:1:\"4\";s:14:\"log_size_large\";s:5:\"large\";s:9:\"log_color\";s:6:\"colorn\";s:10:\"log_rotate\";s:3:\"yes\";s:14:\"log_background\";s:7:\"palette\";s:13:\"log_availbg_1\";s:1:\"1\";s:13:\"log_availbg_2\";s:1:\"2\";s:13:\"log_availbg_3\";s:1:\"3\";s:13:\"log_availbg_4\";s:1:\"4\";s:13:\"log_availbg_5\";s:1:\"5\";s:9:\"log_extra\";s:2:\"no\";s:9:\"log_lines\";s:2:\"no\";s:11:\"log_trlevel\";s:1:\"1\";s:9:\"log_layer\";s:6:\"single\";s:11:\"log_profile\";s:1:\"4\";s:11:\"reg_enabled\";s:3:\"yes\";s:8:\"reg_user\";s:2:\"10\";s:15:\"reg_ignore_case\";s:7:\"general\";s:10:\"reg_char_4\";s:1:\"4\";s:8:\"reg_type\";s:7:\"letters\";s:10:\"reg_letter\";s:9:\"uppercase\";s:8:\"reg_font\";s:4:\"yes1\";s:15:\"reg_availfont_1\";s:1:\"1\";s:15:\"reg_availfont_2\";s:1:\"2\";s:15:\"reg_availfont_3\";s:1:\"3\";s:15:\"reg_availfont_4\";s:1:\"4\";s:15:\"reg_size_larger\";s:6:\"larger\";s:9:\"reg_color\";s:8:\"colorful\";s:10:\"reg_rotate\";s:2:\"no\";s:14:\"reg_background\";s:5:\"color\";s:9:\"reg_extra\";s:2:\"no\";s:9:\"reg_lines\";s:2:\"no\";s:11:\"reg_trlevel\";s:1:\"1\";s:9:\"reg_layer\";s:6:\"single\";s:11:\"reg_profile\";s:1:\"2\";s:11:\"pwd_enabled\";s:3:\"yes\";s:8:\"pwd_user\";s:2:\"10\";s:15:\"pwd_ignore_case\";s:7:\"general\";s:10:\"pwd_char_3\";s:1:\"3\";s:8:\"pwd_type\";s:7:\"numbers\";s:10:\"pwd_letter\";s:9:\"uppercase\";s:8:\"pwd_font\";s:4:\"yes1\";s:15:\"pwd_availfont_1\";s:1:\"1\";s:15:\"pwd_size_larger\";s:6:\"larger\";s:9:\"pwd_color\";s:6:\"color1\";s:10:\"pwd_rotate\";s:2:\"no\";s:14:\"pwd_background\";s:5:\"color\";s:9:\"pwd_extra\";s:2:\"no\";s:9:\"pwd_lines\";s:2:\"no\";s:11:\"pwd_trlevel\";s:1:\"1\";s:9:\"pwd_layer\";s:6:\"single\";s:11:\"pwd_profile\";s:1:\"1\";s:11:\"com_enabled\";s:3:\"yes\";s:8:\"com_user\";s:2:\"10\";s:15:\"com_ignore_case\";s:7:\"general\";s:10:\"com_char_5\";s:1:\"5\";s:8:\"com_type\";s:15:\"numbers_letters\";s:10:\"com_letter\";s:9:\"uppercase\";s:8:\"com_font\";s:4:\"yes1\";s:15:\"com_availfont_1\";s:1:\"1\";s:15:\"com_availfont_2\";s:1:\"2\";s:15:\"com_availfont_3\";s:1:\"3\";s:15:\"com_availfont_4\";s:1:\"4\";s:15:\"com_size_larger\";s:6:\"larger\";s:9:\"com_color\";s:6:\"colorn\";s:10:\"com_rotate\";s:3:\"yes\";s:14:\"com_background\";s:5:\"image\";s:13:\"com_availbg_1\";s:1:\"1\";s:13:\"com_availbg_2\";s:1:\"2\";s:13:\"com_availbg_3\";s:1:\"3\";s:13:\"com_availbg_4\";s:1:\"4\";s:13:\"com_availbg_5\";s:1:\"5\";s:9:\"com_extra\";s:2:\"no\";s:9:\"com_lines\";s:2:\"no\";s:11:\"com_trlevel\";s:1:\"1\";s:9:\"com_layer\";s:6:\"single\";s:11:\"com_profile\";s:1:\"3\";s:10:\"ban_iplist\";s:0:\"\";}";
+
 
 		$settings_arr = @unserialize ($settings);
 		add_option ("blcap_settings", $settings_arr);
@@ -541,6 +543,7 @@ function blcap_loginform ()
 			
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
+			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -567,18 +570,41 @@ function blcap_loginform ()
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
 	
-			if ($captcha_refresh == "yes")
+			if ($captcha_refresh == "yes" || $captcha_empty_check == "yes")
 			{
 				echo "\n";
 				echo "\t<script language=\"javascript\">\n";
-				echo "\tvar blcap_refno = 0;\n";
-				echo "\tfunction blcap_refresh_captcha()\n";
-				echo "\t{\n";
-				echo "\t\tvar im = new Image();\n";
-				echo "\t\tblcap_refno = blcap_refno + 1;\n";
-				echo "\t\tim.src=\"" . $captchaurl . "&refresh=\" + blcap_refno;\n";
-				echo "\t\tdocument.getElementById (\"blcap_img\").src = im.src;\n";
-				echo "\t}\n";
+				if ($captcha_refresh == "yes")
+				{
+					echo "\tvar blcap_refno = 0;\n";
+					echo "\tfunction blcap_refresh_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar im = new Image();\n";
+					echo "\t\tblcap_refno = blcap_refno + 1;\n";
+					echo "\t\tim.src = \"" . $captchaurl . "&refresh=\" + blcap_refno;\n";
+					echo "\t\tdocument.getElementById (\"blcap_img\").src = im.src;\n";
+					echo "\t}\n";
+				}
+				if ($captcha_empty_check == "yes")
+				{
+					echo "\tfunction blcap_check_empty_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar captcha = document.getElementById (\"user_captcha\");\n";
+					echo "\t\tif (captcha && captcha.value == '')\n";
+					echo "\t\t{\n";
+					echo "\t\t\tcaptcha.focus();\n";
+					echo "\t\t\talert (\"Captcha is empty.\");\n";
+					echo "\t\t\treturn false;\n";
+					echo "\t\t}\n";
+					echo "\t\treturn true;\n";
+					echo "\t}\n";
+					echo "\tfunction blcap_set_onclick()\n";
+					echo "\t{\n";
+					echo "\t\tif (!document.getElementById (\"wp-submit\")) setTimeout (\"blcap_set_onclick();\", 200);\n";
+					echo "\t\telse document.getElementById (\"wp-submit\").onclick = function () {return blcap_check_empty_captcha();};\n";					
+					echo "\t}\n";
+					echo "\tblcap_set_onclick();\n";
+				}
 				echo "\t</script>\n";
 				echo "\n";
 			}
@@ -601,6 +627,9 @@ function blcap_loginact ()
 	$captcha_enabled = (isset ($sss["log_enabled"]) ? $sss["log_enabled"] : "no");
 	$captcha_user = (isset ($sss["log_user"]) ? $sss["log_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	$gen_ignore_case = (isset ($sss["gen_ignore_case"]) ? $sss["gen_ignore_case"] : "no");
+	$ignore_case = (isset ($sss["log_ignore_case"]) ? $sss["log_ignore_case"] : "general");
+	if ($ignore_case == "general") $ignore_case = $gen_ignore_case;
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user && isset ($_REQUEST["log"]) && isset ($_REQUEST["pwd"]))
@@ -640,6 +669,7 @@ function blcap_loginact ()
 			$protection_key = get_option ("blcap_protection_key");
 			$user_captcha = str_replace (" ", "", $user_captcha);
 			$captcha_to_check = $protection_key . $user_captcha;
+			if ($ignore_case == "yes") $captcha_to_check = $protection_key . strtoupper ($user_captcha);
             
 			if ($captcha != sha1 ($captcha_to_check) || $user_captcha == "" || $captcha == "") $success = false;
 			else $success = true;
@@ -831,6 +861,7 @@ function blcap_registerform ()
 			
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
+			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -857,18 +888,41 @@ function blcap_registerform ()
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
 	
-			if ($captcha_refresh == "yes")
+			if ($captcha_refresh == "yes" || $captcha_empty_check == "yes")
 			{
 				echo "\n";
 				echo "\t<script language=\"javascript\">\n";
-				echo "\tvar blcap_refno = 0;\n";
-				echo "\tfunction blcap_refresh_captcha()\n";
-				echo "\t{\n";
-				echo "\t\tvar im = new Image();\n";
-				echo "\t\tblcap_refno = blcap_refno + 1;\n";
-				echo "\t\tim.src=\"" . $captchaurl . "&refresh=\" + blcap_refno;\n";
-				echo "\t\tdocument.getElementById (\"blcap_img\").src = im.src;\n";
-				echo "\t}\n";
+				if ($captcha_refresh == "yes")
+				{
+					echo "\tvar blcap_refno = 0;\n";
+					echo "\tfunction blcap_refresh_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar im = new Image();\n";
+					echo "\t\tblcap_refno = blcap_refno + 1;\n";
+					echo "\t\tim.src = \"" . $captchaurl . "&refresh=\" + blcap_refno;\n";
+					echo "\t\tdocument.getElementById (\"blcap_img\").src = im.src;\n";
+					echo "\t}\n";
+				}
+				if ($captcha_empty_check == "yes")
+				{
+					echo "\tfunction blcap_check_empty_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar captcha = document.getElementById (\"user_captcha\");\n";
+					echo "\t\tif (captcha && captcha.value == '')\n";
+					echo "\t\t{\n";
+					echo "\t\t\tcaptcha.focus();\n";
+					echo "\t\t\talert (\"Captcha is empty.\");\n";
+					echo "\t\t\treturn false;\n";
+					echo "\t\t}\n";
+					echo "\t\treturn true;\n";
+					echo "\t}\n";
+					echo "\tfunction blcap_set_onclick()\n";
+					echo "\t{\n";
+					echo "\t\tif (!document.getElementById (\"wp-submit\")) setTimeout (\"blcap_set_onclick();\", 200);\n";
+					echo "\t\telse document.getElementById (\"wp-submit\").onclick = function () {return blcap_check_empty_captcha();};\n";					
+					echo "\t}\n";
+					echo "\tblcap_set_onclick();\n";
+				}
 				echo "\t</script>\n";
 				echo "\n";
 			}
@@ -891,6 +945,9 @@ function blcap_registerflt ($err)
 	$captcha_enabled = (isset ($sss["reg_enabled"]) ? $sss["reg_enabled"] : "yes");
 	$captcha_user = (isset ($sss["reg_user"]) ? $sss["reg_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	$gen_ignore_case = (isset ($sss["gen_ignore_case"]) ? $sss["gen_ignore_case"] : "no");
+	$ignore_case = (isset ($sss["reg_ignore_case"]) ? $sss["reg_ignore_case"] : "general");
+	if ($ignore_case == "general") $ignore_case = $gen_ignore_case;
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -930,6 +987,7 @@ function blcap_registerflt ($err)
 			$protection_key = get_option ("blcap_protection_key");
 			$user_captcha = str_replace (" ", "", $user_captcha);
 			$captcha_to_check = $protection_key . $user_captcha;
+			if ($ignore_case == "yes") $captcha_to_check = $protection_key . strtoupper ($user_captcha);
             
 			if ($captcha != sha1 ($captcha_to_check) || $user_captcha == "" || $captcha == "") $success = false;
 			else $success = true;
@@ -1122,6 +1180,7 @@ function blcap_lostpasswordform ()
 			
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
+			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -1147,19 +1206,42 @@ function blcap_lostpasswordform ()
 			echo "\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
-	
-			if ($captcha_refresh == "yes")
+
+			if ($captcha_refresh == "yes" || $captcha_empty_check == "yes")
 			{
 				echo "\n";
 				echo "\t<script language=\"javascript\">\n";
-				echo "\tvar blcap_refno = 0;\n";
-				echo "\tfunction blcap_refresh_captcha()\n";
-				echo "\t{\n";
-				echo "\t\tvar im = new Image();\n";
-				echo "\t\tblcap_refno = blcap_refno + 1;\n";
-				echo "\t\tim.src=\"" . $captchaurl . "&refresh=\" + blcap_refno;\n";
-				echo "\t\tdocument.getElementById (\"blcap_img\").src = im.src;\n";
-				echo "\t}\n";
+				if ($captcha_refresh == "yes")
+				{
+					echo "\tvar blcap_refno = 0;\n";
+					echo "\tfunction blcap_refresh_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar im = new Image();\n";
+					echo "\t\tblcap_refno = blcap_refno + 1;\n";
+					echo "\t\tim.src = \"" . $captchaurl . "&refresh=\" + blcap_refno;\n";
+					echo "\t\tdocument.getElementById (\"blcap_img\").src = im.src;\n";
+					echo "\t}\n";
+				}
+				if ($captcha_empty_check == "yes")
+				{
+					echo "\tfunction blcap_check_empty_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar captcha = document.getElementById (\"user_captcha\");\n";
+					echo "\t\tif (captcha && captcha.value == '')\n";
+					echo "\t\t{\n";
+					echo "\t\t\tcaptcha.focus();\n";
+					echo "\t\t\talert (\"Captcha is empty.\");\n";
+					echo "\t\t\treturn false;\n";
+					echo "\t\t}\n";
+					echo "\t\treturn true;\n";
+					echo "\t}\n";
+					echo "\tfunction blcap_set_onclick()\n";
+					echo "\t{\n";
+					echo "\t\tif (!document.getElementById (\"wp-submit\")) setTimeout (\"blcap_set_onclick();\", 200);\n";
+					echo "\t\telse document.getElementById (\"wp-submit\").onclick = function () {return blcap_check_empty_captcha();};\n";					
+					echo "\t}\n";
+					echo "\tblcap_set_onclick();\n";
+				}
 				echo "\t</script>\n";
 				echo "\n";
 			}
@@ -1182,6 +1264,9 @@ function blcap_lostpasswordact ()
 	$captcha_enabled = (isset ($sss["pwd_enabled"]) ? $sss["pwd_enabled"] : "yes");
 	$captcha_user = (isset ($sss["pwd_user"]) ? $sss["pwd_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	$gen_ignore_case = (isset ($sss["gen_ignore_case"]) ? $sss["gen_ignore_case"] : "no");
+	$ignore_case = (isset ($sss["pwd_ignore_case"]) ? $sss["pwd_ignore_case"] : "general");
+	if ($ignore_case == "general") $ignore_case = $gen_ignore_case;
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -1221,7 +1306,8 @@ function blcap_lostpasswordact ()
 			$protection_key = get_option ("blcap_protection_key");
 			$user_captcha = str_replace (" ", "", $user_captcha);
 			$captcha_to_check = $protection_key . $user_captcha;
-            
+			if ($ignore_case == "yes") $captcha_to_check = $protection_key . strtoupper ($user_captcha);
+
 			if ($captcha != sha1 ($captcha_to_check) || $user_captcha == "" || $captcha == "") $success = false;
 			else $success = true;
 			
@@ -1406,6 +1492,8 @@ function blcap_commentform ()
 			
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
+			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
+			$captcha_keep_comment = (isset ($sss["gen_keepcomment"]) ? $sss["gen_keepcomment"] : "no");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -1433,18 +1521,62 @@ function blcap_commentform ()
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
 	
-			if ($captcha_refresh == "yes")
+			if ($captcha_refresh == "yes" || $captcha_empty_check == "yes" || $captcha_keep_comment == "yes")
 			{
 				echo "\n";
 				echo "\t<script language=\"javascript\">\n";
-				echo "\tvar blcap_refno = 0;\n";
-				echo "\tfunction blcap_refresh_captcha()\n";
-				echo "\t{\n";
-				echo "\t\tvar im = new Image();\n";
-				echo "\t\tblcap_refno = blcap_refno + 1;\n";
-				echo "\t\tim.src=\"" . $captchaurl . "&refresh=\" + blcap_refno;\n";
-				echo "\t\tdocument.getElementById (\"blcap_img\").src = im.src;\n";
-				echo "\t}\n";
+				if ($captcha_refresh == "yes")
+				{
+					echo "\tvar blcap_refno = 0;\n";
+					echo "\tfunction blcap_refresh_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar im = new Image();\n";
+					echo "\t\tblcap_refno = blcap_refno + 1;\n";
+					echo "\t\tim.src = \"" . $captchaurl . "&refresh=\" + blcap_refno;\n";
+					echo "\t\tdocument.getElementById (\"blcap_img\").src = im.src;\n";
+					echo "\t}\n";
+				}
+				if ($captcha_empty_check == "yes")
+				{
+					echo "\tfunction blcap_check_empty_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar captcha = document.getElementById (\"user_captcha\");\n";
+					echo "\t\tif (captcha && captcha.value == '')\n";
+					echo "\t\t{\n";
+					echo "\t\t\tcaptcha.focus();\n";
+					echo "\t\t\talert (\"Captcha is empty.\");\n";
+					echo "\t\t\treturn false;\n";
+					echo "\t\t}\n";
+					echo "\t\treturn true;\n";
+					echo "\t}\n";
+					echo "\tfunction blcap_set_onclick()\n";
+					echo "\t{\n";
+					echo "\t\tif (!document.getElementById (\"submit\")) setTimeout (\"blcap_set_onclick();\", 200);\n";
+					echo "\t\telse document.getElementById (\"submit\").onclick = function () {return blcap_check_empty_captcha();};\n";					
+					echo "\t}\n";
+					echo "\tblcap_set_onclick();\n";
+				}
+				if ($captcha_keep_comment == "yes")
+				{
+					if (!isset ($_SESSION)) @session_start ();
+
+					if (isset ($_SESSION["captcha_keepcomment"]))
+					{
+						$keep_comment = $_SESSION["captcha_keepcomment"];
+						$keep_comment = trim ($keep_comment);
+						$keep_url = (isset ($_SESSION["captcha_keepurl"]) ? $_SESSION["captcha_keepurl"] : "");
+						$current_url = blcap_get_current_url ();
+						if ($keep_comment != "" && ($current_url == $keep_url || $keep_url == ""))
+						{
+							$keep_comment = str_replace ("\r", "", $keep_comment);
+							$keep_comment = str_replace ("\n", "", $keep_comment);
+							$keep_comment = str_replace ("\"", "''", $keep_comment);
+							echo "\tif (document.getElementById(\"comment\")) document.getElementById(\"comment\").value = \"" . $keep_comment . "\";\n";
+							$_SESSION["captcha_keepcomment"] = "";
+							$_SESSION["captcha_keepurl"] = "";
+						}
+					}
+				}
 				echo "\t</script>\n";
 				echo "\n";
 			}
@@ -1468,6 +1600,9 @@ function blcap_commentflt ($subcomment)
 	$captcha_allow_pingtrack = (isset ($sss["gen_pingtrack"]) ? $sss["gen_pingtrack"] : "yes");
 	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	$gen_ignore_case = (isset ($sss["gen_ignore_case"]) ? $sss["gen_ignore_case"] : "no");
+	$ignore_case = (isset ($sss["com_ignore_case"]) ? $sss["com_ignore_case"] : "general");
+	if ($ignore_case == "general") $ignore_case = $gen_ignore_case;
 
 	if ($subcomment["comment_type"] == "pingback" || $subcomment["comment_type"] == "trackback")
 	{
@@ -1517,6 +1652,7 @@ function blcap_commentflt ($subcomment)
 			$protection_key = get_option ("blcap_protection_key");
 			$user_captcha = str_replace (" ", "", $user_captcha);
 			$captcha_to_check = $protection_key . $user_captcha;
+			if ($ignore_case == "yes") $captcha_to_check = $protection_key . strtoupper ($user_captcha);
             
 			if ($captcha != sha1 ($captcha_to_check) || $user_captcha == "" || $captcha == "") $success = false;
 			else $success = true;
@@ -1524,6 +1660,7 @@ function blcap_commentflt ($subcomment)
 			$gen_log = (isset ($sss["gen_log"]) ? $sss["gen_log"] : "yes");
 			$gen_keepinfo = (isset ($sss["gen_keepinfo"]) ? $sss["gen_keepinfo"] : "yes");
 			$gen_keeppwd = (isset ($sss["gen_keeppwd"]) ? $sss["gen_keeppwd"] : "no");
+			$gen_keepcomment = (isset ($sss["gen_keepcomment"]) ? $sss["gen_keepcomment"] : "no");
    			$ban_iplist = (isset ($sss["ban_iplist"]) ? $sss["ban_iplist"] : "");
    			$ban = (isset ($sss["ban_com"]) ? $sss["ban_com"] : "0");
 
@@ -1665,7 +1802,18 @@ function blcap_commentflt ($subcomment)
 			}
 			
 			if ($success == false)
-			{	
+			{
+				if ($gen_keepcomment == "yes")
+				{
+					if (!isset ($_SESSION)) @session_start ();
+
+					$comment = (isset ($subcomment["comment_content"]) ? $subcomment["comment_content"] : "-");
+					$comment = stripslashes ($comment);
+					$comment = strip_tags ($comment); // for security reasons...
+					$_SESSION["captcha_keepcomment"] = $comment;
+					$_SESSION["captcha_keepurl"] = $capurl;
+				}
+
 				if ($capurl != "")
 					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
@@ -1674,6 +1822,14 @@ function blcap_commentflt ($subcomment)
 			}
 			else
 			{
+				if ($gen_keepcomment == "yes")
+				{
+					if (!isset ($_SESSION)) @session_start ();
+
+					$_SESSION["captcha_keepcomment"] = "";
+					$_SESSION["captcha_keepurl"] = "";
+				}
+
 				if ($captcha_use_sessions == "yes")
 					$_SESSION["captcha"] = "";
 				else

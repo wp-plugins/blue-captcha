@@ -112,6 +112,11 @@ $AVAILABLE_BG_IMAGES = 30;
 
 
 $enabled = (isset ($sss[$pre . "enabled"]) ? $sss[$pre . "enabled"] : "yes");
+
+$gen_ignore_case = (isset ($sss["gen_ignore_case"]) ? $sss["gen_ignore_case"] : "no");
+$ignore_case = (isset ($sss[$pre . "ignore_case"]) ? $sss[$pre . "ignore_case"] : "general");
+if ($ignore_case == "general") $ignore_case = $gen_ignore_case;
+
 $user = (isset ($sss[$pre . "user"]) ? $sss[$pre . "user"] : "-1");
 $chars = array ();
 if (isset ($sss[$pre . "char_3"])) $chars[] = 3;
@@ -259,7 +264,10 @@ if ($cid != "preview")
 	$protection_key = "";
 	$protection_key = get_option ("blcap_protection_key");
 
-	$encrypted_captcha = sha1 ($protection_key . $secret . $secret2);
+	$word = $secret . $secret2;
+	if ($ignore_case == "yes") $word = strtoupper ($word);
+
+	$encrypted_captcha = sha1 ($protection_key . $word);
 	$original_captcha = $secret . $secret2;    
 	// $original_captcha = $encrypted_captcha;
     

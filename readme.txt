@@ -2,8 +2,8 @@
 Contributors: J. Kokkalis (BlueCoder)
 Tags: captcha, recaptcha, security, protection, safety, spam, antispam, anti-spam, spammer, login, comments, register, password recovery, blue captcha
 Requires at least: 2.8.6
-Tested up to: 3.4.2
-Stable tag: 1.3
+Tested up to: 3.5
+Stable tag: 1.4
 License: GPLv2
 
 Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons.
@@ -60,8 +60,14 @@ None for Now
 
 == Changelog ==
 
+= 1.4 =
+* 07 Jan 2013
+* "Make Empty Captcha Check Before Form Submission" option was added in General Options
+* "Keep Comment After Failed Captcha" option was added in General Options
+* "Ignore Case Sensitivity In Characters" option was added in Options
+
 = 1.3 =
-* 17 Oct 2012
+* 19 Oct 2012
 * "IP Informer URL" option was added in General Options
 * "Allow Pingbacks & Trackbacks" option was added in General Options
 * More details about Comments are provided in Log File
