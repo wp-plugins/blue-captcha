@@ -4,7 +4,7 @@
 Plugin Name: Blue Captcha
 Plugin URI: http://wordpress.org/extend/plugins/blue-captcha/
 Description: Blue Captcha
-Version: 1.4
+Version: 1.5
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
@@ -82,7 +82,7 @@ function blcap_install ()
 	$blcap_cur_version = "";
 	$blcap_cur_version = get_option ("blcap_version");
 	
-	$blcap_version = "1.4";
+	$blcap_version = "1.5";
 	add_option ("blcap_version", $blcap_version);
 	update_option ("blcap_version", $blcap_version);
 	
@@ -552,7 +552,7 @@ function blcap_loginform ()
 			
 			if ($captcha_refresh == "yes")
 			{
-				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" ";
+				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
 				$rf_span = "<span onclick=\"blcap_refresh_captcha();\" title=\"Click to refresh Captcha Image\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">Refresh</span><br />";
 			}
 			else
@@ -563,10 +563,10 @@ function blcap_loginform ()
 				
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
-			echo "\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "tabindex=\"40\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
-			echo "\t\t<label>Captcha<br />\n";
-			echo "\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"50\" /></label><br /><br />\n";
-			echo "\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
+			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
+			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
+			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"30\" required /></label><br /><br />\n";
+			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
 	
@@ -870,7 +870,7 @@ function blcap_registerform ()
 			
 			if ($captcha_refresh == "yes")
 			{
-				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" ";
+				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
 				$rf_span = "<span onclick=\"blcap_refresh_captcha();\" title=\"Click to refresh Captcha Image\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">Refresh</span><br />";
 			}
 			else
@@ -881,10 +881,10 @@ function blcap_registerform ()
 			
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
-			echo "\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "tabindex=\"40\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
-			echo "\t\t<label>Captcha<br />\n";
-			echo "\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"50\" /></label><br /><br />\n";
-			echo "\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
+			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
+			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
+			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"30\" required /></label><br /><br />\n";
+			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
 	
@@ -1189,7 +1189,7 @@ function blcap_lostpasswordform ()
 			
 			if ($captcha_refresh == "yes")
 			{
-				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" ";
+				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
 				$rf_span = "<span onclick=\"blcap_refresh_captcha();\" title=\"Click to refresh Captcha Image\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">Refresh</span><br />";
 			}
 			else
@@ -1200,10 +1200,10 @@ function blcap_lostpasswordform ()
 			
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
-			echo "\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "tabindex=\"40\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
-			echo "\t\t<label>Captcha<br />\n";
-			echo "\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"50\" /></label><br /><br />\n";
-			echo "\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
+			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
+			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
+			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"20\" required /></label><br /><br />\n";
+			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
 
@@ -1455,6 +1455,8 @@ function blcap_commentform ()
 	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	
+	define ("BLUE_CAPTCHA_COMMENT_FORM", 1);
+
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
 		{
@@ -1493,7 +1495,6 @@ function blcap_commentform ()
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
 			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
-			$captcha_keep_comment = (isset ($sss["gen_keepcomment"]) ? $sss["gen_keepcomment"] : "no");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -1502,7 +1503,7 @@ function blcap_commentform ()
 			
 			if ($captcha_refresh == "yes")
 			{
-				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" ";
+				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
 				$rf_span = "<span onclick=\"blcap_refresh_captcha();\" title=\"Click to refresh Captcha Image\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">Refresh</span><br />";
 			}
 			else
@@ -1513,11 +1514,10 @@ function blcap_commentform ()
 		
 			echo "\n\t<p>\n";
 			echo "\t\t<div align=\"left\">\n";
-			echo "\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "tabindex=\"40\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
-			echo "\t\t<label>Captcha<br />\n";
-
-			echo "\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"50\" /></label><br /><br />\n";
-			echo "\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
+			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
+			echo "\t\t\t<p class=\"comment-form-captcha\"><label for=\"user_captcha\">Captcha</label> <span class=\"required\">*</span>\n";
+			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" aria-required=\"true\" required /><br />\n";
+			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" /></p>\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
 	
@@ -1556,31 +1556,60 @@ function blcap_commentform ()
 					echo "\t}\n";
 					echo "\tblcap_set_onclick();\n";
 				}
-				if ($captcha_keep_comment == "yes")
-				{
-					if (!isset ($_SESSION)) @session_start ();
 
-					if (isset ($_SESSION["captcha_keepcomment"]))
-					{
-						$keep_comment = $_SESSION["captcha_keepcomment"];
-						$keep_comment = trim ($keep_comment);
-						$keep_url = (isset ($_SESSION["captcha_keepurl"]) ? $_SESSION["captcha_keepurl"] : "");
-						$current_url = blcap_get_current_url ();
-						if ($keep_comment != "" && ($current_url == $keep_url || $keep_url == ""))
-						{
-							$keep_comment = str_replace ("\r", "", $keep_comment);
-							$keep_comment = str_replace ("\n", "", $keep_comment);
-							$keep_comment = str_replace ("\"", "''", $keep_comment);
-							echo "\tif (document.getElementById(\"comment\")) document.getElementById(\"comment\").value = \"" . $keep_comment . "\";\n";
-							$_SESSION["captcha_keepcomment"] = "";
-							$_SESSION["captcha_keepurl"] = "";
-						}
-					}
-				}
 				echo "\t</script>\n";
 				echo "\n";
 			}
 		}
+}
+
+function blcap_commentform_2 ()
+{
+	global $current_user, $wp_version;
+
+	if (!defined("BLUE_CAPTCHA_COMMENT_FORM"))
+	{
+		blcap_commentform ();
+	}
+
+	$blcap_setser = get_option ("blcap_settings");
+	if (is_array ($blcap_setser))
+		$sss = $blcap_setser;
+	else
+		$sss = @unserialize ($blcap_setser);
+		
+	$user_id = (isset ($current_user->ID) ? $current_user->ID : -1);
+	$user_level = (isset ($current_user->user_level) ? $current_user->user_level : -1);
+	
+	$captcha_active = (isset ($sss["gen_activated"]) ? $sss["gen_activated"] : "yes");	
+	$captcha_enabled = (isset ($sss["com_enabled"]) ? $sss["com_enabled"] : "yes");
+	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
+	$captcha_keep_comment = (isset ($sss["gen_keepcomment"]) ? $sss["gen_keepcomment"] : "no");
+
+	if ($captcha_active == "yes" && $captcha_enabled == "yes" && $captcha_keep_comment == "yes")
+		if ($user_level <= $captcha_user)
+		{
+			$keep_comment = $_SESSION["captcha_keepcomment"];
+			$keep_comment = trim ($keep_comment);
+			$keep_url = (isset ($_SESSION["captcha_keepurl"]) ? $_SESSION["captcha_keepurl"] : "");
+			$current_url = blcap_get_current_url ();
+			if ($keep_comment != "" && ($current_url == $keep_url || $keep_url == ""))
+			{
+				echo "\n";
+				echo "\t<script language=\"javascript\">\n";
+
+				$keep_comment = str_replace ("\r", "", $keep_comment);
+				$keep_comment = str_replace ("\n", "", $keep_comment);
+				$keep_comment = str_replace ("\"", "''", $keep_comment);
+				echo "\tif (document.getElementById(\"comment\")) document.getElementById(\"comment\").value = \"" . $keep_comment . "\";\n";
+
+				echo "\t</script>\n";
+				echo "\n";
+				$_SESSION["captcha_keepcomment"] = "";
+				$_SESSION["captcha_keepurl"] = "";
+			}
+		}
+
 }
 
 function blcap_commentflt ($subcomment)
@@ -1923,6 +1952,10 @@ function blcap_init ()
 	}
 }
 
+global $wp_version;
+
+
+
 add_action ("admin_menu", "blcap_add_menus");
 
 add_action ("init", "blcap_init");
@@ -1937,7 +1970,13 @@ add_filter ("registration_errors", "blcap_registerflt");
 add_action ("lostpassword_form", "blcap_lostpasswordform", 10);
 add_action ("lostpassword_post", "blcap_lostpasswordact", 10);
 
-add_action ("comment_form", "blcap_commentform", 1);
+if (version_compare ($wp_version, '3' ,'>='))
+{
+	add_action ("comment_form_after_fields", "blcap_commentform", 1);
+	add_action ("comment_form_logged_in_after", "blcap_commentform", 1);
+}
+add_action ("comment_form", "blcap_commentform_2", 1);
+
 add_filter ("preprocess_comment", "blcap_commentflt", 1);
 
 register_activation_hook (__FILE__, "blcap_install");
