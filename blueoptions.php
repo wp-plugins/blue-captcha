@@ -601,7 +601,7 @@ function blcap_process_ip_list ($list)
 
 		$iplist = (isset ($_REQUEST["ban_iplist"]) ? $_REQUEST["ban_iplist"] : "");
 		$iplist_arr = blcap_process_ip_list ($iplist);
-		$iplist_uniq = array_unique ($iplist_arr["ip"], SORT_STRING);
+		$iplist_uniq = array_unique ($iplist_arr["ip"]);
 
 		$list = "";
 		foreach ($iplist_uniq as $key => $thisip)
@@ -710,9 +710,11 @@ function blcap_process_ip_list ($list)
 	$vv = (isset ($blcap_set["gen_empty_check"]) ? $blcap_set["gen_empty_check"] : "no");
 	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
 	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($vv == "yes_required") $checked3 = "checked "; else $checked3 = "";
 	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
 	echo "<input type=\"radio\" name=\"gen_empty_check\" value=\"no\" $checked1/>&nbsp;No &nbsp;&nbsp;\n";
-	echo "<input type=\"radio\" name=\"gen_empty_check\" value=\"yes\" $checked2/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_empty_check\" value=\"yes\" $checked2/>&nbsp;Yes (Alert Message) &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_empty_check\" value=\"yes_required\" $checked3/>&nbsp;Yes (Required) &nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 
@@ -804,9 +806,11 @@ function blcap_process_ip_list ($list)
 	$vv = (isset ($blcap_set["gen_keeppwd"]) ? $blcap_set["gen_keeppwd"] : "no");
 	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
 	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($vv == "yes_incorrect") $checked3 = "checked "; else $checked3 = "";
 	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
 	echo "<input type=\"radio\" name=\"gen_keeppwd\" value=\"no\" $checked1/>&nbsp;No &nbsp;&nbsp;\n";
 	echo "<input type=\"radio\" name=\"gen_keeppwd\" value=\"yes\" $checked2/>&nbsp;Yes &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_keeppwd\" value=\"yes_incorrect\" $checked3/>&nbsp;Save Incorrect Passwords Only&nbsp;&nbsp;\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 	

@@ -30,6 +30,9 @@
 	else $typef = "";
 	if (isset ($_REQUEST["datef"])) $datef = urldecode ($_REQUEST["datef"]);
 	else $datef = "";
+	if (isset ($_REQUEST["ipf"])) $ipf = urldecode ($_REQUEST["ipf"]);
+	else $ipf = "";
+
 	if (isset ($_REQUEST["pagef"]))
 	{
 		$pagef = urldecode ($_REQUEST["pagef"]);
@@ -101,6 +104,7 @@
 	if (!isset ($kindf)) $kindf = "";
 	if (!isset ($typef)) $typef = "";
 	if (!isset ($datef)) $datef = "";
+	if (!isset ($ipf)) $ipf = "";
 	if (!isset ($pagef))
 	{
 		$pagef = 1;
@@ -168,7 +172,7 @@
 	
 	if (!isset ($last_page)) $last_page = "NO";
 
-	$res = blcap_get_logs ($filt_date, "id", $kindf, $typef, $resf, $pagef, $last_page);
+	$res = blcap_get_logs ($filt_date, "id", $kindf, $typef, $resf, $pagef, $last_page, $ipf);
 	if ($res["result"] == "OK")
 	{
 		$count = $res["count"];
@@ -179,8 +183,9 @@
 				
 		$size = $res["count"];
 		
+		$info = ($ipf != "" ? " (IP: $ipf)" : "");
 		echo "<table width=\"100%\" class=\"widefat page fixed\" cellspacing=\"0\">\n";
-		echo "<thead><tr><th><div align=\"center\"><h2 style=\"color: blue;\">Blue Captcha - Log</h2></div></th></tr></thead>";
+		echo "<thead><tr><th><div align=\"center\"><h2 style=\"color: blue;\">Blue Captcha - Log" . $info . "</h2></div></th></tr></thead>";
 		echo "</table>\n";
 		
 		echo "<table width=\"100%\" class=\"widefat page fixed\" cellspacing=\"0\">\n";
@@ -202,7 +207,8 @@
 			if ($pagef > $showxpages)
 			{
 				$this_page = $firstpage;
-				$link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
+				if ($ipf == "") $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
+				else $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&ipf=" . urlencode ($ipf) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
 				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"Go to page $this_page\">$this_page</a>";
 				echo " &nbsp; ";
 				echo " ... ";
@@ -218,7 +224,8 @@
 			for ($k = $beforepages ; $k <= $afterpages ; $k++)
 			{
 				$this_page = $k;
-				$link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
+				if ($ipf == "") $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
+				else $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&ipf=" . urlencode ($ipf) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
 				if ($k == $pagef)
 					echo "<span class=\"blcap_pagenumsel\">$this_page</span>";
 				else
@@ -231,7 +238,8 @@
 				echo " ... ";
 				echo " &nbsp; ";
 				$this_page = $lastpage;
-				$link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $this_page . "\""; 
+				if ($ipf == "") $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
+				else $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&ipf=" . urlencode ($ipf) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
 				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"Go to page $this_page\">$this_page</a>";
 				echo " &nbsp; \n";
 			}
@@ -322,6 +330,8 @@
 		echo "<input type=\"submit\" class=\"button\" name=\"button_filter\" value=\"  Apply  \" />\n";
 		
 		echo "<input type=\"hidden\" name=\"action\" value=\"apply_filter\" />\n";
+
+		if ($ipf != "") echo "<input type=\"hidden\" name=\"ipf\" value=\"$ipf\" />\n";
 		
 		echo "</form>\n";
 		
@@ -331,7 +341,10 @@
 		
 		echo "</table>\n";
 		
-		echo "<form method=\"post\" name=\"showlogsform\" id=\"showlogsform\" action=\"$blcap_logsite" . "&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $pagef . "\">\n";
+		if ($ipf != "")
+			echo "<form method=\"post\" name=\"showlogsform\" id=\"showlogsform\" action=\"$blcap_logsite" . "&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&ipf=" . urlencode ($ipf) . "&resf=" . $resf . "&pagef=" . $pagef . "\">\n";
+		else
+			echo "<form method=\"post\" name=\"showlogsform\" id=\"showlogsform\" action=\"$blcap_logsite" . "&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $pagef . "\">\n";
 
 		echo "<table width=\"100%\" class=\"widefat page fixed\" cellspacing=\"0\">\n";
 		

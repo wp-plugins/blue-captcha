@@ -325,6 +325,10 @@
 		
 		$current_date = date ("Y/m/d");
 
+		$blcap_siteurl = get_option ("siteurl"); 
+		$blcap_pageurl = $blcap_siteurl . "/wp-admin/admin.php?page="; 
+		$blcap_logsite = $blcap_pageurl . "blcap_logs_page";
+
 		$chclass = 'iedit';
 		$startfrom = (($pagef - 1) * $resf) + 1;
 		for ($i = 0 ; $i < $size ; $i++)
@@ -390,11 +394,14 @@
 				$ip_str = $ip_str . "</a>";
 			}
 
+			$view_log_url = $blcap_logsite . "&datef=ALL&ipf=" . urlencode ($ip);
+			$ip_str2 = "<a href=\"" . $view_log_url . "\" title=\"Click here to view logs of this IP\" target=\"_blank\">Log</a>";
+
 			echo "<tr class=\"$chclass\">\n";
 
 			echo "<th scope=\"row\" class=\"check-column\"><input type=\"checkbox\" id=\"hos" . ($i+1) . "\" name=\"hos[]\" value=\"$ip\"></th>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$no</font></div></td>\n";
-			echo "<td><div align=\"center\"><font color=\"$rescolor\">$ip_str</font></div></td>\n";
+			echo "<td><div align=\"center\"><font color=\"$rescolor\">$ip_str</font><br>$ip_str2</div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$banned</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$date<br>$time</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$failstoday</font></div></td>\n";

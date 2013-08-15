@@ -4,7 +4,7 @@
 Plugin Name: Blue Captcha
 Plugin URI: http://wordpress.org/extend/plugins/blue-captcha/
 Description: Blue Captcha
-Version: 1.5
+Version: 1.6
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
@@ -82,7 +82,7 @@ function blcap_install ()
 	$blcap_cur_version = "";
 	$blcap_cur_version = get_option ("blcap_version");
 	
-	$blcap_version = "1.5";
+	$blcap_version = "1.6";
 	add_option ("blcap_version", $blcap_version);
 	update_option ("blcap_version", $blcap_version);
 	
@@ -544,6 +544,7 @@ function blcap_loginform ()
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
 			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
+			$required_text = ($captcha_empty_check == "yes_required" ? "required " : "");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -565,7 +566,7 @@ function blcap_loginform ()
 			echo "\t\t<div align=\"center\">\n";
 			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
 			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
-			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"30\" required /></label><br /><br />\n";
+			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"30\" " . $required_text . "/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
@@ -709,7 +710,17 @@ function blcap_loginact ()
 					$MAX_LEN = 64;
 					
 					$username = (isset ($_REQUEST["log"]) ? $_REQUEST["log"] : "-");
-					if ($gen_keeppwd == "yes") $password = (isset ($_REQUEST["pwd"]) ? $_REQUEST["pwd"] : "-");
+					if ($gen_keeppwd == "yes")
+					{						
+						$password = (isset ($_REQUEST["pwd"]) ? $_REQUEST["pwd"] : "-");
+					}
+					else if ($gen_keeppwd == "yes_incorrect")
+					{
+						$password = (isset ($_REQUEST["pwd"]) ? $_REQUEST["pwd"] : "-");
+						$user = get_user_by ("login", $username);
+						if ($user && wp_check_password ($password, $user->data->user_pass, $user->ID))
+							$password = "******";
+					}
 					else $password = "******";
 					
 					if (strlen ($username) > $MAX_LEN) $username = substr ($username, 0, $MAX_LEN) . "...";
@@ -862,6 +873,7 @@ function blcap_registerform ()
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
 			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
+			$required_text = ($captcha_empty_check == "yes_required" ? "required " : "");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -883,7 +895,7 @@ function blcap_registerform ()
 			echo "\t\t<div align=\"center\">\n";
 			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
 			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
-			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"30\" required /></label><br /><br />\n";
+			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"30\" " . $required_text ."/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
@@ -1181,6 +1193,7 @@ function blcap_lostpasswordform ()
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
 			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
+			$required_text = ($captcha_empty_check == "yes_required" ? "required " : "");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -1202,7 +1215,7 @@ function blcap_lostpasswordform ()
 			echo "\t\t<div align=\"center\">\n";
 			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
 			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
-			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"20\" required /></label><br /><br />\n";
+			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"20\" " . $required_text . "/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";
@@ -1441,6 +1454,11 @@ function blcap_commentform ()
 {
 	global $current_user;
 
+	if (defined("BLUE_CAPTCHA_COMMENT_FORM"))
+	{
+		return;
+	}
+
 	$blcap_setser = get_option ("blcap_settings");
 	if (is_array ($blcap_setser))
 		$sss = $blcap_setser;
@@ -1454,7 +1472,8 @@ function blcap_commentform ()
 	$captcha_enabled = (isset ($sss["com_enabled"]) ? $sss["com_enabled"] : "yes");
 	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
-	
+
+
 	define ("BLUE_CAPTCHA_COMMENT_FORM", 1);
 
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
@@ -1495,6 +1514,7 @@ function blcap_commentform ()
 			$captcha_layersize = (isset ($sss["gen_layersize"]) ? $sss["gen_layersize"] : "1");
 			$captcha_refresh = (isset ($sss["gen_refresh"]) ? $sss["gen_refresh"] : "yes");
 			$captcha_empty_check = (isset ($sss["gen_empty_check"]) ? $sss["gen_empty_check"] : "no");
+			$required_text = ($captcha_empty_check == "yes_required" ? "required " : "");
 
 			if ($captcha_layersize == "1")
 				$wh_tag = "width=\"200\" height=\"50\" ";
@@ -1516,7 +1536,7 @@ function blcap_commentform ()
 			echo "\t\t<div align=\"left\">\n";
 			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
 			echo "\t\t\t<p class=\"comment-form-captcha\"><label for=\"user_captcha\">Captcha</label> <span class=\"required\">*</span>\n";
-			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" aria-required=\"true\" required /><br />\n";
+			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" aria-required=\"true\" " . $required_text . "/><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" /></p>\n";
 			echo "\t\t</div>\n";
 			echo "\t</p>\n";

@@ -18,7 +18,7 @@ function blcap_remove_db ()
 	return $result;	
 }
 
-function blcap_get_logs ($date = "" , $sort = "", $kind = "", $type = "", $rpp = "", $page = 1, $last_page = "NO")
+function blcap_get_logs ($date = "" , $sort = "", $kind = "", $type = "", $rpp = "", $page = 1, $last_page = "NO", $ip = "")
 {
 	global $wpdb;
 	
@@ -40,6 +40,12 @@ function blcap_get_logs ($date = "" , $sort = "", $kind = "", $type = "", $rpp =
 	{
 		if ($str == "") $str = " WHERE result='$type'";
 		else $str = $str . " AND result='$type'";
+	}
+
+	if ($ip != "")
+	{
+		if ($str == "") $str = " WHERE (ip='$ip' OR proxy='$ip')";
+		else $str = $str . " AND (ip='$ip' OR proxy='$ip')";
 	}
 	
 	if ($sort != "") $str = $str . " ORDER BY $sort";
@@ -83,7 +89,7 @@ function blcap_get_logs ($date = "" , $sort = "", $kind = "", $type = "", $rpp =
 	}
 	
 	$sql = "SELECT * FROM " . $table . $str . $limitstr;
-	
+
 	$r1 = $wpdb->get_results ($sql);
 	
 	$x = 0;
@@ -363,7 +369,7 @@ function blcap_get_ips_hos ($sort = "", $rpp = "", $page = 1, $last_page = "NO")
 		$sortstr = " ORDER BY microtime DESC";
 	}
 	
-	$sql0 = "SELECT COUNT(id) AS total FROM " . $table;
+	$sql0 = "SELECT COUNT(DISTINCT ip) AS total FROM " . $table;
 
 	$r0 = $wpdb->get_results ($sql0);
 	
@@ -401,7 +407,7 @@ function blcap_get_ips_hos ($sort = "", $rpp = "", $page = 1, $last_page = "NO")
 		$limitstr = " LIMIT " . $start . ", " . $end;
 	}
 	
-	$sql = "SELECT * FROM " . $table . $sortstr . $limitstr;
+	$sql = "SELECT * FROM " . $table . " GROUP BY ip" . $sortstr . $limitstr;
 
 	$r1 = $wpdb->get_results ($sql);
 	
@@ -533,7 +539,7 @@ function blcap_create_csv_hos ()
 	
 	$table = "blcap_ips";
 	
-	$sql = "SELECT * FROM " . $table . " ORDER BY sumprob DESC, trialstotal DESC, microtime DESC";
+	$sql = "SELECT * FROM " . $table . " GROUP BY ip ORDER BY sumprob DESC, trialstotal DESC, microtime DESC";
 	
 	$r = $wpdb->get_results ($sql);
 	
