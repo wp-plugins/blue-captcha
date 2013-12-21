@@ -4,13 +4,13 @@
 Plugin Name: Blue Captcha
 Plugin URI: http://wordpress.org/extend/plugins/blue-captcha/
 Description: Blue Captcha
-Version: 1.6
+Version: 1.7
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
 
 /*  
-	(C) Copyright 2012, Jotis Kokkalis
+	By Jotis Kokkalis, (C) 2012-2013
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 
@@ -207,9 +207,9 @@ function blcap_add_menus ()
 {
 	add_menu_page ('Blue Captcha', 'Blue Captcha', 'administrator', 'blcap_main_page', 'blcap_main');
 
-	add_submenu_page ('blcap_main_page', 'Options', 'Options', 'administrator', 'blcap_options_page', 'blcap_options');
-	add_submenu_page ('blcap_main_page', 'Hall of Shame', 'Hall of Shame', 'administrator', 'blcap_hos_page', 'blcap_hos');
-	add_submenu_page ('blcap_main_page', 'Log', 'Log', 'administrator', 'blcap_logs_page', 'blcap_logs');
+	add_submenu_page ('blcap_main_page', 'Options', __('Options', 'blue-captcha'), 'administrator', 'blcap_options_page', 'blcap_options');
+	add_submenu_page ('blcap_main_page', 'Hall of Shame', __('Hall of Shame', 'blue-captcha'), 'administrator', 'blcap_hos_page', 'blcap_hos');
+	add_submenu_page ('blcap_main_page', 'Log', __('Log', 'blue-captcha'), 'administrator', 'blcap_logs_page', 'blcap_logs');
 }
 
 function blcap_main ()
@@ -232,8 +232,8 @@ function blcap_main ()
 		blcap_uninstall ();
 		
 		echo "<div class=\"updated\" align=\"center\">\n";
-		echo "<br /><strong>Blue Captcha has been successfully uninstalled.</strong>";
-		echo "<br /><strong>You may now deactivate and delete plugin.</strong>";
+		echo "<br /><strong>" . __("Blue Captcha has been successfully uninstalled.", "blue-captcha") . "</strong>";
+		echo "<br /><strong>" . __("You may now deactivate and delete plugin.", "blue-captcha") . "</strong>";
 		echo "<br /><br /></div>\n";		
 		die ();
 	}
@@ -242,7 +242,7 @@ function blcap_main ()
 	echo "function blcap_confirm ()\n";
 	echo "{\n";
 	echo "\tvar conf;\n";
-	echo "\tconf = confirm (\"Are you sure that you want to uninstall Blue Captcha Plugin?\");\n";
+	echo "\tconf = confirm (\"" . __("Are you sure that you want to uninstall Blue Captcha Plugin?", "blue-captcha") . "\");\n";
 	echo "\tif (conf)\n";
 	echo "\t{\n";
 	echo "\t\tdocument.getElementById (\"blcap_action\").value = \"uninstall\";\n";
@@ -252,17 +252,17 @@ function blcap_main ()
 	echo "</script>\n";
 	
 	echo "<h1 style=\"color: lightblue;\">Blue Captcha v" . $blcap_version . "</h1>\n";
-	echo "<h2 style=\"color: darkblue;\">By Jotis Kokkalis (aka \"BlueCoder\")</h2>\n";
+	echo "<h2 style=\"color: darkblue;\">" . __("By Jotis Kokkalis", "blue-captcha") . "</h2>\n";
 	
-	echo "<h3>Visit my blue stuff page at <a href=\"http://mybluestuff.blogspot.com\" target=\"_blank\">http://mybluestuff.blogspot.com</a>\n";
-    echo "<br />where you can find documentation about Blue Captcha.</h3>\n";
+	echo "<h3>" . __("Visit my blue stuff page at", "blue-captcha") . " <a href=\"http://mybluestuff.blogspot.com\" target=\"_blank\">http://mybluestuff.blogspot.com</a>\n";
+    echo "<br />" . __("where you can find documentation about Blue Captcha", "blue-captcha") . "</h3>\n";
 	
 	echo "<hr style=\"color: blue;\" />\n";	
 
 	echo "\n";
 	echo "<form action=\"$blcap_mainsite\" id=\"blcap_submit_form\" name=\"blcap_submit_form\" method=\"post\">\n\n";
 	echo "<div align=\"center\">\n";
-	echo "<input type=\"button\" class=\"button-primary\" value=\" Uninstall \" title=\"Click here to uninstall plugin\" onclick=\"blcap_confirm();\" />\n";
+	echo "<input type=\"button\" class=\"button-primary\" value=\" " . __("Uninstall", "blue-captcha") . " \" title=\"" . __("Click here to uninstall plugin", "blue-captcha") . "\" onclick=\"blcap_confirm();\" />\n";
 	echo "<input type=\"hidden\" id=\"blcap_action\" name=\"blcap_action\" value=\"\" />\n";
 	echo "</div>\n";
 	echo "\n</form>\n";
@@ -270,11 +270,11 @@ function blcap_main ()
 	
 
 	echo "<br />\n";
-	echo "<h3>This plugin is free and will always be free ;-)</h3>\n";
-	echo "<h3>However, if this plugin has protected you from spammers,<br />\n";
-	echo "has helped you in some way or if you just like it, then<br />\n";
-	echo "you could donate one dollar or two. Any donation will be highly<br />\n";
-	echo "appreciated and will help in further development of this project.</h3>\n";
+	echo "<h3>" . __("This plugin is free and will always be free", "blue-captcha") . " ;-)</h3>\n";
+	echo "<h3>" . __("However, if this plugin has protected you from spammers,", "blue-captcha") . "<br />\n";
+	echo __("has helped you in some way or if you just like it, then", "blue-captcha") . "<br />\n";
+	echo __("you could donate one dollar or two. Any donation will be highly", "blue-captcha") . "<br />\n";
+	echo __("appreciated and will help in further development of this project.", "blue-captcha") . "</h3>\n";
 	echo "<br />\n";
 
 	echo "\n<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\">\n";
@@ -285,25 +285,24 @@ function blcap_main ()
 	echo "</form>\n\n";
 	
 	echo "<hr style=\"color: cyan; width: 50%;\" />\n";	
-	echo "<h3 align=\"center\">''The entire project was proudly created with NotePad''</h3>\n";	
+	echo "<h3 align=\"center\">''" . __("The entire project was proudly created with NotePad", "blue-captcha") . "''</h3>\n";
 	echo "<hr style=\"color: cyan; width: 50%;\" />\n";
 
 	echo "<br />\n";
 	echo "<strong>\n";
-	echo "This program is free software; you can redistribute it and/or modify<br />\n";
-	echo "it under the terms of the GNU General Public License, version 2,<br />\n";
-	echo "as published by the Free Software Foundation.<br />\n";
+	echo __("This program is free software; you can redistribute it and/or modify", "blue-captcha") . "<br />\n";
+	echo __("it under the terms of the GNU General Public License, version 2,", "blue-captcha") . "<br />\n";
+	echo __("as published by the Free Software Foundation.", "blue-captcha") . "<br />\n";
 	echo "<br />\n";
-	echo "This program is distributed in the hope that it will be useful,<br />\n";
-	echo "but WITHOUT ANY WARRANTY; without even the implied warranty of<br />\n";
-	echo "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU<br />\n";
-	echo "General Public License for more details.<br />\n";
+	echo __("This program is distributed in the hope that it will be useful,", "blue-captcha") . "<br />\n";
+	echo __("but WITHOUT ANY WARRANTY; without even the implied warranty of", "blue-captcha") . "<br />\n";
+	echo __("MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU", "blue-captcha") . "<br />\n";
+	echo __("General Public License for more details.", "blue-captcha") . "<br />\n";
 	echo "<br />\n";
-	echo "You should have received a copy of the GNU General Public License,<br />\n";
-	echo "along with this program; if not, write to the Free Software Foundation,<br />\n";
-	echo "Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA<br />\n";
-	echo "<br />\n";	
-	echo "(C) 2012, Jotis Kokkalis<br />\n";
+	echo __("You should have received a copy of the GNU General Public License,", "blue-captcha") . "<br />\n";
+	echo __("along with this program; if not, write to the Free Software Foundation,", "blue-captcha") . "<br />\n";
+	echo __("Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA", "blue-captcha") . "<br />\n";
+	echo "<br />\n";
 	echo "</strong><br />\n";
 }
 
@@ -505,6 +504,7 @@ function blcap_loginform ()
 	$captcha_enabled = (isset ($sss["log_enabled"]) ? $sss["log_enabled"] : "yes");
 	$captcha_user = (isset ($sss["log_user"]) ? $sss["log_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	$captcha_refresh_type = (isset ($sss["gen_refreshtype"]) ? $sss["gen_refreshtype"] : "1");
     
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -553,8 +553,21 @@ function blcap_loginform ()
 			
 			if ($captcha_refresh == "yes")
 			{
-				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
-				$rf_span = "<span onclick=\"blcap_refresh_captcha();\" title=\"Click to refresh Captcha Image\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">Refresh</span><br />";
+				//$title = __("Click to refresh Captcha Image", "blue-captcha");
+				//$refresh_display = __("Refresh", "blue-captcha");
+				$title = "Click to refresh Captcha Image";
+				$refresh_display = "Refresh";
+				$rf_tag = "title=\"$title\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
+				if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
+				{
+					$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+					$special_type = $captcha_refresh_type == "2" ? "<br />" : " ";
+					$rf_span = "<span>" . $special_type . "<img src=\"$refresh_img_url\" title=\"$title\" alt=\"Refresh\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" /></span>";
+				}
+				else
+				{
+					$rf_span = "<br /><span onclick=\"blcap_refresh_captcha();\" title=\"$title\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">$refresh_display</span><br />";
+				}
 			}
 			else
 			{
@@ -564,7 +577,7 @@ function blcap_loginform ()
 				
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
-			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
+			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/>" . $rf_span . "<br />\n";
 			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
 			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"30\" " . $required_text . "/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
@@ -799,12 +812,13 @@ function blcap_loginact ()
 				}
 			}
 		
+			// TODO : add "https" or use str_replace("http://", "https://", $capurl) for https
 			if ($success == false)
 			{
 				if ($capurl != "")
 					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again</h4></div>\n";
 				die (0);
 			}
 			else
@@ -834,6 +848,7 @@ function blcap_registerform ()
 	$captcha_enabled = (isset ($sss["reg_enabled"]) ? $sss["reg_enabled"] : "yes");
 	$captcha_user = (isset ($sss["reg_user"]) ? $sss["reg_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	$captcha_refresh_type = (isset ($sss["gen_refreshtype"]) ? $sss["gen_refreshtype"] : "1");
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -882,8 +897,21 @@ function blcap_registerform ()
 			
 			if ($captcha_refresh == "yes")
 			{
-				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
-				$rf_span = "<span onclick=\"blcap_refresh_captcha();\" title=\"Click to refresh Captcha Image\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">Refresh</span><br />";
+				//$title = __("Click to refresh Captcha Image", "blue-captcha");
+				//$refresh_display = __("Refresh", "blue-captcha");
+				$title = "Click to refresh Captcha Image";
+				$refresh_display = "Refresh";
+				$rf_tag = "title=\"$title\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
+				if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
+				{
+					$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+					$special_type = $captcha_refresh_type == "2" ? "<br />" : " ";
+					$rf_span = "<span>" . $special_type . "<img src=\"$refresh_img_url\" title=\"$title\" alt=\"Refresh\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" /></span>";
+				}
+				else
+				{
+					$rf_span = "<br /><span onclick=\"blcap_refresh_captcha();\" title=\"$title\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">$refresh_display</span><br />";
+				}
 			}
 			else
 			{
@@ -893,7 +921,7 @@ function blcap_registerform ()
 			
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
-			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
+			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/>" . $rf_span . "<br />\n";
 			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
 			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"30\" " . $required_text ."/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
@@ -1117,12 +1145,13 @@ function blcap_registerflt ($err)
 				}
 			}
 
+			// TODO : add "https" or use str_replace("http://", "https://", $capurl) for https
 			if ($success == false)
 			{
 				if ($capurl != "")
 					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again</h4></div>\n";
 				die (0);
 			}
 			else
@@ -1154,6 +1183,7 @@ function blcap_lostpasswordform ()
 	$captcha_enabled = (isset ($sss["pwd_enabled"]) ? $sss["pwd_enabled"] : "yes");
 	$captcha_user = (isset ($sss["pwd_user"]) ? $sss["pwd_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	$captcha_refresh_type = (isset ($sss["gen_refreshtype"]) ? $sss["gen_refreshtype"] : "1");
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -1202,8 +1232,21 @@ function blcap_lostpasswordform ()
 			
 			if ($captcha_refresh == "yes")
 			{
-				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
-				$rf_span = "<span onclick=\"blcap_refresh_captcha();\" title=\"Click to refresh Captcha Image\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">Refresh</span><br />";
+				//$title = __("Click to refresh Captcha Image", "blue-captcha");
+				//$refresh_display = __("Refresh", "blue-captcha");
+				$title = "Click to refresh Captcha Image";
+				$refresh_display = "Refresh";
+				$rf_tag = "title=\"$title\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
+				if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
+				{
+					$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+					$special_type = $captcha_refresh_type == "2" ? "<br />" : " ";
+					$rf_span = "<span>" . $special_type . "<img src=\"$refresh_img_url\" title=\"$title\" alt=\"Refresh\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" /></span>";
+				}
+				else
+				{
+					$rf_span = "<br /><span onclick=\"blcap_refresh_captcha();\" title=\"$title\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">$refresh_display</span><br />";
+				}
 			}
 			else
 			{
@@ -1213,7 +1256,7 @@ function blcap_lostpasswordform ()
 			
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
-			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
+			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/>" . $rf_span . "<br />\n";
 			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
 			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" tabindex=\"20\" " . $required_text . "/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
@@ -1432,12 +1475,13 @@ function blcap_lostpasswordact ()
 				}
 			}
 
+			// TODO : add "https" or use str_replace("http://", "https://", $capurl) for https
 			if ($success == false)
 			{
 				if ($capurl != "")
 					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again</h4></div>\n";
 				die (0);
 			}
 			else
@@ -1454,7 +1498,7 @@ function blcap_commentform ()
 {
 	global $current_user;
 
-	if (defined("BLUE_CAPTCHA_COMMENT_FORM"))
+	if (defined ("BLUE_CAPTCHA_COMMENT_FORM"))
 	{
 		return;
 	}
@@ -1472,7 +1516,12 @@ function blcap_commentform ()
 	$captcha_enabled = (isset ($sss["com_enabled"]) ? $sss["com_enabled"] : "yes");
 	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
+	$captcha_refresh_type = (isset ($sss["gen_refreshtype"]) ? $sss["gen_refreshtype"] : "1");
+	$captcha_positioncomment = (isset ($sss["gen_positioncomment"]) ? $sss["gen_positioncomment"] : "1");
+	$captcha_positioncommentvalue = (isset ($sss["gen_positioncommentvalue"]) ? $sss["gen_positioncommentvalue"] : "");
 
+	if ($captcha_positioncomment == "1" || $captcha_positioncommentvalue == "") $captcha_default_position = true;
+	else $captcha_default_position = false;
 
 	define ("BLUE_CAPTCHA_COMMENT_FORM", 1);
 
@@ -1523,8 +1572,21 @@ function blcap_commentform ()
 			
 			if ($captcha_refresh == "yes")
 			{
-				$rf_tag = "title=\"Click to refresh Captcha Image\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
-				$rf_span = "<span onclick=\"blcap_refresh_captcha();\" title=\"Click to refresh Captcha Image\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">Refresh</span><br />";
+				//$title = __("Click to refresh Captcha Image", "blue-captcha");
+				//$refresh_display = __("Refresh", "blue-captcha");
+				$title = "Click to refresh Captcha Image";
+				$refresh_display = "Refresh";
+				$rf_tag = "title=\"$title\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
+				if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
+				{
+					$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+					$special_type = $captcha_refresh_type == "2" ? "<br />" : " ";
+					$rf_span = "<span>" . $special_type . "<img src=\"$refresh_img_url\" title=\"$title\" alt=\"Refresh\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" /></span>";
+				}
+				else
+				{
+					$rf_span = "<br /><span onclick=\"blcap_refresh_captcha();\" title=\"$title\" onmouseout=\"style.color='black';style.cursor='';\" onmouseover=\"style.color='red';style.cursor='pointer';\">$refresh_display</span><br />";
+				}
 			}
 			else
 			{
@@ -1532,16 +1594,22 @@ function blcap_commentform ()
 				$rf_span = "";
 			}
 		
-			echo "\n\t<p>\n";
-			echo "\t\t<div align=\"left\">\n";
-			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/><br />" . $rf_span . "<br />\n";
-			echo "\t\t\t<p class=\"comment-form-captcha\"><label for=\"user_captcha\">Captcha</label> <span class=\"required\">*</span>\n";
-			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" aria-required=\"true\" " . $required_text . "/><br />\n";
-			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" /></p>\n";
-			echo "\t\t</div>\n";
-			echo "\t</p>\n";
+
+			if ($captcha_default_position == true) // default position
+			{
+				
+				echo "\n\t<p>\n";
+				echo "\t\t<div align=\"left\">\n";
+				echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/>" . $rf_span . "<br />\n";
+				echo "\t\t\t<p class=\"comment-form-captcha\"><label for=\"user_captcha\">Captcha</label> <span class=\"required\">*</span>\n";
+				echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"Enter Captcha here\" value=\"\" size=\"15\" aria-required=\"true\" " . $required_text . "/><br />\n";
+				echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" /></p>\n";
+				echo "\t\t</div>\n";
+				echo "\t</p>\n";
+				
+			}
 	
-			if ($captcha_refresh == "yes" || $captcha_empty_check == "yes" || $captcha_keep_comment == "yes")
+			if ($captcha_default_position == false || $captcha_refresh == "yes" || $captcha_empty_check == "yes" || $captcha_keep_comment == "yes")
 			{
 				echo "\n";
 				echo "\t<script language=\"javascript\">\n";
@@ -1576,9 +1644,123 @@ function blcap_commentform ()
 					echo "\t}\n";
 					echo "\tblcap_set_onclick();\n";
 				}
+				if ($captcha_default_position == false && !defined ("BLUE_CAPTCHA_COMMENT_CREATE_CAPTCHA_FUNCTION"))
+				{
+					define ("BLUE_CAPTCHA_COMMENT_CREATE_CAPTCHA_FUNCTION", 1);
 
+					// process value field
+					$val = $captcha_positioncommentvalue;
+					$vname = $val;
+					$vtype = "class";
+					$vinsert = "before";
+					if (strpos ($val, ':') !== false)
+					{
+						$parts_arr = explode (":", $val);
+						if (isset ($parts_arr[0])) $vname = trim ($parts_arr[0]);
+						if (isset ($parts_arr[1]) && trim ($parts_arr[1]) != '') $vtype = $parts_arr[1];
+						if (isset ($parts_arr[2]) && trim ($parts_arr[2]) != '') $vinsert = $parts_arr[2];
+						$vtype = trim (strtolower ($vtype));
+						$vinsert = trim (strtolower ($vinsert));
+					}
+					
+					echo "\tfunction blcap_create_captcha()\n";
+					echo "\t{\n";
+					echo "\t\tvar element1 = document.createElement (\"p\");\n";
+					echo "\t\tvar img = document.createElement (\"img\");\n";
+					echo "\t\tvar spanrefresh = document.createElement (\"span\");\n";
+					echo "\t\tvar inp = document.createElement (\"input\");\n";
+					echo "\t\tvar inphid = document.createElement (\"input\");\n";
+					echo "\t\tvar span = document.createElement (\"span\");\n";
+					echo "\t\tvar label = document.createElement (\"label\");\n";
+					echo "\t\tlabel.setAttribute (\"for\", \"user_captcha\");\n";
+					echo "\t\tlabel.appendChild (document.createTextNode (\"Captcha \"));\n";
+					echo "\t\tspan.setAttribute (\"class\", \"required\");\n";
+					echo "\t\tspan.appendChild (document.createTextNode(\"*\"));\n";
+					echo "\t\timg.setAttribute (\"id\", \"blcap_img\");\n";
+					echo "\t\timg.setAttribute (\"src\", \"$captchaurl\");\n";
+					echo "\t\timg.setAttribute (\"alt\", \"Blue Captcha Image\");\n";
+					if ($captcha_refresh == "yes")
+					{
+						echo "\t\timg.setAttribute (\"onclick\", \"blcap_refresh_captcha();\");\n";
+						echo "\t\timg.setAttribute (\"onmouseover\", \"style.cursor='pointer';\");\n";
+						echo "\t\timg.setAttribute (\"title\", \"Click to refresh Captcha Image\");\n";
+
+						if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
+						{
+							$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+							echo "\t\tvar imgrefresh = document.createElement (\"img\");\n";
+							echo "\t\timgrefresh.setAttribute (\"src\", \"$refresh_img_url\");\n";
+							echo "\t\timgrefresh.setAttribute (\"onclick\", \"blcap_refresh_captcha();\");\n";
+							echo "\t\timgrefresh.setAttribute (\"onmouseover\", \"style.cursor='pointer';\");\n";
+							echo "\t\timgrefresh.setAttribute (\"title\", \"Click to refresh Captcha Image\");\n";
+
+							if ($captcha_refresh_type == "2")
+								echo "\t\tspanrefresh.appendChild (document.createElement (\"br\"));\n";
+							else
+								echo "\t\tspanrefresh.appendChild (document.createTextNode (\" \"));\n";
+							echo "\t\tspanrefresh.appendChild (imgrefresh);\n";
+						}
+						else
+						{
+							echo "\t\tspanrefresh.setAttribute (\"onclick\", \"blcap_refresh_captcha();\");\n";
+							echo "\t\tspanrefresh.setAttribute (\"onmouseout\", \"style.color='black';style.cursor='';\");\n";
+							echo "\t\tspanrefresh.setAttribute (\"onmouseover\", \"style.color='red';style.cursor='pointer';\");\n";
+							echo "\t\tspanrefresh.setAttribute (\"title\", \"Click to refresh Captcha Image\");\n";
+							echo "\t\tspanrefresh.appendChild (document.createElement (\"br\"));\n";
+							echo "\t\tspanrefresh.appendChild (document.createTextNode (\"Refresh\"));\n";
+							echo "\t\tspanrefresh.appendChild (document.createElement (\"br\"));\n";
+						}
+					}
+
+					echo "\t\tinp.setAttribute (\"type\", \"text\");\n";
+					echo "\t\tinp.setAttribute (\"name\", \"user_captcha\");\n";
+					echo "\t\tinp.setAttribute (\"id\", \"user_captcha\");\n";
+					echo "\t\tinp.setAttribute (\"title\", \"Enter Captcha here\");\n";
+					echo "\t\tinp.setAttribute (\"value\", \"\");\n";
+					echo "\t\tinp.setAttribute (\"size\", \"15\");\n";
+					echo "\t\tinp.setAttribute (\"aria-required\", \"true\");\n";
+					if ($required_text != '')
+						echo "\t\tinp.setAttribute (\"required\", \"true\");\n";
+					echo "\t\tinphid.setAttribute (\"type\", \"hidden\");\n";
+					echo "\t\tinphid.setAttribute (\"name\", \"captcha_id\");\n";
+					echo "\t\tinphid.setAttribute (\"value\", \"$sid\");\n";
+					echo "\t\telement1.setAttribute (\"align\", \"left\");\n";
+					echo "\t\telement1.appendChild (img);\n";
+					echo "\t\telement1.appendChild (spanrefresh);\n";
+					echo "\t\telement1.appendChild (document.createElement (\"br\"));\n";
+					echo "\t\telement1.appendChild (label);\n";
+					//echo "\t\telement1.appendChild (span);\n"; // TODO : uncomment this ?
+					echo "\t\telement1.appendChild (inp);\n";
+					echo "\t\telement1.appendChild (inphid);\n";
+					
+					if ($vtype == "id")
+					{
+						echo "\t\tvar src = document.getElementById (\"$vname\");\n";
+						echo "\t\tif (src)\n";
+						if ($vinsert == "before")					
+							echo "\t\t\tsrc.parentNode.insertBefore (element1, src.previousSibling);\n";
+						else if ($vinsert == "after")
+							echo "\t\t\tsrc.parentNode.insertBefore (element1, src.nextSibling);\n";
+						else
+							echo "\t\t\tsrc.parentNode.appendChild (element1);\n";
+					}
+					else // class
+					{
+						echo "\t\tvar src = document.getElementsByClassName (\"$vname\");\n";
+						echo "\t\tif (src[0])\n";
+						if ($vinsert == "before")					
+							echo "\t\t\tsrc[0].insertBefore (element1, src[0].firstChild);\n";
+						else if ($vinsert == "after")
+							echo "\t\t\tsrc[0].insertBefore (element1, src[0].firstChild.nextSibling);\n";
+						else
+							echo "\t\t\tsrc[0].appendChild (element1);\n";
+					}
+
+					echo "\t}\n";
+				}
 				echo "\t</script>\n";
 				echo "\n";
+
 			}
 		}
 }
@@ -1605,24 +1787,28 @@ function blcap_commentform_2 ()
 	$captcha_enabled = (isset ($sss["com_enabled"]) ? $sss["com_enabled"] : "yes");
 	$captcha_user = (isset ($sss["com_user"]) ? $sss["com_user"] : "0");
 	$captcha_keep_comment = (isset ($sss["gen_keepcomment"]) ? $sss["gen_keepcomment"] : "no");
+	$captcha_positioncomment = (isset ($sss["gen_positioncomment"]) ? $sss["gen_positioncomment"] : "1");
+	$captcha_positioncommentvalue = (isset ($sss["gen_positioncommentvalue"]) ? $sss["gen_positioncommentvalue"] : "");
 
-	if ($captcha_active == "yes" && $captcha_enabled == "yes" && $captcha_keep_comment == "yes")
+	if ($captcha_positioncomment == "1" || $captcha_positioncommentvalue == "") $captcha_default_position = true;
+	else $captcha_default_position = false;
+
+	if ($captcha_active == "yes" && $captcha_enabled == "yes" && ($captcha_keep_comment == "yes" || $captcha_default_position == false))
 		if ($user_level <= $captcha_user)
 		{
 			$keep_comment = $_SESSION["captcha_keepcomment"];
 			$keep_comment = trim ($keep_comment);
 			$keep_url = (isset ($_SESSION["captcha_keepurl"]) ? $_SESSION["captcha_keepurl"] : "");
 			$current_url = blcap_get_current_url ();
-			if ($keep_comment != "" && ($current_url == $keep_url || $keep_url == ""))
+			if ($captcha_default_position == false || ($keep_comment != "" && ($current_url == $keep_url || $keep_url == "")))
 			{
 				echo "\n";
 				echo "\t<script language=\"javascript\">\n";
-
 				$keep_comment = str_replace ("\r", "", $keep_comment);
 				$keep_comment = str_replace ("\n", "", $keep_comment);
 				$keep_comment = str_replace ("\"", "''", $keep_comment);
+				echo "\tblcap_create_captcha();\n";
 				echo "\tif (document.getElementById(\"comment\")) document.getElementById(\"comment\").value = \"" . $keep_comment . "\";\n";
-
 				echo "\t</script>\n";
 				echo "\n";
 				$_SESSION["captcha_keepcomment"] = "";
@@ -1863,10 +2049,12 @@ function blcap_commentflt ($subcomment)
 					$_SESSION["captcha_keepurl"] = $capurl;
 				}
 
+				// TODO : add "https" or use str_replace("http://", "https://", $capurl) for https
+
 				if ($capurl != "")
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px; background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Click <a href=\"" . $capurl . "\">here</a> to go back and try again.</h4></div>\n";
 				else
-					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again.</h4></div>\n";
+					echo "<div style=\"padding: 5px; border: 2px solid blue; border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; -webkit-border-radius: 10px; -o-border-radius: 10px;  background: yellow; color: red; font-weight: bold; text-align: center;\"><h3>You have entered a Wrong CAPTCHA.</h3><h4>Go back and try again</h4></div>\n";
 				die (0);
 			}
 			else
@@ -1970,6 +2158,9 @@ function blcap_init ()
 			die (0);
 		}
 	}
+
+	// Localization
+	load_plugin_textdomain ("blue-captcha", false, dirname (plugin_basename(__FILE__)) . "/languages");
 }
 
 global $wp_version;

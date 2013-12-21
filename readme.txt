@@ -1,17 +1,22 @@
 ﻿=== Blue Captcha ===
 Contributors: J. Kokkalis (BlueCoder)
+Author URI: http://mybluestuff.blogspot.gr
+Donate link: http://mybluestuff.blogspot.gr/p/donate_21.html
 Tags: captcha, recaptcha, security, protection, safety, spam, antispam, anti-spam, spammer, login, comments, register, password recovery, blue captcha
 Requires at least: 2.8.6
-Tested up to: 3.6
-Stable tag: 1.6
+Tested up to: 3.8
+Stable tag: 1.7
 License: GPLv2
 
 Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons.
 
-
 == Description ==
 
 Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons. It is easily installed and provides high protection against spammers, bots or unwanted persons.
+
+= Do you like Blue Captcha? Then Support it! =
+
+If you like Blue Captcha, then you can help it grow by [__donating one dollar__](http://mybluestuff.blogspot.gr/p/donate_21.html). Any donation will be highly appreciated and will help in further development of this plugin.
 
 Features:
 --------
@@ -34,6 +39,12 @@ Features:
 
 You can visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue Captcha Page</a> for more information.
 
+= Blue Captcha Translation =
+
+Blue Captcha is now available in Greek.
+
+I would be very grateful if someone is willing to translate Blue Captcha to another language.
+For those interested, the template translation file ("blue-captcha.pot") is located on "languages" folder of blue-captcha plugin.
 
 == Installation ==
 1. Copy the full directory (blue-captcha) into your wp-content/plugins directory or download the plugin from plugin administration page
@@ -59,6 +70,16 @@ None for Now
 12. Typical Brute Force Attack spotted in Log File
 
 == Changelog ==
+
+= 1.7 =
+* 21 Dec 2013
+* New option "Captcha Position On Comment Form" was added in General Options (Beta)
+* New option "Refresh Type" was added in General Options (default text "Refresh" or icon can be used for refreshing captcha)
+* Opportunity of selecting a particular color & background for all captcha types
+* Template translation file ("blue-captcha.pot") was created and located in "languages" folder
+* Translation to Greek Language (el) was added - Translation by Jotis
+* Bug with "cut" non-english characters in Log File was fixed
+* Minor UI improvements
 
 = 1.6 =
 * 16 Aug 2013

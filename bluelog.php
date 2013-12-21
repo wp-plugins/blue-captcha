@@ -80,20 +80,20 @@
 			if ($res2["result"] == "OK")
 			{
 				echo "<div align=\"center\"><div class=\"updated\">\n";
-				echo "<br><b>Log(s) successfully deleted!</b>";
+				echo "<br><b>" . __("Log(s) successfully deleted", "blue-captcha") . "!</b>";
 				echo "<br><br></div></div>\n";
 			}
 			else
 			{
 				echo "<div align=\"center\"><div class=\"updated\">\n";
-				echo "<br>An error occurred.<br>";
+				echo "<br>" . __("An error occurred", "blue-captcha") . "<br>";
 				echo "<br></div></div>\n";
 			}
 		}
 		else
 		{
 			echo "<div align=\"center\"><div class=\"updated\">\n";
-			echo "<br><b>No Logs Selected</b>";
+			echo "<br><b>" . __("No Logs Selected", "blue-captcha") . "</b>";
 			echo "<br><br></div></div>\n";
 		}
 		echo "<br>\n";
@@ -129,7 +129,7 @@
 	if ($res0["result"] != "OK") 
 	{
 		echo "<div align=\"center\"><div class=\"updated\">\n";
-		echo "<br>An error occurred.<br>";
+		echo "<br>" . __("An error occurred", "blue-captcha") . "<br>";
 		echo $res0["errorcode"] . " : " . $res0["errormessage"];
 		echo "<br><br></div></div>\n";
 		echo "<br>\n";
@@ -185,7 +185,7 @@
 		
 		$info = ($ipf != "" ? " (IP: $ipf)" : "");
 		echo "<table width=\"100%\" class=\"widefat page fixed\" cellspacing=\"0\">\n";
-		echo "<thead><tr><th><div align=\"center\"><h2 style=\"color: blue;\">Blue Captcha - Log" . $info . "</h2></div></th></tr></thead>";
+		echo "<thead><tr><th><div align=\"center\"><h2 style=\"color: blue;\">Blue Captcha - " . __("Log", "blue-captcha") . " " . $info . "</h2></div></th></tr></thead>";
 		echo "</table>\n";
 		
 		echo "<table width=\"100%\" class=\"widefat page fixed\" cellspacing=\"0\">\n";
@@ -196,7 +196,7 @@
 		
 		echo "<form method=\"post\" name=\"blcap_log_filter\" action=\"" . $blcap_logsite . "\">\n";
 		
-		echo "Pages: ";
+		echo __("Pages", "blue-captcha") . ": ";
 		
 		if ($totalpages > 0)
 		{
@@ -209,7 +209,7 @@
 				$this_page = $firstpage;
 				if ($ipf == "") $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
 				else $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&ipf=" . urlencode ($ipf) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
-				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"Go to page $this_page\">$this_page</a>";
+				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"" . __("Go to page", "blue-captcha") . " $this_page\">$this_page</a>";
 				echo " &nbsp; ";
 				echo " ... ";
 				echo " &nbsp; ";
@@ -229,7 +229,7 @@
 				if ($k == $pagef)
 					echo "<span class=\"blcap_pagenumsel\">$this_page</span>";
 				else
-					echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"Go to page $this_page\">$this_page</a>";
+					echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"" . __("Go to page", "blue-captcha") . " $this_page\">$this_page</a>";
 				echo " &nbsp; ";
 			}
 			
@@ -240,7 +240,7 @@
 				$this_page = $lastpage;
 				if ($ipf == "") $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
 				else $link = $blcap_logsite . "&p=show&kindf=" . urlencode ($kindf) . "&typef=" . urlencode ($typef) . "&datef=" . urlencode ($datef) . "&ipf=" . urlencode ($ipf) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
-				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"Go to page $this_page\">$this_page</a>";
+				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"" . __("Go to page", "blue-captcha") . " $this_page\">$this_page</a>";
 				echo " &nbsp; \n";
 			}
 		}
@@ -252,7 +252,7 @@
 		
 		echo "&nbsp;\n";
 
-		echo "Page: ";
+		echo __("Page", "blue-captcha") . ": ";
 		echo "<select name=\"sel_page\">\n";
 		for ($k = 0 ; $k < $totalpages; $k++)
 		{
@@ -263,7 +263,7 @@
 		}
 		echo "</select>\n";
 		
-		echo "&nbsp; Entries Per Page: ";
+		echo "&nbsp; " . __("Entries Per Page", "blue-captcha") . ": ";
 
 		$reslistarr = explode ("#", $reslist); 
 
@@ -278,39 +278,39 @@
 			}
 		echo "</select>\n";
 		
-		echo "<br>Type: ";
+		echo "<br>" . __("Type", "blue-captcha") . ": ";
 		echo "<select name=\"sel_kind\">\n";
 		if ($kindf == "") $str = " selected"; else $str = "";
-		echo "<option value=\"\"" . $str .">All Types</option>\n";
+		echo "<option value=\"\"" . $str .">" . __("All Types", "blue-captcha") . "</option>\n";
 		if ($kindf == "LOGIN") $str = " selected"; else $str = "";
-		echo "<option value=\"LOGIN\"" . $str .">Login</option>\n";
+		echo "<option value=\"LOGIN\"" . $str .">" . __("Login", "blue-captcha") . "</option>\n";
 		if ($kindf == "REGISTER") $str = " selected"; else $str = "";
-		echo "<option value=\"REGISTER\"" . $str .">Register</option>\n";
+		echo "<option value=\"REGISTER\"" . $str .">" . __("Register", "blue-captcha") . "</option>\n";
 		if ($kindf == "LOST_PASSWORD") $str = " selected"; else $str = "";
-		echo "<option value=\"LOST_PASSWORD\"" . $str .">Lost Password</option>\n";
+		echo "<option value=\"LOST_PASSWORD\"" . $str .">" . __("Password Recovery", "blue-captcha") . "</option>\n";
 		if ($kindf == "COMMENT") $str = " selected"; else $str = "";
-		echo "<option value=\"COMMENT\"" . $str .">Comment</option>\n";
+		echo "<option value=\"COMMENT\"" . $str .">" . __("Comment", "blue-captcha") . "</option>\n";
 		echo "</select>\n";
 		
-		echo "Result: ";
+		echo __("Result", "blue-captcha") . ": ";
 		echo "<select name=\"sel_type\">\n";
 		if ($typef == "") $str = " selected"; else $str = "";
-		echo "<option value=\"\"" . $str .">All Results</option>\n";
+		echo "<option value=\"\"" . $str .">" . __("All Results", "blue-captcha") . "</option>\n";
 		if ($typef == "SUCCESS") $str = " selected"; else $str = "";
-		echo "<option value=\"SUCCESS\"" . $str .">Success</option>\n";
+		echo "<option value=\"SUCCESS\"" . $str .">" . __("Success", "blue-captcha") . "</option>\n";
 		if ($typef == "BANNED") $str = " selected"; else $str = "";
-		echo "<option value=\"BANNED\"" . $str .">Banned</option>\n";
+		echo "<option value=\"BANNED\"" . $str .">" . __("Banned", "blue-captcha") . "</option>\n";
 		if ($typef == "FAIL") $str = " selected"; else $str = "";
-		echo "<option value=\"FAIL\"" . $str .">Fail</option>\n";
+		echo "<option value=\"FAIL\"" . $str .">" . __("Fail", "blue-captcha") . "</option>\n";
 		echo "</select>\n";
 		
-		echo "Date: ";
+		echo __("Date", "blue-captcha") . ": ";
 		echo "<select name=\"blcap_log_date_filter\">\n";
 
 		if ($datef == "ALL")
 			$str = " selected";
 		else $str = "";
-		echo "<option value=\"ALL\"" . $str . ">All Dates</option>\n";
+		echo "<option value=\"ALL\"" . $str . ">" . __("All Dates", "blue-captcha") . "</option>\n";
 		
 		for ($i = 0 ; $i < $dates ; $i++)
 		{
@@ -327,7 +327,7 @@
 		echo "</select>\n";
 		
 		
-		echo "<input type=\"submit\" class=\"button\" name=\"button_filter\" value=\"  Apply  \" />\n";
+		echo "<input type=\"submit\" class=\"button\" name=\"button_filter\" value=\"  " . __("Apply", "blue-captcha") . "  \" />\n";
 		
 		echo "<input type=\"hidden\" name=\"action\" value=\"apply_filter\" />\n";
 
@@ -351,23 +351,26 @@
 		echo "<thead>\n";
 		echo "<tr>\n";
 
-		echo "<th scope=\"col\" class=\"manage-column column-cb check-column\" style=\"\"><input type=\"checkbox\" id=\"log_selall\" title=\"Select All / None\" onclick=\"blcap_logselall();\" /></th>\n";
+		echo "<th scope=\"col\" class=\"manage-column column-cb check-column\" style=\"\"><input type=\"checkbox\" id=\"log_selall\" title=\"" . __("Select All / None", "blue-captcha") . "\" onclick=\"blcap_logselall();\" /></th>\n";
 
-		echo "<th width=\"5%\"><div align=\"center\">No</div></th>\n";
+		$sn = __("S/N", "blue-captcha");
+		if ($sn === "S/N") $sn = "No";
+
+		echo "<th width=\"5%\"><div align=\"center\">" . $sn . "</div></th>\n";
 		
-		echo "<th width=\"10%\"><div align=\"center\">Date & Time</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("Date & Time", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"11%\"><div align=\"center\">IP Address<br>(Proxy)</div></th>\n";
+		echo "<th width=\"11%\"><div align=\"center\">" . __("IP Address<br>(Proxy)", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"12%\"><div align=\"center\">Captcha<br>(# Refreshes)</div></th>\n";
+		echo "<th width=\"12%\"><div align=\"center\">" . __("Captcha<br>(# Refreshes)", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"13%\"><div align=\"center\">Response Time<br>(# Given Chars)</div></th>\n";
+		echo "<th width=\"13%\"><div align=\"center\">" . __("Response Time<br>(# Given Chars)", "blue-captcha") . "</div></th>\n";
 		
-		echo "<th width=\"10%\"><div align=\"center\">Type</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("Type", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"10%\"><div align=\"center\">Result<br>(% Spam P.)</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("Result<br>(% Spam P.)", "blue-captcha") . "</div></th>\n";
 		
-		echo "<th width=\"25%\"><div align=\"center\">Additional Info</div></th>\n";
+		echo "<th width=\"25%\"><div align=\"center\">" . __("Additional Info", "blue-captcha") . "</div></th>\n";
 
 		echo "</tr>\n";
 		echo "</thead>\n";
@@ -402,7 +405,7 @@
 			if ($totalchars == "") $totalchars = "?";
 			if ($pos == "") $pos = "-"; else $pos = $pos . " %";
 
-			if ($type == "LOST_PASSWORD") $type = "LOST PASSWORD";
+			if ($type == "LOST_PASSWORD") $type = "PASSWORD RECOVERY";
             
 			if (strtoupper ($capres) == "SUCCESS") $rescolor = "green";
 			else if (strtoupper ($capres) == "BANNED") $rescolor = "blue";
@@ -426,12 +429,12 @@
 					foreach ($info_pieces as $key => $val)
 					{
 						$len = ($key < 3 ? (int)($MIN_INFO_LEN / 2) : $MIN_INFO_LEN);
-						$piece = ( strlen ($val) <= $len) ? $val : substr ($val, 0, $len) . "...";
+						$piece = ( mb_strlen ($val, "utf-8") <= $len) ? $val : mb_substr ($val, 0, $len, "utf-8") . "...";
 						if ($cut_info != "") $cut_info = $cut_info . "<br>";
 						$cut_info = $cut_info . $piece;
 					}
 
-				if ($cut_info == "") $cut_info = substr ($info, 0, 2 * $MIN_INFO_LEN) . "...";
+				if ($cut_info == "") $cut_info = mb_substr ($info, 0, 2 * $MIN_INFO_LEN, "utf-8") . "...";
 
 				$info_special = "<span id=\"blcap_cutinfo_$i\" style=\"display: inline;\">";
 				$info_special = $info_special . $cut_info;
@@ -439,7 +442,7 @@
 				$info_special = $info_special . "<span id=\"blcap_info_$i\" style=\"display: none;\">";
 				$info_special = $info_special . $info;
 				$info_special = $info_special . "</span>";
-				$info_special = $info_special . "<input id=\"blcap_button_$i\" type=\"button\" title=\"Show/Hide more details\" value=\">\" onclick=\"blcap_show_details($i);\" \>";			
+				$info_special = $info_special . "<input id=\"blcap_button_$i\" type=\"button\" title=\"" . __("Show/Hide more details", "blue-captcha") . "\" value=\">\" onclick=\"blcap_show_details($i);\" \>";			
 			}
 
 			$ip_str = $ip;
@@ -447,14 +450,14 @@
 			if ($informer_site != "")
 			{
 				$informer_site1 = str_replace ("{ip}", $ip, $informer_site);
-				$ip_str = "<a href=\"" . $informer_site1 . "\" title=\"Click here to get details about this IP\" rel=\"noreferrer\" target=\"_blank\">";
+				$ip_str = "<a href=\"" . $informer_site1 . "\" title=\"" . __("Click here to get details about this IP", "blue-captcha") . "\" rel=\"noreferrer\" target=\"_blank\">";
 				$ip_str = $ip_str . $ip;
 				$ip_str = $ip_str . "</a>";
 
 				if ($proxy_str != "-")
 				{
 					$informer_site2 = str_replace ("{ip}", $proxy, $informer_site);
-					$proxy_str = "<a href=\"" . $informer_site2 . "\" title=\"Click here to get details about this IP\" rel=\"noreferrer\" target=\"_blank\">";
+					$proxy_str = "<a href=\"" . $informer_site2 . "\" title=\"" . __("Click here to get details about this IP", "blue-captcha") . "\" rel=\"noreferrer\" target=\"_blank\">";
 					$proxy_str = $proxy_str . $proxy;
 					$proxy_str = $proxy_str . "</a>";					
 				}
@@ -469,8 +472,8 @@
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$ip_str<br>($proxy_str)</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$captcha<br>($refresh)</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$totaltime<br>($totalchars)</font></div></td>\n";
-			echo "<td><div align=\"center\"><font color=\"$rescolor\">$type</font></div></td>\n";
-			echo "<td><div align=\"center\"><font color=\"$rescolor\">$capres<br>($pos)</font></div></td>\n";
+			echo "<td><div align=\"center\"><font color=\"$rescolor\">" . __($type, "blue-captcha") . "</font></div></td>\n";
+			echo "<td><div align=\"center\"><font color=\"$rescolor\">" . __($capres, "blue-captcha") . "<br>($pos)</font></div></td>\n";
 			echo "<td><div align=\"left\"><font color=\"$rescolor\">$info_special</font></div></td>\n";
 	
 			echo "</tr>\n";
@@ -481,11 +484,11 @@
 		echo "<tfoot><tr>\n";
 		echo "<th colspan=\"9\">\n";
 		echo "<div align=\"center\">\n";
-		echo "<input type=\"button\" class=\"button-secondary\" title=\"Click here to erase the selected logs\" value=\"  Delete Selected  \" onclick=\"blcap_delselected();\" />\n";
+		echo "<input type=\"button\" class=\"button-secondary\" title=\"" . __("Click here to erase the selected logs", "blue-captcha") . "\" value=\"  " . __("Delete Selected", "blue-captcha") . "  \" onclick=\"blcap_delselected();\" />\n";
 		echo " &nbsp;&nbsp; ";
-		echo "<input type=\"button\" class=\"button-primary\" title=\"Click here to erase all logs\" value=\"  Delete Log File  \" onclick=\"blcap_delall();\" />\n";
+		echo "<input type=\"button\" class=\"button-primary\" title=\"" . __("Click here to erase all logs", "blue-captcha") . "\" value=\"  " . __("Delete Log File", "blue-captcha") . "  \" onclick=\"blcap_delall();\" />\n";
 		echo " &nbsp;&nbsp; ";
-		echo "<a href=\"" . $blcap_siteurl . "?bcapact=exp\" target=\"_blank\"><input type=\"button\" class=\"button-secondary\" title=\"Click here to export logs to CSV file\" value=\"  Export to CSV  \" /></a>\n";
+		echo "<a href=\"" . $blcap_siteurl . "?bcapact=exp\" target=\"_blank\"><input type=\"button\" class=\"button-secondary\" title=\"" . __("Click here to export logs to CSV file", "blue-captcha") . "\" value=\"  " . __("Export to CSV", "blue-captcha") . "  \" /></a>\n";
 
 		echo "</div>\n";
 		echo "</th>\n";
@@ -500,13 +503,13 @@
 	
 		echo "function blcap_delselected ()\n";
 		echo "{\n";
-		echo "\t var conf = confirm (\"Are you sure that you want to delete the selected log entries?\", \"BLUE CAPTCHA\");\n";
+		echo "\t var conf = confirm (\"" . __("Are you sure that you want to delete the selected log entries?", "blue-captcha") . "\", \"BLUE CAPTCHA\");\n";
 		echo "\t if (conf) document.getElementById('showlogsform').submit();\n";
 		echo "}\n";
 		echo "\n";
 		echo "function blcap_delall ()\n";
 		echo "{\n";
-		echo "\t var conf = confirm (\"Are you sure that you want to delete ALL log entries?\", \"BLUE CAPTCHA\");\n";
+		echo "\t var conf = confirm (\"" . __("Are you sure that you want to delete ALL log entries?", "blue-captcha") . "\", \"BLUE CAPTCHA\");\n";
 		echo "\t if (conf)\n";
 		echo "\t {\n";
 		echo "\t\t document.getElementById (\"blcap_action\").value='deleteall';\n";
@@ -551,7 +554,7 @@
 	else 
 	{
 		echo "<div align='center'><div class='updated'>\n";
-		echo "<br>An error occurred.<br>";
+		echo "<br>" . __("An error occurred", "blue-captcha") . "<br>";
 		echo "<br></div></div>\n";
 	}
 	

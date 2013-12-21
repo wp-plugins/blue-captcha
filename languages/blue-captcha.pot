@@ -1,0 +1,742 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blue Captcha\n"
+"POT-Creation-Date: 2013-12-08 17:20+0200\n"
+"PO-Revision-Date: 2013-12-08 17:22+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: YOUR NAME <YOUR_EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+msgid "Visit my blue stuff page at"
+msgstr ""
+
+msgid "where you can find documentation about Blue Captcha"
+msgstr ""
+
+msgid "By Jotis Kokkalis"
+msgstr ""
+
+msgid "This plugin is free and will always be free"
+msgstr ""
+
+msgid "However, if this plugin has protected you from spammers,"
+msgstr ""
+
+msgid "has helped you in some way or if you just like it, then"
+msgstr ""
+
+msgid "you could donate one dollar or two. Any donation will be highly"
+msgstr ""
+
+msgid "appreciated and will help in further development of this project."
+msgstr ""
+
+msgid "The entire project was proudly created with NotePad"
+msgstr ""
+
+msgid "This program is free software; you can redistribute it and/or modify"
+msgstr ""
+
+msgid "it under the terms of the GNU General Public License, version 2,"
+msgstr ""
+
+msgid "as published by the Free Software Foundation."
+msgstr ""
+
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU"
+msgstr ""
+
+msgid "General Public License for more details."
+msgstr ""
+
+msgid "You should have received a copy of the GNU General Public License,"
+msgstr ""
+
+msgid "along with this program; if not, write to the Free Software Foundation,"
+msgstr ""
+
+msgid "Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+msgstr ""
+
+msgid "Special Thanks To The Following Contributors"
+msgstr ""
+
+msgid "Uninstall"
+msgstr ""
+
+msgid "Click here to uninstall plugin"
+msgstr ""
+
+msgid "Are you sure that you want to uninstall Blue Captcha Plugin?"
+msgstr ""
+
+msgid "Blue Captcha has been successfully uninstalled."
+msgstr ""
+
+msgid "You may now deactivate and delete plugin."
+msgstr ""
+
+msgid "Click to refresh Captcha Image"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Enter Captcha here"
+msgstr ""
+
+msgid "You have entered a Wrong CAPTCHA."
+msgstr ""
+
+msgid "Go back and try again."
+msgstr ""
+
+msgid "Click"
+msgstr ""
+
+msgid "here"
+msgstr ""
+
+msgid "to go back and try again."
+msgstr ""
+
+# Concerning General Options
+msgid "General"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Password Recovery"
+msgstr ""
+
+msgid "Comment Posting"
+msgstr ""
+
+msgid "Blocking"
+msgstr ""
+
+msgid "General Options"
+msgstr ""
+
+msgid "Plugin Is Active"
+msgstr ""
+
+msgid "Make Empty Captcha Check Before Form Submission"
+msgstr ""
+
+msgid "Keep Comment After Failed Captcha"
+msgstr ""
+
+msgid "Ignore Case Sensitivity In Characters"
+msgstr ""
+
+msgid "IP Informer URL"
+msgstr ""
+
+msgid "Allow Pingbacks & Trackbacks"
+msgstr ""
+
+msgid "Keep Actions In Log"
+msgstr ""
+
+msgid "Save Additional Info In Log"
+msgstr ""
+
+msgid "Save Passwords In Log"
+msgstr ""
+
+msgid "Image Size In Double Layer"
+msgstr ""
+
+msgid "Captcha Location On Comment Form"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Define At"
+msgstr ""
+
+msgid "Refresh Type"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "Icon (Under Captcha Image)"
+msgstr ""
+
+msgid "Icon (Right Side of Captcha Image)"
+msgstr ""
+
+msgid "Refreshing Captcha Image"
+msgstr ""
+
+msgid "Keep Captcha Data In"
+msgstr ""
+
+msgid "Extra Protection Key"
+msgstr ""
+
+msgid "Auto Generate New Key Daily"
+msgstr ""
+
+msgid "Generate New Key"
+msgstr ""
+
+msgid "Click here to generate a new random key"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes (Alert Message)"
+msgstr ""
+
+msgid "Yes (Required)"
+msgstr ""
+
+msgid "Save Incorrect Passwords Only"
+msgstr ""
+
+# Concerning Image Size
+msgid "Normal"
+msgstr ""
+
+# Concerning Image Size
+msgid "Double"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "Unavailable"
+msgstr ""
+
+# Concerning PHP Sessions
+msgid "PHP Sessions"
+msgstr ""
+
+msgid "Database"
+msgstr ""
+
+msgid "Safer"
+msgstr ""
+
+msgid "Login Options"
+msgstr ""
+
+msgid "Login Captcha"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Show Captcha To"
+msgstr ""
+
+msgid "Guests"
+msgstr ""
+
+msgid "Guests & Subscribers"
+msgstr ""
+
+msgid "Everyone Except Admin"
+msgstr ""
+
+msgid "Everyone"
+msgstr ""
+
+msgid "Same As General Options"
+msgstr ""
+
+msgid "Number of Chars"
+msgstr ""
+
+msgid "Type of Chars"
+msgstr ""
+
+msgid "Only Numbers"
+msgstr ""
+
+msgid "Only Letters"
+msgstr ""
+
+msgid "Numbers & Letters"
+msgstr ""
+
+# Concerning random choice
+msgid "Random"
+msgstr ""
+
+msgid "Type of Letters"
+msgstr ""
+
+msgid "Lowercase"
+msgstr ""
+
+msgid "Uppercase"
+msgstr ""
+
+msgid "Mixed"
+msgstr ""
+
+msgid "Font Usage"
+msgstr ""
+
+msgid "Yes - One Font For All"
+msgstr ""
+
+msgid "Yes - Different Fonts"
+msgstr ""
+
+msgid "Available Fonts"
+msgstr ""
+
+msgid "Font"
+msgstr ""
+
+msgid "Char Size"
+msgstr ""
+
+# Concerning character size
+msgid "Very Small"
+msgstr ""
+
+# Concerning character size
+msgid "Small"
+msgstr ""
+
+# Concerning character size
+msgid "Medium"
+msgstr ""
+
+# Concerning character size
+msgid "Large"
+msgstr ""
+
+# Concerning character size
+msgid "Very Large"
+msgstr ""
+
+msgid "Char Color"
+msgstr ""
+
+msgid "Specific Color"
+msgstr ""
+
+msgid "One Color For All"
+msgstr ""
+
+msgid "Different Colors"
+msgstr ""
+
+msgid "Colorful Chars"
+msgstr ""
+
+msgid "Char Rotation"
+msgstr ""
+
+msgid "Background"
+msgstr ""
+
+msgid "Single Color"
+msgstr ""
+
+msgid "Mosaic"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Image Palette"
+msgstr ""
+
+msgid "Available BG Images"
+msgstr ""
+
+# Concerning availability of images (All Images)
+msgid "All"
+msgstr ""
+
+msgid "Extra Drawing"
+msgstr ""
+
+# Concerning Extra Drawing
+msgid "None"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Circles"
+msgstr ""
+
+msgid "Lines & Circles"
+msgstr ""
+
+msgid "Grid"
+msgstr ""
+
+msgid "Transparent Lines"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal & Vertical"
+msgstr ""
+
+msgid "Line-Transparency Level"
+msgstr ""
+
+msgid "Captcha Layer"
+msgstr ""
+
+msgid "Single Layer"
+msgstr ""
+
+msgid "Double Layer"
+msgstr ""
+
+msgid "Difficulty Level"
+msgstr ""
+
+msgid "Very Easy"
+msgstr ""
+
+msgid "Easy"
+msgstr ""
+
+msgid "Moderate"
+msgstr ""
+
+msgid "Hard"
+msgstr ""
+
+msgid "Very Hard"
+msgstr ""
+
+msgid "Too Hard"
+msgstr ""
+
+msgid "Impossible"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+# Concerning settings application
+msgid "Apply"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Click here to apply selected profile"
+msgstr ""
+
+msgid "Click here to preview Login Captcha"
+msgstr ""
+
+msgid "Register Options"
+msgstr ""
+
+msgid "Register Captcha"
+msgstr ""
+
+msgid "Click here to preview Register Captcha"
+msgstr ""
+
+msgid "Password Recovery Options"
+msgstr ""
+
+msgid "Password Recovery Captcha"
+msgstr ""
+
+msgid "Click here to preview Password Recovery Captcha"
+msgstr ""
+
+msgid "Comment Options"
+msgstr ""
+
+msgid "Comment Captcha"
+msgstr ""
+
+msgid "Click here to preview Comment Captcha"
+msgstr ""
+
+msgid "Blocking Options"
+msgstr ""
+
+msgid "Banned IP Addresses"
+msgstr ""
+
+msgid "You can use * in 3rd or 4th part of IP address to block the entire group"
+msgstr ""
+
+msgid "Examples"
+msgstr ""
+
+msgid "Apply To"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Click here to save settings"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Click here to reset settings"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Hall of Shame"
+msgstr ""
+
+msgid "Log"
+msgstr ""
+
+msgid "No Records Selected"
+msgstr ""
+
+msgid "An error occurred"
+msgstr ""
+
+msgid "Record(s) successfully deleted"
+msgstr ""
+
+msgid "IP(s) successfully added to 'Banned IP Addresses' List"
+msgstr ""
+
+msgid "No IPs Selected"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
+msgid "Go to page"
+msgstr ""
+
+msgid "Entries Per Page"
+msgstr ""
+
+msgid "Sort By"
+msgstr ""
+
+msgid "Spam Probability"
+msgstr ""
+
+msgid "% Failure"
+msgstr ""
+
+msgid "Number of Total Fails"
+msgstr ""
+
+msgid "Number of Total Trials"
+msgstr ""
+
+msgid "Last Date"
+msgstr ""
+
+msgid "IP Address"
+msgstr ""
+
+msgid "Select All / None"
+msgstr ""
+
+# Serial Number (No)
+msgid "S/N"
+msgstr ""
+
+msgid "Banned"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "Last Date<br>& Time"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "# Current<br>Fails"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "# Current<br>Trials"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "# Total<br>Fails"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "# Total<br>Trials"
+msgstr ""
+
+msgid "Average Spam<br>Probability"
+msgstr ""
+
+msgid "Click here to get details about this IP"
+msgstr ""
+
+msgid "Click here to view logs of this IP"
+msgstr ""
+
+msgid "Click here to delete the selected HoS record(s)"
+msgstr ""
+
+msgid "Delete Selected"
+msgstr ""
+
+msgid "Click here to add the selected IP(s) into 'Banned IP Addresses' list"
+msgstr ""
+
+msgid "Ban Selected IP(s)"
+msgstr ""
+
+msgid "Click here to export Hall of Shame to CSV file"
+msgstr ""
+
+msgid "Export to CSV"
+msgstr ""
+
+msgid "Click here to erase all HoS records"
+msgstr ""
+
+msgid "Clear HoS File"
+msgstr ""
+
+msgid "Are you sure that you want to delete the selected records?"
+msgstr ""
+
+msgid "Are you sure that you want to block the selected IP(s)?"
+msgstr ""
+
+msgid "Are you sure that you want to erase the entire HoS file?"
+msgstr ""
+
+msgid "No Logs Selected"
+msgstr ""
+
+msgid "Log(s) successfully deleted"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "All Types"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "All Results"
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Fail"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "All Dates"
+msgstr ""
+
+msgid "Date & Time"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "IP Address<br>(Proxy)"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "Captcha<br>(# Refreshes)"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "Response Time<br>(# Given Chars)"
+msgstr ""
+
+# Tag <br> needs to be preserved
+msgid "Result<br>(% Spam P.)"
+msgstr ""
+
+msgid "Additional Info"
+msgstr ""
+
+msgid "Click here to erase the selected logs"
+msgstr ""
+
+msgid "Click here to erase all logs"
+msgstr ""
+
+msgid "Click here to export logs to CSV file"
+msgstr ""
+
+msgid "Delete Log File"
+msgstr ""
+
+msgid "Are you sure that you want to delete the selected log entries?"
+msgstr ""
+
+msgid "Are you sure that you want to delete ALL log entries?"
+msgstr ""
+
+msgid "Show/Hide more details"
+msgstr ""
+
+msgid "SUCCESS"
+msgstr ""
+
+msgid "FAIL"
+msgstr ""
+
+msgid "BANNED"
+msgstr ""
+
+msgid "LOGIN"
+msgstr ""
+
+msgid "REGISTER"
+msgstr ""
+
+msgid "PASSWORD RECOVERY"
+msgstr ""
+
+msgid "COMMENT"
+msgstr ""
+

@@ -1,5 +1,18 @@
 <?php
 
+function blcap_get_specific_color ($color)
+{
+	$c1 = 0;
+	$c2 = 0;
+	$c3 = 0;
+
+	$c1 = hexdec (substr ($color, 0, 2));
+	$c2 = hexdec (substr ($color, 2, 2));
+	$c3 = hexdec (substr ($color, 4, 2));
+	
+	return array ($c1, $c2, $c3);
+}
+
 function blcap_get_random_color ()
 {
 	$c = mt_rand (0, 2);
@@ -142,9 +155,13 @@ if (isset ($sss[$pre . "size_small"])) $sizes[] = 20;
 if (isset ($sss[$pre . "size_medium"])) $sizes[] = 24;
 if (isset ($sss[$pre . "size_large"])) $sizes[] = 28;
 if (isset ($sss[$pre . "size_larger"])) $sizes[] = 32;
+$colorvalue = (isset ($sss[$pre . "speccolor"]) ? $sss[$pre . "speccolor"] : "");
+if (substr ($colorvalue, 0, 1) == "#") $colorvalue = substr ($colorvalue, 1);
 $color = (isset ($sss[$pre . "color"]) ? $sss[$pre . "color"] : "colorn");
 $rotate = (isset ($sss[$pre . "rotate"]) ? $sss[$pre . "rotate"] : "yes");
 $background = (isset ($sss[$pre . "background"]) ? $sss[$pre . "background"] : "palette");
+$bgcolorvalue = (isset ($sss[$pre . "specbg"]) ? $sss[$pre . "specbg"] : "");
+if (substr ($bgcolorvalue, 0, 1) == "#") $bgcolorvalue = substr ($bgcolorvalue, 1);
 $available_images = array ();
 if (isset ($sss[$pre . "availbg_1"])) $available_images[] = 1;
 if (isset ($sss[$pre . "availbg_2"])) $available_images[] = 2;
@@ -316,14 +333,21 @@ if ($background == "random")
 }
 
 $noc = 3;
-if ($background == "color")
+if ($background == "color" || $background == "color0")
 {
 	$my_img = @imagecreatetruecolor (200, $height);
 
-	$noc = mt_rand (0, 2);
-	$bgcol = blcap_get_random_color ();
+	if ($background == "color0")
+	{
+		$bgcol = blcap_get_specific_color ($bgcolorvalue);
+	}
+	else
+	{
+		$noc = mt_rand (0, 2);
+		$bgcol = blcap_get_random_color ();
 	
-	$bgcol[$noc] = 255;
+		$bgcol[$noc] = 255;
+	}
 	
 	$r = $bgcol[0];
 	$g = $bgcol[1];
@@ -579,8 +603,13 @@ for ($i = 0 ; $i < $totalchars ; $i++)
 			$font = $path . $ffile;
 			if (!file_exists ($font)) $font = "";
 		}
-	} 
-	
+	}
+
+	if ($color == "color0")
+	{
+		$rnd_col = blcap_get_specific_color ($colorvalue);
+	}
+	else
 	if ($color != "color1" || ($color == "color1" && !isset ($rnd_col)))
 	{
 		$rnd_col = blcap_get_random_color ();
@@ -641,6 +670,11 @@ if ($layer == "double")
 			}
 		} 
 		
+		if ($color == "color0")
+		{
+			$rnd_col = blcap_get_specific_color ($colorvalue);
+		}
+		else
 		if ($color != "color1" || ($color == "color1" && !isset ($rnd_col)))
 		{
 			$rnd_col = blcap_get_random_color ();

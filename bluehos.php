@@ -69,20 +69,20 @@
 			if ($res2["result"] == "OK")
 			{
 				echo "<div align=\"center\"><div class=\"updated\">\n";
-				echo "<br><b>Record(s) successfully deleted!</b>";
+				echo "<br><b>" . __("Record(s) successfully deleted", "blue-captcha") . "!</b>";
 				echo "<br><br></div></div>\n";
 			}
 			else
 			{
 				echo "<div align=\"center\"><div class=\"updated\">\n";
-				echo "<br>An error occurred.<br>";
+				echo "<br>" . __("An error occurred", "blue-captcha") . "<br>";
 				echo "<br></div></div>\n";
 			}
 		}
 		else
 		{
 			echo "<div align=\"center\"><div class=\"updated\">\n";
-			echo "<br><b>No Records Selected</b>";
+			echo "<br><b>" . __("No Records Selected", "blue-captcha") . "</b>";
 			echo "<br><br></div></div>\n";
 		}
 		echo "<br>\n";
@@ -116,13 +116,13 @@
 			add_option ("blcap_settings", $settings);
 			update_option ("blcap_settings", $settings);
 			echo "<div align=\"center\"><div class=\"updated\">\n";
-			echo "<br><b>IP(s) successfully added to 'Banned IP Addresses' List!</b>";
+			echo "<br><b>" . __("IP(s) successfully added to 'Banned IP Addresses' List", "blue-captcha") . "!</b>";
 			echo "<br><br></div></div>\n";
 		}
 		else
 		{
 			echo "<div align=\"center\"><div class=\"updated\">\n";
-			echo "<br><b>No IPs Selected</b>";
+			echo "<br><b>" . __("No IPs Selected", "blue-captcha") . "</b>";
 			echo "<br><br></div></div>\n";
 		}
 		echo "<br>\n";
@@ -163,7 +163,7 @@
 		$size = $res["count"];
 		
 		echo "<table width=\"100%\" class=\"widefat page fixed\" cellspacing=\"0\">\n";
-		echo "<thead><tr><th><div align=\"center\"><h2 style=\"color: blue;\">Blue Captcha - Hall of Shame</h2></div></th></tr></thead>";
+		echo "<thead><tr><th><div align=\"center\"><h2 style=\"color: blue;\">Blue Captcha - " . __("Hall of Shame", "blue-captcha") . "</h2></div></th></tr></thead>";
 		echo "</table>\n";
 		
 		echo "<table width=\"100%\" class=\"widefat page fixed\" cellspacing=\"0\">\n";
@@ -174,7 +174,7 @@
 		
 		echo "<form method=\"post\" name=\"blcap_hos_filter\" action=\"" . $blcap_hossite . "\">\n";
 		
-		echo "Pages: ";
+		echo __("Pages", "blue-captcha") . ": ";
 		
 		if ($totalpages > 0)
 		{
@@ -186,7 +186,7 @@
 			{
 				$this_page = $firstpage;
 				$link = $blcap_hossite . "&p=show&sortf=" . urlencode ($sortf) . "&resf=" . $resf . "&pagef=" . $this_page . "\"";
-				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"Go to page $this_page\">$this_page</a>";
+				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"" . __("Go to page", "blue-captcha") . " $this_page\">$this_page</a>";
 				echo " &nbsp; ";
 				echo " ... ";
 				echo " &nbsp; ";
@@ -205,7 +205,7 @@
 				if ($k == $pagef)
 					echo "<span class=\"blcap_pagenumsel\">$this_page</span>";
 				else
-					echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"Go to page $this_page\">$this_page</a>";
+					echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"" . __("Go to page", "blue-captcha") . " $this_page\">$this_page</a>";
 				echo " &nbsp; ";
 			}
 			
@@ -215,7 +215,7 @@
 				echo " &nbsp; ";
 				$this_page = $lastpage;
 				$link = $blcap_hossite . "&p=show&sortf=" . urlencode ($sortf) . "&resf=" . $resf . "&pagef=" . $this_page . "\""; 
-				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"Go to page $this_page\">$this_page</a>";
+				echo "<a class=\"blcap_pagenum\" href=\"" . $link . "\" title=\"" . __("Go to page", "blue-captcha") . " $this_page\">$this_page</a>";
 				echo " &nbsp; \n";
 			}
 		}
@@ -227,7 +227,7 @@
 		
 		echo "&nbsp;\n";
 
-		echo "Page: ";
+		echo __("Page", "blue-captcha") . ": ";
 		echo "<select name=\"sel_page\">\n";
 		for ($k = 0 ; $k < $totalpages; $k++)
 		{
@@ -238,7 +238,7 @@
 		}
 		echo "</select>\n";
 		
-		echo "&nbsp; Entries Per Page: ";
+		echo "&nbsp; " . __("Entries Per Page", "blue-captcha") . ": ";
 
 		$reslistarr = explode ("#", $reslist); 
 
@@ -253,23 +253,23 @@
 			}
 		echo "</select>\n";
 		
-		echo "&nbsp; Sort By: ";
+		echo "&nbsp; " . __("Sort By", "blue-captcha") . ": ";
 		echo "<select name=\"sel_sort\">\n";
 		if ($sortf == "sumprob") $str = " selected"; else $str = "";
-		echo "<option value=\"sumprob\"" . $str .">Spam Probability</option>\n";
+		echo "<option value=\"sumprob\"" . $str .">" . __("Spam Probability", "blue-captcha") . "</option>\n";
 		if ($sortf == "failure") $str = " selected"; else $str = "";
-		echo "<option value=\"failure\"" . $str .">% Failure</option>\n";
+		echo "<option value=\"failure\"" . $str .">" . __("% Failure", "blue-captcha") . "</option>\n";
 		if ($sortf == "failstotal") $str = " selected"; else $str = "";
-		echo "<option value=\"failstotal\"" . $str .">Number of Total Fails</option>\n";
+		echo "<option value=\"failstotal\"" . $str .">" . __("Number of Total Fails", "blue-captcha") . "</option>\n";
 		if ($sortf == "trialstotal") $str = " selected"; else $str = "";
-		echo "<option value=\"trialstotal\"" . $str .">Number of Total Trials</option>\n";
+		echo "<option value=\"trialstotal\"" . $str .">" . __("Number of Total Trials", "blue-captcha") . "</option>\n";
 		if ($sortf == "microtime") $str = " selected"; else $str = "";
-		echo "<option value=\"microtime\"" . $str .">Last Date</option>\n";
+		echo "<option value=\"microtime\"" . $str .">" . __("Last Date", "blue-captcha") . "</option>\n";
 		if ($sortf == "ip") $str = " selected"; else $str = "";
-		echo "<option value=\"ip\"" . $str .">IP Address</option>\n";
+		echo "<option value=\"ip\"" . $str .">" . __("IP Address", "blue-captcha") . "</option>\n";
 		echo "</select>\n";	
 		
-		echo "<input type=\"submit\" class=\"button\" name=\"button_filter\" value=\"  Apply  \" />\n";
+		echo "<input type=\"submit\" class=\"button\" name=\"button_filter\" value=\"  " . __("Apply", "blue-captcha") . "  \" />\n";
 		
 		echo "<input type=\"hidden\" name=\"action\" value=\"apply_filter\" />\n";
 		
@@ -288,27 +288,30 @@
 		echo "<thead>\n";
 		echo "<tr>\n";
 
-		echo "<th scope=\"col\" class=\"manage-column column-cb check-column\" style=\"\"><input type=\"checkbox\" id=\"hos_selall\" title=\"Select All / None\" onclick=\"blcap_hosselall();\" /></th>\n";
+		echo "<th scope=\"col\" class=\"manage-column column-cb check-column\" style=\"\"><input type=\"checkbox\" id=\"hos_selall\" title=\"" . __("Select All / None", "blue-captcha") . "\" onclick=\"blcap_hosselall();\" /></th>\n";
 
-		echo "<th width=\"4%\"><div align=\"center\">No</div></th>\n";
+		$sn = __("S/N", "blue-captcha");
+		if ($sn === "S/N") $sn = "No";
+
+		echo "<th width=\"4%\"><div align=\"center\">" . $sn . "</div></th>\n";
 		
-		echo "<th width=\"12%\"><div align=\"center\">IP Address</div></th>\n";
+		echo "<th width=\"12%\"><div align=\"center\">" . __("IP Address", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"8%\"><div align=\"center\">Banned</div></th>\n";
+		echo "<th width=\"8%\"><div align=\"center\">" . __("Banned", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"10%\"><div align=\"center\">Last Date<br>& Time</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("Last Date<br>& Time", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"10%\"><div align=\"center\"># Current<br>Fails</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("# Current<br>Fails", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"10%\"><div align=\"center\"># Current<br>Trials</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("# Current<br>Trials", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"10%\"><div align=\"center\"># Total<br>Fails</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("# Total<br>Fails", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"10%\"><div align=\"center\"># Total<br>Trials</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("# Total<br>Trials", "blue-captcha") . "</div></th>\n";
 		
-		echo "<th width=\"10%\"><div align=\"center\">% Failure</div></th>\n";
+		echo "<th width=\"10%\"><div align=\"center\">" . __("% Failure", "blue-captcha") . "</div></th>\n";
 
-		echo "<th width=\"12%\"><div align=\"center\">Average Spam<br>Probability</div></th>\n";
+		echo "<th width=\"12%\"><div align=\"center\">" . __("Average Spam<br>Probability", "blue-captcha") . "</div></th>\n";
 
 		echo "</tr>\n";
 		echo "</thead>\n";
@@ -372,12 +375,12 @@
 			$banresult = blcap_compare_ip ($ip, $ban_iplist);
 			if ($banresult == false)
 			{
-				$banned = "No";	
+				$banned = __("No", "blue-captcha");	
 				$rescolor = "black";
 			}
 			else
 			{
-				$banned = "Yes";
+				$banned = __("Yes", "blue-captcha");
 				$rescolor = "blue";
 			}
 		
@@ -389,13 +392,13 @@
 			if ($informer_site != "")
 			{
 				$informer_site1 = str_replace ("{ip}", $ip, $informer_site);
-				$ip_str = "<a href=\"" . $informer_site1 . "\" title=\"Click here to get details about this IP\" rel=\"noreferrer\" target=\"_blank\">";
+				$ip_str = "<a href=\"" . $informer_site1 . "\" title=\"" . __("Click here to get details about this IP", "blue-captcha") . "\" rel=\"noreferrer\" target=\"_blank\">";
 				$ip_str = $ip_str . $ip;
 				$ip_str = $ip_str . "</a>";
 			}
 
 			$view_log_url = $blcap_logsite . "&datef=ALL&ipf=" . urlencode ($ip);
-			$ip_str2 = "<a href=\"" . $view_log_url . "\" title=\"Click here to view logs of this IP\" target=\"_blank\">Log</a>";
+			$ip_str2 = "<a href=\"" . $view_log_url . "\" title=\"" . __("Click here to view logs of this IP", "blue-captcha") . "\" target=\"_blank\">&gt;&gt;</a>";
 
 			echo "<tr class=\"$chclass\">\n";
 
@@ -419,15 +422,15 @@
 		echo "<tfoot><tr>\n";
 		echo "<th colspan=\"11\">\n";
 		echo "<div align=\"center\">\n";
-		echo "<input type=\"button\" class=\"button-secondary\" title=\"Click here to delete the selected HoS record(s)\" value=\"  Delete Selected \" onclick=\"blcap_delselected();\" />\n";
+		echo "<input type=\"button\" class=\"button-secondary\" title=\"" . __("Click here to delete the selected HoS record(s)", "blue-captcha") . "\" value=\"  " . __("Delete Selected", "blue-captcha") . "  \" onclick=\"blcap_delselected();\" />\n";
 		echo " &nbsp;&nbsp; ";
-		echo "<input type=\"button\" title=\"Click here to add the selected IP(s) into 'Banned IP Addresses' list\" value=\"  Ban Selected IP(s) \" onclick=\"blcap_banselected();\" />\n";
+		echo "<input type=\"button\" title=\"" . __("Click here to add the selected IP(s) into 'Banned IP Addresses' list", "blue-captcha") . "\" value=\"  " . __("Ban Selected IP(s)", "blue-captcha") . "  \" onclick=\"blcap_banselected();\" />\n";
 		echo " &nbsp;&nbsp; ";
-		echo "<a href=\"" . $blcap_siteurl . "?bcapact=exphos\" target=\"_blank\"><input type=\"button\" class=\"button-secondary\" title=\"Click here to export Hall of Shame to CSV file\" value=\"  Export to CSV  \" /></a>\n";
+		echo "<a href=\"" . $blcap_siteurl . "?bcapact=exphos\" target=\"_blank\"><input type=\"button\" class=\"button-secondary\" title=\"" . __("Click here to export Hall of Shame to CSV file", "blue-captcha") . "\" value=\"  " . __("Export to CSV", "blue-captcha") . "  \" /></a>\n";
 
 		echo "<br /><br />";
 
-		echo "<input type=\"button\" class=\"button-primary\" title=\"Click here to erase all HoS records\" value=\"  Clear HoS File  \" onclick=\"blcap_delall();\" />\n";
+		echo "<input type=\"button\" class=\"button-primary\" title=\"" . __("Click here to erase all HoS records", "blue-captcha") . "\" value=\"  " . __("Clear HoS File", "blue-captcha") . "  \" onclick=\"blcap_delall();\" />\n";
 
 		echo "</div>\n";
 		echo "</th>\n";
@@ -442,13 +445,13 @@
 	
 		echo "function blcap_delselected ()\n";
 		echo "{\n";
-		echo "\t var conf = confirm (\"Are you sure that you want to delete the selected records?\", \"BLUE CAPTCHA\");\n";
+		echo "\t var conf = confirm (\"" . __("Are you sure that you want to delete the selected records?", "blue-captcha") . "\", \"BLUE CAPTCHA\");\n";
 		echo "\t if (conf) document.getElementById('showhosform').submit();\n";
 		echo "}\n";
 		echo "\n";
 		echo "function blcap_banselected ()\n";
 		echo "{\n";
-		echo "\t var conf = confirm (\"Are you sure that you want to block the selected IP(s)?\", \"BLUE CAPTCHA\");\n";
+		echo "\t var conf = confirm (\"" . __("Are you sure that you want to block the selected IP(s)?", "blue-captcha") . "\", \"BLUE CAPTCHA\");\n";
 		echo "\t if (conf)\n";
 		echo "\t {\n";
 		echo "\t\t document.getElementById (\"blcap_action\").value='ban';\n";
@@ -457,7 +460,7 @@
 		echo "}\n";
 		echo "function blcap_delall ()\n";
 		echo "{\n";
-		echo "\t var conf = confirm (\"Are you sure that you want to erase the entire HoS file?\", \"BLUE CAPTCHA\");\n";
+		echo "\t var conf = confirm (\"" . __("Are you sure that you want to erase the entire HoS file?", "blue-captcha") . "\", \"BLUE CAPTCHA\");\n";
 		echo "\t if (conf)\n";
 		echo "\t {\n";
 		echo "\t\t document.getElementById (\"blcap_action\").value='deleteall';\n";
@@ -478,7 +481,7 @@
 	else 
 	{
 		echo "<div align='center'><div class='updated'>\n";
-		echo "<br>An error occurred.<br>";
+		echo "<br>" . __("An error occurred", "blue-captcha") . "<br>";
 		echo "<br></div></div>\n";
 	}
 	
