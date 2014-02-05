@@ -4,8 +4,8 @@ Author URI: http://mybluestuff.blogspot.gr
 Donate link: http://mybluestuff.blogspot.gr/p/donate_21.html
 Tags: captcha, recaptcha, security, protection, safety, spam, antispam, anti-spam, spammer, login, comments, register, password recovery, blue captcha
 Requires at least: 2.8.6
-Tested up to: 3.8
-Stable tag: 1.7
+Tested up to: 3.8.1
+Stable tag: 1.7.1
 License: GPLv2
 
 Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons.
@@ -50,10 +50,13 @@ For those interested, the template translation file ("blue-captcha.pot") is loca
 1. Copy the full directory (blue-captcha) into your wp-content/plugins directory or download the plugin from plugin administration page
 2. Activate the plugin at the plugin administration page
 
-
 == Frequently Asked Questions == 
 None for Now
 
+== Contribution ==
+Special Thanks To The Following Contributors:
+
+Andrew Kurtis (http://www.webhostinghub.com) => Spanish Translation
 
 == Screenshots ==
 1. Login Options
@@ -70,6 +73,10 @@ None for Now
 12. Typical Brute Force Attack spotted in Log File
 
 == Changelog ==
+
+= 1.7.1 =
+* 5 Feb 2014
+* Translation to Spanish Language (es) was added - Translation by Andrew Kurtis
 
 = 1.7 =
 * 21 Dec 2013

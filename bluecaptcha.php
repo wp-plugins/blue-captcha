@@ -4,13 +4,13 @@
 Plugin Name: Blue Captcha
 Plugin URI: http://wordpress.org/extend/plugins/blue-captcha/
 Description: Blue Captcha
-Version: 1.7
+Version: 1.7.1
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
 
 /*  
-	By Jotis Kokkalis, (C) 2012-2013
+	By Jotis Kokkalis, (C) 2012-2014
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 
@@ -82,7 +82,7 @@ function blcap_install ()
 	$blcap_cur_version = "";
 	$blcap_cur_version = get_option ("blcap_version");
 	
-	$blcap_version = "1.6";
+	$blcap_version = "1.7.1";
 	add_option ("blcap_version", $blcap_version);
 	update_option ("blcap_version", $blcap_version);
 	
@@ -286,6 +286,19 @@ function blcap_main ()
 	
 	echo "<hr style=\"color: cyan; width: 50%;\" />\n";	
 	echo "<h3 align=\"center\">''" . __("The entire project was proudly created with NotePad", "blue-captcha") . "''</h3>\n";
+	echo "<hr style=\"color: cyan; width: 50%;\" />\n";
+
+	echo "<h3 align=\"center\">" . __("Special Thanks To The Following Contributors", "blue-captcha") . ":</h3>\n";
+
+	echo "<table border=\"0\" align=\"center\" width=\"40%\">\n";
+	echo "<tr>\n";
+	echo "<td>Andrew Kurtis &nbsp; (<a href=\"http://www.webhostinghub.com/\" target=\"_blank\">http://www.webhostinghub.com</a>)</td>";
+	echo "<td>Spanish Translation</td>\n";
+
+	echo "</tr>\n";
+	echo "</table>\n";
+	
+
 	echo "<hr style=\"color: cyan; width: 50%;\" />\n";
 
 	echo "<br />\n";
