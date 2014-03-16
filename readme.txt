@@ -57,9 +57,7 @@ None for Now
 Special Thanks To The Following Contributors:
 
 Ericka Morales Hernández (http://todoriesgo.net) => Italian Translation
-
 Alex Balashov => Russian Translation
-
 Andrew Kurtis (http://www.webhostinghub.com) => Spanish Translation
 
 == Screenshots ==
