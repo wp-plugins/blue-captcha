@@ -1,0 +1,766 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blue Captcha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-08 17:20+0200\n"
+"PO-Revision-Date: 2014-03-16 03:05+0200\n"
+"Last-Translator: Jotis Kokkalis <jotis@sch.gr>\n"
+"Language-Team: Russian <LL@li.org>\n"
+"Language: Russian\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: ru_RU\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+msgid "Visit my blue stuff page at"
+msgstr "Посетите мою страницу"
+
+msgid "where you can find documentation about Blue Captcha"
+msgstr "здесь вы найдёте документацию по работе с Blue Captcha"
+
+#, fuzzy
+msgid "By Jotis Kokkalis"
+msgstr ""
+
+msgid "This plugin is free and will always be free"
+msgstr "Этот модуль бесплатный, и всегда будет бесплатным"
+
+msgid "However, if this plugin has protected you from spammers,"
+msgstr "Однако если этот модуль защитил вас от спамеров"
+
+msgid "has helped you in some way or if you just like it, then"
+msgstr "помог вам в чём-то, или просто нравится вам"
+
+msgid "you could donate one dollar or two. Any donation will be highly"
+msgstr "то вы можете отблагодарить разработчика одним или двумя долларами"
+
+msgid "appreciated and will help in further development of this project."
+msgstr "Каждый цент пойдет на улучшение будущих разработок."
+
+msgid "The entire project was proudly created with NotePad"
+msgstr "Весь проект был с гордостью создан в NotePad"
+
+#, fuzzy
+msgid "This program is free software; you can redistribute it and/or modify"
+msgstr ""
+
+#, fuzzy
+msgid "it under the terms of the GNU General Public License, version 2,"
+msgstr ""
+
+#, fuzzy
+msgid "as published by the Free Software Foundation."
+msgstr ""
+
+#, fuzzy
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#, fuzzy
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#, fuzzy
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU"
+msgstr ""
+
+#, fuzzy
+msgid "General Public License for more details."
+msgstr ""
+
+#, fuzzy
+msgid "You should have received a copy of the GNU General Public License,"
+msgstr ""
+
+#, fuzzy
+msgid "along with this program; if not, write to the Free Software Foundation,"
+msgstr ""
+
+#, fuzzy
+msgid "Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+msgstr ""
+
+msgid "Special Thanks To The Following Contributors"
+msgstr "Отдельное спасибо следующим людям"
+
+msgid "Uninstall"
+msgstr "Удалить"
+
+msgid "Click here to uninstall plugin"
+msgstr "Нажми сюда чтобы удалить модуль"
+
+msgid "Are you sure that you want to uninstall Blue Captcha Plugin?"
+msgstr "Вы уверены что хотите удалить Blue Captcha?"
+
+msgid "Blue Captcha has been successfully uninstalled."
+msgstr "Blue Captcha был успешно удалён."
+
+msgid "You may now deactivate and delete plugin."
+msgstr "Теперь деактивируйте и удалие плагин."
+
+msgid "Click to refresh Captcha Image"
+msgstr "Нажми чтобы обновить капчу"
+
+msgid "Refresh"
+msgstr "Новый проверочный код"
+
+msgid "Enter Captcha here"
+msgstr "Введите капчу здесь"
+
+msgid "You have entered a Wrong CAPTCHA."
+msgstr "Проверочный код введён неверно!"
+
+msgid "Go back and try again."
+msgstr "Вернитесь назад и повторите ввод"
+
+msgid "Click"
+msgstr "Нажми"
+
+msgid "here"
+msgstr "сюда"
+
+msgid "to go back and try again."
+msgstr "что-бы попробовать ещё раз"
+
+#. Concerning General Options
+msgid "General"
+msgstr "Основное"
+
+msgid "Login"
+msgstr "Авторизация"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Password Recovery"
+msgstr "Восстановление пароля"
+
+msgid "Comment Posting"
+msgstr "Комментарии"
+
+msgid "Blocking"
+msgstr "Блокировка"
+
+msgid "General Options"
+msgstr "Общие настройки"
+
+msgid "Plugin Is Active"
+msgstr "Плагин активирован"
+
+msgid "Make Empty Captcha Check Before Form Submission"
+msgstr "Проверять пустое поле ввода капчи перед отправкой формы"
+
+msgid "Keep Comment After Failed Captcha"
+msgstr "Запоминать комментарий при неверной капче"
+
+msgid "Ignore Case Sensitivity In Characters"
+msgstr "Игнорировать регистр букв"
+
+msgid "IP Informer URL"
+msgstr "URL для получения инфы об IP"
+
+msgid "Allow Pingbacks & Trackbacks"
+msgstr "Разрешить Pingbacks и Trackbacks"
+
+msgid "Keep Actions In Log"
+msgstr "Записывать события в журнал"
+
+msgid "Save Additional Info In Log"
+msgstr "Журналировать дополнительную инфу"
+
+msgid "Save Passwords In Log"
+msgstr "Сохранять пароль в журнал"
+
+msgid "Image Size In Double Layer"
+msgstr "Размер изображения во втором слое"
+
+msgid "Captcha Location On Comment Form"
+msgstr "Расположение капчи на форме комментария"
+
+msgid "Default"
+msgstr "Стандартно"
+
+msgid "Define At"
+msgstr "Определять по"
+
+msgid "Refresh Type"
+msgstr "Кнопка обновления капчи"
+
+msgid "Text"
+msgstr "Текстовая ссылка"
+
+msgid "Icon (Under Captcha Image)"
+msgstr "Иконка (под изображением капчи)"
+
+msgid "Icon (Right Side of Captcha Image)"
+msgstr "Иконка (справа от капчи)"
+
+msgid "Refreshing Captcha Image"
+msgstr "Обновление капчи"
+
+msgid "Keep Captcha Data In"
+msgstr "Хранить информацию о капче"
+
+msgid "Extra Protection Key"
+msgstr "Специальный защитный код"
+
+msgid "Auto Generate New Key Daily"
+msgstr "Автоматически генерировать код ежедневно"
+
+msgid "Generate New Key"
+msgstr "Сгенерировать новый"
+
+msgid "Click here to generate a new random key"
+msgstr "Нажми сюда для генерации нового ключа"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes (Alert Message)"
+msgstr "Да (Диалог ошибки ввода)"
+
+msgid "Yes (Required)"
+msgstr "Да (Фокус на поле ввода если пусто)"
+
+msgid "Save Incorrect Passwords Only"
+msgstr "Сохранять только неверный пароль"
+
+#. Concerning Image Size
+msgid "Normal"
+msgstr "Нормальный"
+
+#. Concerning Image Size
+msgid "Double"
+msgstr "Двойной"
+
+msgid "Available"
+msgstr "Разрешено"
+
+msgid "Unavailable"
+msgstr "Запрещено"
+
+#. Concerning PHP Sessions
+msgid "PHP Sessions"
+msgstr "В php-сессии"
+
+msgid "Database"
+msgstr "В базе данных"
+
+msgid "Safer"
+msgstr "Безопаснее"
+
+msgid "Login Options"
+msgstr "Настройки формы авторизации"
+
+msgid "Login Captcha"
+msgstr "Капча для авторизации"
+
+msgid "Disabled"
+msgstr "Выключена"
+
+msgid "Enabled"
+msgstr "Включена"
+
+msgid "Show Captcha To"
+msgstr "Показывать капчу"
+
+msgid "Guests"
+msgstr "Гостям"
+
+msgid "Guests & Subscribers"
+msgstr "Гостям и подписчикам"
+
+msgid "Everyone Except Admin"
+msgstr "Всем кроме админа"
+
+msgid "Everyone"
+msgstr "Всем"
+
+msgid "Same As General Options"
+msgstr "Так же как в Основных настройках"
+
+msgid "Number of Chars"
+msgstr "Кол-во символов"
+
+msgid "Type of Chars"
+msgstr "Набор символов"
+
+msgid "Only Numbers"
+msgstr "Только цифры"
+
+msgid "Only Letters"
+msgstr "Только буквы"
+
+msgid "Numbers & Letters"
+msgstr "Цифры и буквы"
+
+#. Concerning random choice
+msgid "Random"
+msgstr "Случайно"
+
+msgid "Type of Letters"
+msgstr "Параметры букв"
+
+msgid "Lowercase"
+msgstr "В нижнем регистре"
+
+msgid "Uppercase"
+msgstr "В ВЕРХНЕМ регистре"
+
+msgid "Mixed"
+msgstr "Смешанно"
+
+msgid "Font Usage"
+msgstr "Шрифт капчи"
+
+msgid "Yes - One Font For All"
+msgstr "Один шрифт для всех символов"
+
+msgid "Yes - Different Fonts"
+msgstr "Разный шрифт для каждого символа"
+
+msgid "Available Fonts"
+msgstr "Доступные шрифты"
+
+msgid "Font"
+msgstr "Шрифт"
+
+msgid "Char Size"
+msgstr "Размер символов"
+
+#. Concerning character size
+msgid "Very Small"
+msgstr "Очень маленькие"
+
+#. Concerning character size
+msgid "Small"
+msgstr "Маленькие"
+
+#. Concerning character size
+msgid "Medium"
+msgstr "Средние"
+
+#. Concerning character size
+msgid "Large"
+msgstr "Большие"
+
+#. Concerning character size
+msgid "Very Large"
+msgstr "Огромные"
+
+msgid "Char Color"
+msgstr "Цвет символов"
+
+msgid "Specific Color"
+msgstr "Свой цвет"
+
+msgid "One Color For All"
+msgstr "Один цвет для всех"
+
+msgid "Different Colors"
+msgstr "Различный цвет для каждого"
+
+msgid "Colorful Chars"
+msgstr "Цветастые символы"
+
+msgid "Char Rotation"
+msgstr "Наклон символов"
+
+msgid "Background"
+msgstr "Цвет фона"
+
+msgid "Single Color"
+msgstr "Один цвет"
+
+msgid "Mosaic"
+msgstr "Мозайка"
+
+msgid "Image"
+msgstr "Изображение"
+
+msgid "Image Palette"
+msgstr "Палитра"
+
+msgid "Available BG Images"
+msgstr "Фоновые изображение"
+
+#. Concerning availability of images (All Images)
+msgid "All"
+msgstr "Все"
+
+msgid "Extra Drawing"
+msgstr "Помехи на капче"
+
+#. Concerning Extra Drawing
+msgid "None"
+msgstr "Нет"
+
+msgid "Lines"
+msgstr "Линии"
+
+msgid "Circles"
+msgstr "Круги"
+
+msgid "Lines & Circles"
+msgstr "Линии и круги"
+
+msgid "Grid"
+msgstr "Сетка"
+
+msgid "Transparent Lines"
+msgstr "Прозрачные линии"
+
+msgid "Horizontal"
+msgstr "Горизонтальные"
+
+msgid "Vertical"
+msgstr "Вертикальные"
+
+msgid "Horizontal & Vertical"
+msgstr "Вериткальные и горизонтальные"
+
+msgid "Line-Transparency Level"
+msgstr "Уровень прозрачности линий"
+
+msgid "Captcha Layer"
+msgstr "Слой капчи"
+
+msgid "Single Layer"
+msgstr "Один слой"
+
+msgid "Double Layer"
+msgstr "Два слоя"
+
+msgid "Difficulty Level"
+msgstr "Уровень сложности"
+
+msgid "Very Easy"
+msgstr "Очень легко"
+
+msgid "Easy"
+msgstr "Легко"
+
+msgid "Moderate"
+msgstr "Средне"
+
+msgid "Hard"
+msgstr "Тяжело"
+
+msgid "Very Hard"
+msgstr "Очень сложно"
+
+msgid "Too Hard"
+msgstr "Совсем сложно"
+
+msgid "Impossible"
+msgstr "Невозможно"
+
+msgid "Custom"
+msgstr "Пользовательский"
+
+#. Concerning settings application
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Preview"
+msgstr "Предпросмотр"
+
+msgid "Click here to apply selected profile"
+msgstr "Нажми сюда чтобы применить текущий профиль"
+
+msgid "Click here to preview Login Captcha"
+msgstr "Нажми чтоб посмотреть как будет выглядеть капча авторизации"
+
+msgid "Register Options"
+msgstr "Настройки формы регистрации"
+
+msgid "Register Captcha"
+msgstr "Капча для регистрации"
+
+msgid "Click here to preview Register Captcha"
+msgstr "Нажми чтоб посмотреть как будет выглядеть капча регистрации"
+
+msgid "Password Recovery Options"
+msgstr "Настройки формы восстановления пароля"
+
+msgid "Password Recovery Captcha"
+msgstr "Капча в форме восстановления пароля"
+
+msgid "Click here to preview Password Recovery Captcha"
+msgstr "Нажми чтоб посмотреть как будет выглядеть капча восстановления пароля"
+
+msgid "Comment Options"
+msgstr "Настройки формы комментария"
+
+msgid "Comment Captcha"
+msgstr "Капча для комментариев"
+
+msgid "Click here to preview Comment Captcha"
+msgstr "Нажми чтоб посмотреть как будет выглядеть капча комментария"
+
+msgid "Blocking Options"
+msgstr "Настройки ручной блокировки"
+
+msgid "Banned IP Addresses"
+msgstr "Забаненные IP-адреса"
+
+msgid "You can use * in 3rd or 4th part of IP address to block the entire group"
+msgstr "Вы можете использовать * в 3-ей или 4-ой части IP-адреса для блокировки группы адресов"
+
+msgid "Examples"
+msgstr "Пример"
+
+msgid "Apply To"
+msgstr "Применять к"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Click here to save settings"
+msgstr "Нажми сюда чтоб сохранить настройки"
+
+msgid "Reset"
+msgstr "Сбросить"
+
+msgid "Click here to reset settings"
+msgstr "Нажми сюда чтоб сбросить настройки на стандартные"
+
+msgid "Options"
+msgstr "Настройки"
+
+msgid "Hall of Shame"
+msgstr "Доска позора"
+
+msgid "Log"
+msgstr "Журнал"
+
+msgid "No Records Selected"
+msgstr "Записи не выбраны"
+
+msgid "An error occurred"
+msgstr "Произошла ошибка"
+
+msgid "Record(s) successfully deleted"
+msgstr "Записи успешно удалены"
+
+msgid "IP(s) successfully added to 'Banned IP Addresses' List"
+msgstr "IP(s) успешно добавлены в бан-лист"
+
+msgid "No IPs Selected"
+msgstr "IP-адреса не выбраны"
+
+msgid "Pages"
+msgstr "Страницы"
+
+msgid "Page"
+msgstr "Страница"
+
+msgid "Go to page"
+msgstr "Перейти к странице"
+
+msgid "Entries Per Page"
+msgstr "Записей на страницу"
+
+msgid "Sort By"
+msgstr "Сортировать по"
+
+msgid "Spam Probability"
+msgstr "Вероятность спама"
+
+msgid "% Failure"
+msgstr "% Отказа"
+
+msgid "Number of Total Fails"
+msgstr "Общее кол-во неудачных вводов"
+
+msgid "Number of Total Trials"
+msgstr "Общее кол-во попыток"
+
+msgid "Last Date"
+msgstr "Последняя дата"
+
+msgid "IP Address"
+msgstr "IP-адрес"
+
+msgid "Select All / None"
+msgstr "Выбрать все/ничего"
+
+#. Serial Number (No)
+#, fuzzy
+msgid "S/N"
+msgstr "No"
+
+msgid "Banned"
+msgstr "Забанен"
+
+#. Tag <br> needs to be preserved
+msgid "Last Date<br>& Time"
+msgstr "Последняя<br>активность"
+
+#. Tag <br> needs to be preserved
+msgid "# Current<br>Fails"
+msgstr "# Текущее кол-во<br>неудачных вводов"
+
+#. Tag <br> needs to be preserved
+msgid "# Current<br>Trials"
+msgstr "# Текущее кол-во<br>попыток"
+
+#. Tag <br> needs to be preserved
+msgid "# Total<br>Fails"
+msgstr "# Всего<br>неудачных"
+
+#. Tag <br> needs to be preserved
+msgid "# Total<br>Trials"
+msgstr "# Всего<br>Попыток"
+
+msgid "Average Spam<br>Probability"
+msgstr "Вероятность спама"
+
+msgid "Click here to get details about this IP"
+msgstr "Нажми чтоб получить детальную информацию об IP-адресе"
+
+msgid "Click here to view logs of this IP"
+msgstr "Нажми сюда чтоб увидеть журнал с выбранным IP"
+
+msgid "Click here to delete the selected HoS record(s)"
+msgstr "Нажми чтоб удалить выбранные записи с доски позора"
+
+msgid "Delete Selected"
+msgstr "Удалить выбранное"
+
+msgid "Click here to add the selected IP(s) into 'Banned IP Addresses' list"
+msgstr "Нажми сюда чтоб добавить выбранные IP в бан-лист"
+
+msgid "Ban Selected IP(s)"
+msgstr "Забанить выбранные IP-адреса"
+
+msgid "Click here to export Hall of Shame to CSV file"
+msgstr "Нажми сюда чтоб экспортировать записи в CSV файл"
+
+msgid "Export to CSV"
+msgstr "Экспортировать в CSV"
+
+msgid "Click here to erase all HoS records"
+msgstr "Нажми сюда чтоб очистить доску позора"
+
+msgid "Clear HoS File"
+msgstr "Очистить доску позора"
+
+msgid "Are you sure that you want to delete the selected records?"
+msgstr "Подтвердите удаление выбранных записей"
+
+msgid "Are you sure that you want to block the selected IP(s)?"
+msgstr "Подтвердите блокировку выбранных IP"
+
+msgid "Are you sure that you want to erase the entire HoS file?"
+msgstr "Подтвердите очистку Hall of Shame записей ?"
+
+msgid "No Logs Selected"
+msgstr "Нет выбранных записей"
+
+msgid "Log(s) successfully deleted"
+msgstr "Журнал удалён"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "All Types"
+msgstr "Все типы"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Result"
+msgstr "Результат"
+
+msgid "All Results"
+msgstr "Все результаты"
+
+msgid "Success"
+msgstr "Успешно"
+
+msgid "Fail"
+msgstr "Ошибка"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "All Dates"
+msgstr "Всё время"
+
+msgid "Date & Time"
+msgstr "Дата и Время"
+
+#. Tag <br> needs to be preserved
+msgid "IP Address<br>(Proxy)"
+msgstr "IP-адрес<br>(Proxy)"
+
+#. Tag <br> needs to be preserved
+msgid "Captcha<br>(# Refreshes)"
+msgstr "Капча<br>(# обновлений)"
+
+#. Tag <br> needs to be preserved
+msgid "Response Time<br>(# Given Chars)"
+msgstr "Время ввода<br>(# Символы капчи)"
+
+#. Tag <br> needs to be preserved
+msgid "Result<br>(% Spam P.)"
+msgstr "Результат<br>(% Спамер)"
+
+msgid "Additional Info"
+msgstr "Дополнительная инофрмация"
+
+msgid "Click here to erase the selected logs"
+msgstr "Нажми сюда чтоб очистить выбранные записи журнала"
+
+msgid "Click here to erase all logs"
+msgstr "Нажми сюда чтоб очистить журнал"
+
+msgid "Click here to export logs to CSV file"
+msgstr "Нажми сюда для экспорта журнала в CSV файл"
+
+msgid "Delete Log File"
+msgstr "Удалить файл журнала"
+
+msgid "Are you sure that you want to delete the selected log entries?"
+msgstr "Подтвердите удаление выбранных записей из журнала?"
+
+msgid "Are you sure that you want to delete ALL log entries?"
+msgstr "Вы уверены что хотите удалить ВЕСЬ журнал?"
+
+msgid "Show/Hide more details"
+msgstr "Скрыть/показать детали"
+
+msgid "SUCCESS"
+msgstr "УСПЕШНО"
+
+msgid "FAIL"
+msgstr "ОШИБКА"
+
+msgid "BANNED"
+msgstr "ЗАБАНЕНЫ"
+
+msgid "LOGIN"
+msgstr "ЛОГИН"
+
+msgid "REGISTER"
+msgstr "ЗАРЕГИСТРИРОВАТЬСЯ"
+
+msgid "PASSWORD RECOVERY"
+msgstr "ВОССТАНОВЛЕНИЕ ПАРОЛЯ"
+
+msgid "COMMENT"
+msgstr "КОММЕНТАРИЙ"
+
+msgid "Enable Translation"
+msgstr "Включить Перевод"
+

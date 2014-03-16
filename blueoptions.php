@@ -883,6 +883,20 @@ function blcap_process_ip_list ($list)
 
 	echo "\n<tr>\n";
 	echo "<td width=\"25%\">\n";
+	echo __("Enable Translation", "blue-captcha") . "\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["gen_enable_translation"]) ? $blcap_set["gen_enable_translation"] : "yes");
+	if ($vv == "no") $checked1 = "checked "; else $checked1 = "";
+	if ($vv == "yes") $checked2 = "checked "; else $checked2 = "";
+	if ($checked1 == "" && $checked2 == "") $checked2 = "checked ";
+	echo "<input type=\"radio\" name=\"gen_enable_translation\" value=\"no\" $checked1/>&nbsp;" . __("No", "blue-captcha") . " &nbsp;&nbsp;\n";
+	echo "<input type=\"radio\" name=\"gen_enable_translation\" value=\"yes\" $checked2/>&nbsp;" . __("Yes", "blue-captcha") . " &nbsp;&nbsp;\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
 	echo __("Keep Captcha Data In", "blue-captcha") . "\n";
 	echo "</td>\n";
 	echo "<td width=\"75%\">\n";

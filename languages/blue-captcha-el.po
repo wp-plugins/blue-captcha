@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blue Captcha\n"
 "POT-Creation-Date: 2013-12-08 17:20+0200\n"
-"PO-Revision-Date: 2013-12-21 21:15+0200\n"
+"PO-Revision-Date: 2014-03-16 03:04+0200\n"
 "Last-Translator: Jotis Kokkalis <jotis@sch.gr>\n"
 "Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
@@ -37,10 +37,10 @@ msgstr "και θα βοηθήσει στην περαιτέρω ανάπτυξ�
 msgid "The entire project was proudly created with NotePad"
 msgstr "Ολόκληρο το πρόγραμμα δημιουργήθηκε μέσω του Σημειωματάριου"
 
-msgid "This program is free software; you can redistribute it and/or modify"
+msgid "This program is free software; you can redistribute it and/or modify it"
 msgstr "Αυτό το πρόγραμμα είναι ελεύθερο λογισμικό. Μπορείτε να το αναδιανέμετε ή/και να το τροποποιήσετε"
 
-msgid "it under the terms of the GNU General Public License, version 2,"
+msgid "under the terms of the GNU General Public License, version 2,"
 msgstr "σύμφωνα με τους όρους της GNU General Public License (Γενική άδεια δημόσιας χρήσης), έκδοση 2,"
 
 msgid "as published by the Free Software Foundation."
@@ -740,4 +740,7 @@ msgstr "ΑΝΑΚΤΗΣΗ ΚΩΔΙΚΟΥ"
 
 msgid "COMMENT"
 msgstr "ΣΧΟΛΙΑ"
+
+msgid "Enable Translation"
+msgstr "Ενεργοποίηση Μετάφρασης"
 
