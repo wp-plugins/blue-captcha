@@ -81,7 +81,7 @@ Andrew Kurtis (http://www.webhostinghub.com) => Spanish Translation<br />
 * 12 Sep 2014
 * New option "Caption" was added in General Options
 * Bug with broken image was fixed (major issue)
-* Translation to Brazilian Portuguese Language (pt_BR) was added - Translation by 
+* Translation to Brazilian Portuguese Language (pt_BR) was added - Translation by João Victor T. Magalhães
 
 = 1.7.2 =
 * 16 Mar 2014
