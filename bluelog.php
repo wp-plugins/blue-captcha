@@ -429,7 +429,7 @@
 					foreach ($info_pieces as $key => $val)
 					{
 						$len = ($key < 3 ? (int)($MIN_INFO_LEN / 2) : $MIN_INFO_LEN);
-						$piece = ( mb_strlen ($val, "utf-8") <= $len) ? $val : mb_substr ($val, 0, $len, "utf-8") . "...";
+						$piece = (strlen ($val) <= $len) ? $val : mb_substr ($val, 0, $len, "utf-8") . "...";
 						if ($cut_info != "") $cut_info = $cut_info . "<br>";
 						$cut_info = $cut_info . $piece;
 					}

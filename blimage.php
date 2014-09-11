@@ -620,7 +620,7 @@ for ($i = 0 ; $i < $totalchars ; $i++)
 	{
 		$text_color = imagecolorallocate ($my_img2, 255, 255, 255);
 
-		if ($font != "")
+		if ($font != "" && function_exists ("imagettftext"))
 		{
 			$bres = imagettftext ($my_img2, $size, $angle, $initposx + $i*20, $posy, $text_color, $font, $thischar);
 			if (!$bres) imagestring ($my_img2, 5, $initposx + $i*20, $posy - 20, $thischar, $text_color);
@@ -632,7 +632,7 @@ for ($i = 0 ; $i < $totalchars ; $i++)
 	{
 		$text_color = imagecolorallocate ($my_img, $rnd_col[0], $rnd_col[1], $rnd_col[2]);
 
-		if ($font != "")
+		if ($font != "" && function_exists ("imagettftext"))
 		{
 			$bres = imagettftext ($my_img, $size, $angle, $initposx + $i*20, $posy, $text_color, $font, $thischar);
 			if (!$bres) imagestring ($my_img, 5, $initposx + $i*20, $posy - 20, $thischar, $text_color);
@@ -685,7 +685,7 @@ if ($layer == "double")
 		{
 			$text_color = imagecolorallocate ($my_img2, 255, 255, 255);
 
-			if ($font != "")
+			if ($font != "" && function_exists ("imagettftext"))
 			{
 				$bres = imagettftext ($my_img2, $size, $angle, $initposx + $i*20, $posy, $text_color, $font, $thischar);
 				if (!$bres) imagestring ($my_img2, 5, $initposx + $i*20, $posy - 20, $thischar, $text_color);
@@ -697,7 +697,7 @@ if ($layer == "double")
 		{
 			$text_color = imagecolorallocate ($my_img, $rnd_col[0], $rnd_col[1], $rnd_col[2]);
 
-			if ($font != "")
+			if ($font != "" && function_exists ("imagettftext"))
 			{
 				$bres = imagettftext ($my_img, $size, $angle, $initposx + $i*20, $posy, $text_color, $font, $thischar);
 				if (!$bres) imagestring ($my_img, 5, $initposx + $i*20, $posy - 20, $thischar, $text_color);

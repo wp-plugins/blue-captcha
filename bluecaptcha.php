@@ -4,7 +4,7 @@
 Plugin Name: Blue Captcha
 Plugin URI: http://wordpress.org/extend/plugins/blue-captcha/
 Description: Blue Captcha
-Version: 1.7.2
+Version: 1.7.3
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
@@ -82,7 +82,7 @@ function blcap_install ()
 	$blcap_cur_version = "";
 	$blcap_cur_version = get_option ("blcap_version");
 	
-	$blcap_version = "1.7.2";
+	$blcap_version = "1.7.3";
 	add_option ("blcap_version", $blcap_version);
 	update_option ("blcap_version", $blcap_version);
 	
@@ -291,6 +291,12 @@ function blcap_main ()
 	echo "<h3 align=\"center\">" . __("Special Thanks To The Following Contributors", "blue-captcha") . ":</h3>\n";
 
 	echo "<table border=\"0\" align=\"center\" width=\"40%\">\n";
+
+
+	echo "<tr>\n";
+	echo "<td>João Victor T. Magalhães</td>";
+	echo "<td>Brazilian Portuguese Translation</td>\n";
+	echo "</tr>\n";
 
 	echo "<tr>\n";
 	echo "<td>Ericka Morales Hernández &nbsp; (<a href=\"http://todoriesgo.net/\" target=\"_blank\">http://todoriesgo.net</a>)</td>";
@@ -530,6 +536,8 @@ function blcap_loginform ()
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	$captcha_refresh_type = (isset ($sss["gen_refreshtype"]) ? $sss["gen_refreshtype"] : "1");
 	$enable_translation = (isset ($sss["gen_enable_translation"]) ? $sss["gen_enable_translation"] : "yes");
+	$captcha_caption = (isset ($sss["gen_caption"]) ? $sss["gen_caption"] : "Captcha");
+	$captcha_caption = trim ($captcha_caption);
 
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -611,7 +619,7 @@ function blcap_loginform ()
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
 			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/>" . $rf_span . "<br />\n";
-			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
+			echo "\t\t\t<label for=\"user_captcha\">" . $captcha_caption . "<br />\n";
 			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"$title\" value=\"\" size=\"15\" tabindex=\"30\" " . $required_text . "/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
@@ -911,6 +919,8 @@ function blcap_registerform ()
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	$captcha_refresh_type = (isset ($sss["gen_refreshtype"]) ? $sss["gen_refreshtype"] : "1");
 	$enable_translation = (isset ($sss["gen_enable_translation"]) ? $sss["gen_enable_translation"] : "yes");
+	$captcha_caption = (isset ($sss["gen_caption"]) ? $sss["gen_caption"] : "Captcha");
+	$captcha_caption = trim ($captcha_caption);
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -992,7 +1002,7 @@ function blcap_registerform ()
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
 			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/>" . $rf_span . "<br />\n";
-			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
+			echo "\t\t\t<label for=\"user_captcha\">" . $captcha_caption . "<br />\n";
 			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"$title\" value=\"\" size=\"15\" tabindex=\"30\" " . $required_text ."/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
@@ -1283,6 +1293,8 @@ function blcap_lostpasswordform ()
 	$captcha_use_sessions = (isset ($sss["gen_use_sessions"]) ? $sss["gen_use_sessions"] : "no");
 	$captcha_refresh_type = (isset ($sss["gen_refreshtype"]) ? $sss["gen_refreshtype"] : "1");
 	$enable_translation = (isset ($sss["gen_enable_translation"]) ? $sss["gen_enable_translation"] : "yes");
+	$captcha_caption = (isset ($sss["gen_caption"]) ? $sss["gen_caption"] : "Captcha");
+	$captcha_caption = trim ($captcha_caption);
 	
 	if ($captcha_active == "yes" && $captcha_enabled == "yes")
 		if ($user_level <= $captcha_user)
@@ -1364,7 +1376,7 @@ function blcap_lostpasswordform ()
 			echo "\t<p>\n";
 			echo "\t\t<div align=\"center\">\n";
 			echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/>" . $rf_span . "<br />\n";
-			echo "\t\t\t<label for=\"user_captcha\">Captcha<br />\n";
+			echo "\t\t\t<label for=\"user_captcha\">" . $captcha_caption . "<br />\n";
 			echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"$title\" value=\"\" size=\"15\" tabindex=\"20\" " . $required_text . "/></label><br /><br />\n";
 			echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" />\n";
 			echo "\t\t</div>\n";
@@ -1655,6 +1667,8 @@ function blcap_commentform ()
 	$captcha_positioncomment = (isset ($sss["gen_positioncomment"]) ? $sss["gen_positioncomment"] : "1");
 	$captcha_positioncommentvalue = (isset ($sss["gen_positioncommentvalue"]) ? $sss["gen_positioncommentvalue"] : "");
 	$enable_translation = (isset ($sss["gen_enable_translation"]) ? $sss["gen_enable_translation"] : "yes");
+	$captcha_caption = (isset ($sss["gen_caption"]) ? $sss["gen_caption"] : "Captcha");
+	$captcha_caption = trim ($captcha_caption);
 
 	if ($captcha_positioncomment == "1" || $captcha_positioncommentvalue == "") $captcha_default_position = true;
 	else $captcha_default_position = false;
@@ -1744,7 +1758,7 @@ function blcap_commentform ()
 				echo "\n\t<p>\n";
 				echo "\t\t<div align=\"left\">\n";
 				echo "\t\t\t<img id=\"blcap_img\" src=\"$captchaurl\" " . $wh_tag . "alt=\"Blue Captcha Image\" " . $rf_tag . "/>" . $rf_span . "<br />\n";
-				echo "\t\t\t<p class=\"comment-form-captcha\"><label for=\"user_captcha\">Captcha</label> <span class=\"required\">*</span>\n";
+				echo "\t\t\t<p class=\"comment-form-captcha\"><label for=\"user_captcha\">" . $captcha_caption . "</label> <span class=\"required\">*</span>\n";
 				echo "\t\t\t<input type=\"text\" name=\"user_captcha\" id=\"user_captcha\" title=\"$title\" value=\"\" size=\"15\" aria-required=\"true\" " . $required_text . "/><br />\n";
 				echo "\t\t\t<input type=\"hidden\" name=\"captcha_id\" value=\"" . $sid . "\" /></p>\n";
 				echo "\t\t</div>\n";
@@ -1816,7 +1830,7 @@ function blcap_commentform ()
 					echo "\t\tvar span = document.createElement (\"span\");\n";
 					echo "\t\tvar label = document.createElement (\"label\");\n";
 					echo "\t\tlabel.setAttribute (\"for\", \"user_captcha\");\n";
-					echo "\t\tlabel.appendChild (document.createTextNode (\"Captcha \"));\n";
+					echo "\t\tlabel.appendChild (document.createTextNode (\"" . $captcha_caption . " \"));\n";
 					echo "\t\tspan.setAttribute (\"class\", \"required\");\n";
 					echo "\t\tspan.appendChild (document.createTextNode(\"*\"));\n";
 					echo "\t\timg.setAttribute (\"id\", \"blcap_img\");\n";

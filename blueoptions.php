@@ -883,6 +883,17 @@ function blcap_process_ip_list ($list)
 
 	echo "\n<tr>\n";
 	echo "<td width=\"25%\">\n";
+	echo __("Caption", "blue-captcha") . "\n";
+	echo "</td>\n";
+	echo "<td width=\"75%\">\n";
+	$vv = (isset ($blcap_set["gen_caption"]) ? $blcap_set["gen_caption"] : "Captcha");
+	$vv = str_replace ("\"", "''", $vv);
+	echo "<input type=\"text\" name=\"gen_caption\" value=\"" . $vv . "\" />\n";
+	echo "</td>\n";
+	echo "</tr>\n";
+
+	echo "\n<tr>\n";
+	echo "<td width=\"25%\">\n";
 	echo __("Enable Translation", "blue-captcha") . "\n";
 	echo "</td>\n";
 	echo "<td width=\"75%\">\n";
