@@ -1,0 +1,743 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blue Captcha\n"
+"POT-Creation-Date: 2013-12-08 17:20+0200\n"
+"PO-Revision-Date: 2013-12-21 21:15+0200\n"
+"Last-Translator: Jotis Kokkalis <jotis@sch.gr>\n"
+"Language-Team: Greek\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Visit my blue stuff page at"
+msgstr "Επισκεφτείτε τη σελίδα μου στη διεύθυνση"
+
+msgid "where you can find documentation about Blue Captcha"
+msgstr "όπου μπορείτε να βρείτε τεκμηρίωση για το Blue Captcha"
+
+msgid "By Jotis Kokkalis"
+msgstr "Από τον Jotis Kokkalis"
+
+msgid "This plugin is free and will always be free"
+msgstr "Αυτό το πρόσθετο είναι δωρεάν και πάντα θα είναι δωρεάν"
+
+msgid "However, if this plugin has protected you from spammers,"
+msgstr "Παρόλα αυτά, αν το πρόσθετο αυτό σας έχει προστατέψει από τους σπάμερς,"
+
+msgid "has helped you in some way or if you just like it, then"
+msgstr "σας έχει βοηθήσει με κάποιο τρόπο ή αν απλώς σας αρέσει, τότε"
+
+msgid "you could donate one dollar or two. Any donation will be highly"
+msgstr "μπορείτε να δωρίσετε 2-3 δολάρια. Κάθε δωρεά θα εκτιμηθεί πάρα πολύ"
+
+msgid "appreciated and will help in further development of this project."
+msgstr "και θα βοηθήσει στην περαιτέρω ανάπτυξη αυτού του προγράμματος."
+
+msgid "The entire project was proudly created with NotePad"
+msgstr "Ολόκληρο το πρόγραμμα δημιουργήθηκε μέσω του Σημειωματάριου"
+
+msgid "This program is free software; you can redistribute it and/or modify"
+msgstr "Αυτό το πρόγραμμα είναι ελεύθερο λογισμικό. Μπορείτε να το αναδιανέμετε ή/και να το τροποποιήσετε"
+
+msgid "it under the terms of the GNU General Public License, version 2,"
+msgstr "σύμφωνα με τους όρους της GNU General Public License (Γενική άδεια δημόσιας χρήσης), έκδοση 2,"
+
+msgid "as published by the Free Software Foundation."
+msgstr "όπως αυτή δημοσιεύεται από το Ιδρυμα Ελεύθερου Λογισμικού."
+
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr "Αυτό το πρόγραμμα διανέμεται με την ελπίδα ότι θα είναι χρήσιμο,"
+
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr "αλλά ΧΩΡΙΣ ΚΑΜΙΑ ΑΠΟΛΥΤΩΣ ΕΓΓΥΗΣΗ. Χωρίς καν την αυτονόητη εγγύηση της"
+
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU"
+msgstr "ΕΜΠΟΡΙΚΟΤΗΤΑΣ ή της ΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΕΝΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Δείτε την GNU"
+
+msgid "General Public License for more details."
+msgstr "General Public License για περισσότερες λεπτομέρειες."
+
+msgid "You should have received a copy of the GNU General Public License,"
+msgstr "Κανονικά θα πρέπει να έχετε λάβει ένα αντίγραφο της GNU General Public License,"
+
+msgid "along with this program; if not, write to the Free Software Foundation,"
+msgstr "μαζί με αυτό το πρόγραμμα. Αν δεν έχετε λάβει, τότε γράψτε στο Ιδρυμα Ελεύθερου Λογισμικού,"
+
+msgid "Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+msgstr "Α.Ε., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+
+msgid "Special Thanks To The Following Contributors"
+msgstr "Ιδιαίτερες ευχαριστίες προς τους παρακάτω συνεισφέροντες"
+
+msgid "Uninstall"
+msgstr "Απεγκατάσταση"
+
+msgid "Click here to uninstall plugin"
+msgstr "Κάντε κλικ εδώ για να απεγκαταστήσετε το πρόσθετο"
+
+msgid "Are you sure that you want to uninstall Blue Captcha Plugin?"
+msgstr "Είστε σίγουροι ότι θέλετε να απεγκαταστήσετε το Blue Captcha πρόσθετο;"
+
+msgid "Blue Captcha has been successfully uninstalled."
+msgstr "Το Blue Captcha απεγκαταστάθηκε επιτυχώς."
+
+msgid "You may now deactivate and delete plugin."
+msgstr "Μπορείτε τώρα να απενεργοποιήσετε και να διαγράψετε το πρόσθετο."
+
+msgid "Click to refresh Captcha Image"
+msgstr "Κάντε κλικ για να ανανεώσετε την εικόνα Captcha"
+
+msgid "Refresh"
+msgstr "Ανανέωση"
+
+msgid "Enter Captcha here"
+msgstr "Εισάγετε τον κωδικό Captcha εδώ"
+
+msgid "You have entered a Wrong CAPTCHA."
+msgstr "Εχετε εισάγει λανθασμένο Captcha."
+
+msgid "Go back and try again."
+msgstr "Πηγαίνετε πίσω και δοκιμάστε ξανά."
+
+msgid "Click"
+msgstr "Κάντε κλικ"
+
+msgid "here"
+msgstr "εδώ"
+
+msgid "to go back and try again."
+msgstr "για να πάτε πίσω και να δοκιμάσετε ξανά."
+
+# Concerning General Options
+msgid "General"
+msgstr "Γενικές"
+
+msgid "Login"
+msgstr "Είσοδος"
+
+msgid "Register"
+msgstr "Εγγραφή"
+
+msgid "Password Recovery"
+msgstr "Ανάκτηση Κωδικού"
+
+msgid "Comment Posting"
+msgstr "Σχόλια"
+
+msgid "Blocking"
+msgstr "Αποκλεισμός"
+
+msgid "General Options"
+msgstr "Γενικές Επιλογές"
+
+msgid "Plugin Is Active"
+msgstr "Το Πρόσθετο Είναι Ενεργό"
+
+msgid "Make Empty Captcha Check Before Form Submission"
+msgstr "Ελεγχος Αν Το Captcha Είναι Κενό Πριν Την Υποβολή Της Φόρμας"
+
+msgid "Keep Comment After Failed Captcha"
+msgstr "Διατήρηση Σχολίων Μετά Από Αποτυχημένη Εισαγωγή Captcha"
+
+msgid "Ignore Case Sensitivity In Characters"
+msgstr "Αγνόηση Ευαισθησίας Χαρακτήρων"
+
+msgid "IP Informer URL"
+msgstr "Σελίδα Πληροφοριοδότη IP Διεύθυνσης"
+
+msgid "Allow Pingbacks & Trackbacks"
+msgstr "Παραδοχή Λειτουργιών Pingbacks & Trackbacks"
+
+msgid "Keep Actions In Log"
+msgstr "Διατήρηση Ενεργειών Στο Αρχείο Καταγραφής"
+
+msgid "Save Additional Info In Log"
+msgstr "Αποθήκευση Πρόσθετων Πληροφοριών Στο Αρχείο Καταγραφής"
+
+msgid "Save Passwords In Log"
+msgstr "Αποθήκευση Κωδικών Πρόσβασης Στο Αρχείο Καταγραφής"
+
+msgid "Image Size In Double Layer"
+msgstr "Μέγεθος Εικόνας Στο Διπλό Στρώμα"
+
+msgid "Captcha Location On Comment Form"
+msgstr "Τοποθέτηση Captcha Στη Φόρμα Σχολιασμού"
+
+msgid "Default"
+msgstr "Προκαθορισμένη"
+
+msgid "Define At"
+msgstr "Ορισμένη Σε"
+
+msgid "Refresh Type"
+msgstr "Τύπος Ανανέωσης"
+
+msgid "Text"
+msgstr "Κείμενο"
+
+msgid "Icon (Under Captcha Image)"
+msgstr "Εικονίδιο (Κάτω Από Την Εικόνα Captcha)"
+
+msgid "Icon (Right Side of Captcha Image)"
+msgstr "Εικονίδιο (Δεξιά Από Την Εικόνα Captcha)"
+
+msgid "Refreshing Captcha Image"
+msgstr "Δυνατότητα Ανανέωσης Της Εικόνας Captcha"
+
+msgid "Keep Captcha Data In"
+msgstr "Διατήρηση Δεδομένων Captcha Σε"
+
+msgid "Extra Protection Key"
+msgstr "Πρόσθετο Κλειδί Προστασίας"
+
+msgid "Auto Generate New Key Daily"
+msgstr "Αυτόματη Δημιουργία Κλειδιού Καθημερινά"
+
+msgid "Generate New Key"
+msgstr "Δημιουργία Νέου Κλειδιού"
+
+msgid "Click here to generate a new random key"
+msgstr "Κάντε κλικ εδώ για να παράγετε ένα καινούργιο τυχαίο κλειδί"
+
+msgid "Yes"
+msgstr "Ναι"
+
+msgid "No"
+msgstr "Οχι"
+
+msgid "Yes (Alert Message)"
+msgstr "Ναι (Μήνυμα Προειδοποίησης)"
+
+msgid "Yes (Required)"
+msgstr "Ναι (Απαιτείται)"
+
+msgid "Save Incorrect Passwords Only"
+msgstr "Αποθήκευση Μόνο Των Λανθασμένων Κωδικών"
+
+# Concerning Image Size
+msgid "Normal"
+msgstr "Κανονικό"
+
+# Concerning Image Size
+msgid "Double"
+msgstr "Διπλό"
+
+msgid "Available"
+msgstr "Διαθέσιμη"
+
+msgid "Unavailable"
+msgstr "Μη Διαθέσιμη"
+
+# Concerning PHP Sessions
+msgid "PHP Sessions"
+msgstr "Συνεδρίες PHP"
+
+msgid "Database"
+msgstr "Βάση Δεδομένων"
+
+msgid "Safer"
+msgstr "Ασφαλέστερο"
+
+msgid "Login Options"
+msgstr "Επιλογές Εισόδου"
+
+msgid "Login Captcha"
+msgstr "Captcha Εισόδου"
+
+msgid "Disabled"
+msgstr "Απενεργοποιημένο"
+
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+msgid "Show Captcha To"
+msgstr "Εμφάνιση Captcha Σε"
+
+msgid "Guests"
+msgstr "Επισκέπτες"
+
+msgid "Guests & Subscribers"
+msgstr "Επισκέπτες & Συνδρομητές"
+
+msgid "Everyone Except Admin"
+msgstr "Ολοι Εκτός Από το Διαχειριστή"
+
+msgid "Everyone"
+msgstr "Ολοι"
+
+msgid "Same As General Options"
+msgstr "Οπως Στις Γενικές Επιλογές"
+
+msgid "Number of Chars"
+msgstr "Αριθμός Χαρακτήρων"
+
+msgid "Type of Chars"
+msgstr "Τύπος Χαρακτήρων"
+
+msgid "Only Numbers"
+msgstr "Μόνο Αριθμοί"
+
+msgid "Only Letters"
+msgstr "Μόνο Γράμματα"
+
+msgid "Numbers & Letters"
+msgstr "Αριθμοί & Γράμματα"
+
+# Concerning random choice
+msgid "Random"
+msgstr "Τυχαία Επιλογή"
+
+msgid "Type of Letters"
+msgstr "Τύπος Γραμμάτων"
+
+msgid "Lowercase"
+msgstr "Πεζά Γράμματα"
+
+msgid "Uppercase"
+msgstr "Κεφαλαία Γράμματα"
+
+msgid "Mixed"
+msgstr "Μεικτά"
+
+msgid "Font Usage"
+msgstr "Χρήση Γραμματοσειράς"
+
+msgid "Yes - One Font For All"
+msgstr "Ναι - Μία Γραμματοσειρά Για Ολα"
+
+msgid "Yes - Different Fonts"
+msgstr "Ναι - Διαφορετικές Γραμματοσειρές"
+
+msgid "Available Fonts"
+msgstr "Διαθέσιμες Γραμματοσειρές"
+
+msgid "Font"
+msgstr "Γραμματοσειρά"
+
+msgid "Char Size"
+msgstr "Μέγεθος Χαρακτήρων"
+
+# Concerning character size
+msgid "Very Small"
+msgstr "Πολύ Μικροί"
+
+# Concerning character size
+msgid "Small"
+msgstr "Μικροί"
+
+# Concerning character size
+msgid "Medium"
+msgstr "Μεσαίοι"
+
+# Concerning character size
+msgid "Large"
+msgstr "Μεγάλοι"
+
+# Concerning character size
+msgid "Very Large"
+msgstr "Πολύ Μεγάλοι"
+
+msgid "Char Color"
+msgstr "Χρώμα Χαρακτήρων"
+
+msgid "Specific Color"
+msgstr "Συγκεκριμένο Χρώμα"
+
+msgid "One Color For All"
+msgstr "Ενα Χρώμα Για Ολα"
+
+msgid "Different Colors"
+msgstr "Διαφορετικά Χρώματα"
+
+msgid "Colorful Chars"
+msgstr "Πολύχρωμοι Χαρακτήρες"
+
+msgid "Char Rotation"
+msgstr "Περιστροφή Χαρακτήρων"
+
+msgid "Background"
+msgstr "Φόντο"
+
+msgid "Single Color"
+msgstr "Μονό Χρώμα"
+
+msgid "Mosaic"
+msgstr "Μωσαϊκό"
+
+msgid "Image"
+msgstr "Εικόνα"
+
+msgid "Image Palette"
+msgstr "Παλέτα Εικόνας"
+
+msgid "Available BG Images"
+msgstr "Διαθέσιμες Εικόνες Φόντου"
+
+# Concerning availability of images (All Images)
+msgid "All"
+msgstr "Ολες"
+
+msgid "Extra Drawing"
+msgstr "Πρόσθετη Σχεδίαση"
+
+# Concerning Extra Drawing
+msgid "None"
+msgstr "Καμία"
+
+msgid "Lines"
+msgstr "Γραμμές"
+
+msgid "Circles"
+msgstr "Κύκλοι"
+
+msgid "Lines & Circles"
+msgstr "Γραμμές & Κύκλοι"
+
+msgid "Grid"
+msgstr "Πλέγμα"
+
+msgid "Transparent Lines"
+msgstr "Διαφανείς Γραμμές"
+
+msgid "Horizontal"
+msgstr "Οριζόντιες"
+
+msgid "Vertical"
+msgstr "Κάθετες"
+
+msgid "Horizontal & Vertical"
+msgstr "Οριζόντιες & Κάθετες"
+
+msgid "Line-Transparency Level"
+msgstr "Επίπεδο Διαφάνειας Γραμμής"
+
+msgid "Captcha Layer"
+msgstr "Στρώμα Captcha"
+
+msgid "Single Layer"
+msgstr "Μονό Στρώμα"
+
+msgid "Double Layer"
+msgstr "Διπλό Στρώμα"
+
+msgid "Difficulty Level"
+msgstr "Επίπεδο Δυσκολίας"
+
+msgid "Very Easy"
+msgstr "Πολύ Εύκολο"
+
+msgid "Easy"
+msgstr "Εύκολο"
+
+msgid "Moderate"
+msgstr "Μεσαίο"
+
+msgid "Hard"
+msgstr "Δύσκολο"
+
+msgid "Very Hard"
+msgstr "Πολύ Δύσκολο"
+
+msgid "Too Hard"
+msgstr "Υπερβολικά Δύσκολο"
+
+msgid "Impossible"
+msgstr "Αδύνατο"
+
+msgid "Custom"
+msgstr "Προσαρμοσμένο"
+
+# Concerning settings application
+msgid "Apply"
+msgstr "Εφαρμογή"
+
+msgid "Preview"
+msgstr "Προεπισκόπηση"
+
+msgid "Click here to apply selected profile"
+msgstr "Κάντε κλικ εδώ για να εφαρμόσετε το επιλεγμένο προφίλ"
+
+msgid "Click here to preview Login Captcha"
+msgstr "Κάντε κλικ εδώ για να κάνετε προεπισκόπηση του Captcha Εισόδου"
+
+msgid "Register Options"
+msgstr "Επιλογές Εγγραφής"
+
+msgid "Register Captcha"
+msgstr "Captcha Εγγραφής"
+
+msgid "Click here to preview Register Captcha"
+msgstr "Κάντε κλικ εδώ για να κάνετε προεπισκόπηση του Captcha Εγγραφής"
+
+msgid "Password Recovery Options"
+msgstr "Επιλογές Ανάκτησης Κωδικού"
+
+msgid "Password Recovery Captcha"
+msgstr "Captcha Ανάκτησης Κωδικού"
+
+msgid "Click here to preview Password Recovery Captcha"
+msgstr "Κάντε κλικ εδώ για να κάνετε προεπισκόπηση του Captcha Ανάκτησης Κωδικού"
+
+msgid "Comment Options"
+msgstr "Επιλογές Σχολίων"
+
+msgid "Comment Captcha"
+msgstr "Captcha Σχολίων"
+
+msgid "Click here to preview Comment Captcha"
+msgstr "Κάντε κλικ εδώ για να κάνετε προεπισκόπηση του Captcha Σχολίων"
+
+msgid "Blocking Options"
+msgstr "Επιλογές Αποκλεισμού"
+
+msgid "Banned IP Addresses"
+msgstr "Αποκλεισμένες Διευθύνσεις IP"
+
+msgid "You can use * in 3rd or 4th part of IP address to block the entire group"
+msgstr "Μπορείτε να χρησιμοποιήσετε το * στο 3ο ή το 4ο κομμάτι της IP διεύθυνσης για να αποκλείσετε ολόκληρη την ομάδα"
+
+msgid "Examples"
+msgstr "Παραδείγματα"
+
+msgid "Apply To"
+msgstr "Εφαρμογή Στα Εξής"
+
+msgid "Save"
+msgstr "Αποθήκευση"
+
+msgid "Click here to save settings"
+msgstr "Κάντε κλικ εδώ για να αποθηκεύσετε τις ρυθμίσεις"
+
+msgid "Reset"
+msgstr "Επαναφορά"
+
+msgid "Click here to reset settings"
+msgstr "Κάντε κλικ εδώ για να επαναφέρετε τις αρχικές τιμές των ρυθμίσεων"
+
+msgid "Options"
+msgstr "Επιλογές"
+
+msgid "Hall of Shame"
+msgstr "Αίθουσα Ντροπής"
+
+msgid "Log"
+msgstr "Αρχείο Καταγραφής"
+
+msgid "No Records Selected"
+msgstr "Δεν επιλέχθηκε καμία εγγραφή"
+
+msgid "An error occurred"
+msgstr "Κάποιο σφάλμα συνέβη"
+
+msgid "Record(s) successfully deleted"
+msgstr "Οι εγγραφές διαγράφτηκαν επιτυχώς"
+
+msgid "IP(s) successfully added to 'Banned IP Addresses' List"
+msgstr "Οι επιλεγμένες διευθύνσεις προστέθηκαν στη λίστα των Αποκλεισμένων IP διευθύνσεων"
+
+msgid "No IPs Selected"
+msgstr "Δεν επιλέχθηκε καμία διεύθυνση IP"
+
+msgid "Pages"
+msgstr "Σελίδες"
+
+msgid "Page"
+msgstr "Σελίδα"
+
+msgid "Go to page"
+msgstr "Μετάβαση στη σελίδα"
+
+msgid "Entries Per Page"
+msgstr "Εγγραφές Ανά Σελίδα"
+
+msgid "Sort By"
+msgstr "Ταξινόμηση Κατά"
+
+msgid "Spam Probability"
+msgstr "Πιθανότητα Spam"
+
+msgid "% Failure"
+msgstr "% Αποτυχία"
+
+msgid "Number of Total Fails"
+msgstr "Αριθμός Συνολικών Αποτυχιών"
+
+msgid "Number of Total Trials"
+msgstr "Αριθμός Συνολικών Προσπαθειών"
+
+msgid "Last Date"
+msgstr "Τελευταία Ημερομηνία"
+
+msgid "IP Address"
+msgstr "Διεύθυνση IP"
+
+msgid "Select All / None"
+msgstr "Επιλογή Ολων / Κανενός"
+
+# Serial Number (No)
+msgid "S/N"
+msgstr "Α/Α"
+
+msgid "Banned"
+msgstr "Αποκλεισμός"
+
+# Tag <br> needs to be preserved
+msgid "Last Date<br>& Time"
+msgstr "Τελευταία<br>Ημ/νία & Ωρα"
+
+# Tag <br> needs to be preserved
+msgid "# Current<br>Fails"
+msgstr "# Τρέχουσες<br>Αποτυχίες"
+
+# Tag <br> needs to be preserved
+msgid "# Current<br>Trials"
+msgstr "# Τρέχουσες<br>Προσπάθειες"
+
+# Tag <br> needs to be preserved
+msgid "# Total<br>Fails"
+msgstr "# Συνολικές<br>Αποτυχίες"
+
+# Tag <br> needs to be preserved
+msgid "# Total<br>Trials"
+msgstr "# Συνολικές<br>Προσπάθειες"
+
+msgid "Average Spam<br>Probability"
+msgstr "Μέση Πιθανότητα<br>Spam"
+
+msgid "Click here to get details about this IP"
+msgstr "Κάντε κλικ εδώ για περισσότερες λεπτομέρειες σχετικά με αυτή τη διεύθυνση IP"
+
+msgid "Click here to view logs of this IP"
+msgstr "Κάντε κλικ εδώ για να δείτε το ιστορικό αυτής της διεύθυνσης IP"
+
+msgid "Click here to delete the selected HoS record(s)"
+msgstr "Κάντε κλικ εδώ για να διαγράψετε τις επιλεγμένες εγγραφές"
+
+msgid "Delete Selected"
+msgstr "Διαγραφή Επιλεγμένων"
+
+msgid "Click here to add the selected IP(s) into 'Banned IP Addresses' list"
+msgstr "Κάντε κλικ εδώ για να προσθέσετε τις επιλεγμένες IP στη λίστα των Αποκλεισμένων Διευθύνσεων IP"
+
+msgid "Ban Selected IP(s)"
+msgstr "Αποκλεισμός Επιλεγμένων IP"
+
+msgid "Click here to export Hall of Shame to CSV file"
+msgstr "Κάντε κλικ εδώ για να κάνετε εξαγωγή σε αρχείο CSV"
+
+msgid "Export to CSV"
+msgstr "Εξαγωγή σε CSV"
+
+msgid "Click here to erase all HoS records"
+msgstr "Κάντε κλικ εδώ για να διαγράψετε όλες τις εγγραφές της Αίθουσας Ντροπής"
+
+msgid "Clear HoS File"
+msgstr "Καθαρισμός Μητρώου"
+
+msgid "Are you sure that you want to delete the selected records?"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε τις επιλεγμένες εγγραφές;"
+
+msgid "Are you sure that you want to block the selected IP(s)?"
+msgstr "Είστε σίγουροι ότι θέλετε να αποκλείσετε τις επιλεγμένες διευθύνσεις IP;"
+
+msgid "Are you sure that you want to erase the entire HoS file?"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε όλες τις εγγραφές της Αίθουσας Ντροπής;"
+
+msgid "No Logs Selected"
+msgstr "Δεν επιλέχθηκε καμία εγγραφή"
+
+msgid "Log(s) successfully deleted"
+msgstr "Οι εγγραφές διαγράφτηκαν επιτυχώς"
+
+msgid "Type"
+msgstr "Τύπος"
+
+msgid "All Types"
+msgstr "Ολοι οι Τύποι"
+
+msgid "Comment"
+msgstr "Σχόλια"
+
+msgid "Result"
+msgstr "Αποτέλεσμα"
+
+msgid "All Results"
+msgstr "Ολα τα Αποτελέσματα"
+
+msgid "Success"
+msgstr "Επιτυχία"
+
+msgid "Fail"
+msgstr "Αποτυχία"
+
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgid "All Dates"
+msgstr "Ολες οι Ημερομηνίες"
+
+msgid "Date & Time"
+msgstr "Ημ/νία & Ωρα"
+
+# Tag <br> needs to be preserved
+msgid "IP Address<br>(Proxy)"
+msgstr "Διεύθυνση IP<br>(Proxy)"
+
+# Tag <br> needs to be preserved
+msgid "Captcha<br>(# Refreshes)"
+msgstr "Captcha<br>(# Ανανεώσεις)"
+
+# Tag <br> needs to be preserved
+msgid "Response Time<br>(# Given Chars)"
+msgstr "Χρόνος Απόκρισης<br>(# Χαρακτήρες)"
+
+# Tag <br> needs to be preserved
+msgid "Result<br>(% Spam P.)"
+msgstr "Αποτέλεσμα<br>(% Πιθ. Spam)"
+
+msgid "Additional Info"
+msgstr "Πρόσθετες Πληροφορίες"
+
+msgid "Click here to erase the selected logs"
+msgstr "Κάντε κλικ εδώ για να διαγράψετε τις επιλεγμένες εγγραφές"
+
+msgid "Click here to erase all logs"
+msgstr "Κάντε κλικ εδώ για να διαγράψετε όλες τις εγγραφές του Αρχείου Καταγραφής"
+
+msgid "Click here to export logs to CSV file"
+msgstr "Κάντε κλικ εδώ για να κάνετε εξαγωγή σε αρχείο CSV"
+
+msgid "Delete Log File"
+msgstr "Καθαρισμός Αρχείου Καταγραφής"
+
+msgid "Are you sure that you want to delete the selected log entries?"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε τις επιλεγμένες εγγραφές;"
+
+msgid "Are you sure that you want to delete ALL log entries?"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε ΟΛΕΣ τις εγγραφές του Αρχείου Καταγραφής;"
+
+msgid "Show/Hide more details"
+msgstr "Εμφάνιση/Απόκρυψη λεπτομερειών"
+
+msgid "SUCCESS"
+msgstr "ΕΠΙΤΥΧΙΑ"
+
+msgid "FAIL"
+msgstr "ΑΠΟΤΥΧΙΑ"
+
+msgid "BANNED"
+msgstr "ΑΠΟΚΛΕΙΣΜΟΣ"
+
+msgid "LOGIN"
+msgstr "ΕΙΣΟΔΟΣ"
+
+msgid "REGISTER"
+msgstr "ΕΓΓΡΑΦΗ"
+
+msgid "PASSWORD RECOVERY"
+msgstr "ΑΝΑΚΤΗΣΗ ΚΩΔΙΚΟΥ"
+
+msgid "COMMENT"
+msgstr "ΣΧΟΛΙΑ"
+

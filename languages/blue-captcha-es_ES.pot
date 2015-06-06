@@ -1,0 +1,743 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blue Captcha\n"
+"POT-Creation-Date: 2013-12-08 17:20+0200\n"
+"PO-Revision-Date: 2014-02-05 20:50+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: jelena kovacevic <jecajeca260@gmail.com>\n"
+"Language-Team: Spanish <LL@li.org>\n"
+"X-Generator: Poedit 1.5.5\n"
+
+msgid "Visit my blue stuff page at"
+msgstr "Visita mi página de cosas azules en"
+
+msgid "where you can find documentation about Blue Captcha"
+msgstr "donde se puede encontrar documentación sobre Blue Captcha"
+
+msgid "By Jotis Kokkalis"
+msgstr "Por Jotis Kokkalis"
+
+msgid "This plugin is free and will always be free"
+msgstr "Este plugin es gratuito y siempre lo será"
+
+msgid "However, if this plugin has protected you from spammers,"
+msgstr "Sin embargo, si este plugin te ha protegido de los spammers,"
+
+msgid "has helped you in some way or if you just like it, then"
+msgstr "le ha ayudado de alguna manera o si lo simplemente le gusta, entonces"
+
+msgid "you could donate one dollar or two. Any donation will be highly"
+msgstr "usted podría donar un dólar o dos. Cualquier donación será muy"
+
+msgid "appreciated and will help in further development of this project."
+msgstr "apreciada y contribuirá a un mayor desarrollo de este proyecto."
+
+msgid "The entire project was proudly created with NotePad"
+msgstr "El proyecto entero fue creado con orgullo con el Bloc de notas"
+
+msgid "This program is free software; you can redistribute it and/or modify"
+msgstr "Este programa es software gratuito; Usted puede redistribuirlo y / o modificarlo"
+
+msgid "it under the terms of the GNU General Public License, version 2,"
+msgstr "bajo los términos de la Licencia Pública GNU General versión 2,"
+
+msgid "as published by the Free Software Foundation."
+msgstr "publicada por la Free Software Foundation"
+
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr "Este programa se distribuye con la esperanza de que sea útil,"
+
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr "pero SIN NINGUNA GARANTÍA, incluso sin la garantía implícita de"
+
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU"
+msgstr "COMERCIALIZACIÓN o IDONEIDAD PARA UN PROPÓSITO PARTICULAR. Vea la"
+
+msgid "General Public License for more details."
+msgstr "Licencia Pública General GNU para más detalles."
+
+msgid "You should have received a copy of the GNU General Public License,"
+msgstr "Debería haber recibido una copia de la Licencia Pública General de GNU"
+
+msgid "along with this program; if not, write to the Free Software Foundation,"
+msgstr "Junto con este programa; si no, escriba a la Free Software Foundation,"
+
+msgid "Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+msgstr "Inc., 51 Franklin St Fifth Floor, Boston, MA 02110-1301 EE.UU."
+
+msgid "Special Thanks To The Following Contributors"
+msgstr "Agradecimiento especial a los siguientes colaboradores"
+
+msgid "Uninstall"
+msgstr "Desinstalar"
+
+msgid "Click here to uninstall plugin"
+msgstr "Haga clic aquí para desinstalar el plugin"
+
+msgid "Are you sure that you want to uninstall Blue Captcha Plugin?"
+msgstr "¿Está seguro que quiere desinstalar el Plugin Blue Captcha?"
+
+msgid "Blue Captcha has been successfully uninstalled."
+msgstr "Blue Captcha se ha desinstalado correctamente."
+
+msgid "You may now deactivate and delete plugin."
+msgstr "Ahora puede desactivar y eliminar el plugin."
+
+msgid "Click to refresh Captcha Image"
+msgstr "Haga Clic para refrescar la imagen Captcha"
+
+msgid "Refresh"
+msgstr "Refrescar"
+
+msgid "Enter Captcha here"
+msgstr "Ingrese Captcha aquí"
+
+msgid "You have entered a Wrong CAPTCHA."
+msgstr "Ha introducido un CAPTCHA incorrecto."
+
+msgid "Go back and try again."
+msgstr "Regrese y vuelva a intentarlo."
+
+msgid "Click"
+msgstr "Haga clic"
+
+msgid "here"
+msgstr "Aquí"
+
+msgid "to go back and try again."
+msgstr "para volver y probar otra vez."
+
+# Concerning General Options
+msgid "General"
+msgstr "General"
+
+msgid "Login"
+msgstr "Ingreso"
+
+msgid "Register"
+msgstr "Registro"
+
+msgid "Password Recovery"
+msgstr "Recuperación de Contraseña"
+
+msgid "Comment Posting"
+msgstr "Publicación de Comentarios"
+
+msgid "Blocking"
+msgstr "Bloqueo"
+
+msgid "General Options"
+msgstr "Opciones generales"
+
+msgid "Plugin Is Active"
+msgstr "Plugin está activo"
+
+msgid "Make Empty Captcha Check Before Form Submission"
+msgstr "Marca Captcha Vacío Antes de enviar Formulario"
+
+msgid "Keep Comment After Failed Captcha"
+msgstr "Mantenga Comentario Después de Error en Captcha"
+
+msgid "Ignore Case Sensitivity In Characters"
+msgstr "Ignorar mayúsculas y minúsculas en caracteres"
+
+msgid "IP Informer URL"
+msgstr "URL Informador IP"
+
+msgid "Allow Pingbacks & Trackbacks"
+msgstr "Permitir Pingbacks y Trackbacks"
+
+msgid "Keep Actions In Log"
+msgstr "Mantenga acciones En sesión"
+
+msgid "Save Additional Info In Log"
+msgstr "Guardar información adicional en su cuenta"
+
+msgid "Save Passwords In Log"
+msgstr "Guardar Contraseñas en su cuenta"
+
+msgid "Image Size In Double Layer"
+msgstr "Tamaño de Imagen En Doble Capa"
+
+msgid "Captcha Location On Comment Form"
+msgstr "Ubicación Captcha activada en formulario de Comentario"
+
+msgid "Default"
+msgstr "Predeterminado"
+
+msgid "Define At"
+msgstr "Defina En"
+
+msgid "Refresh Type"
+msgstr "Tipo de Refresh"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Icon (Under Captcha Image)"
+msgstr "Icono (Bajo Imagen Captcha)"
+
+msgid "Icon (Right Side of Captcha Image)"
+msgstr "Icono (Lado Derecho de Imagen Captcha)"
+
+msgid "Refreshing Captcha Image"
+msgstr "Refrescando Imagen Captcha"
+
+msgid "Keep Captcha Data In"
+msgstr "Mantenga Datos Captcha"
+
+msgid "Extra Protection Key"
+msgstr "Clave de Protección adicional"
+
+msgid "Auto Generate New Key Daily"
+msgstr "Auto Generar Nueva Clave todos los días"
+
+msgid "Generate New Key"
+msgstr "Generar nueva clave"
+
+msgid "Click here to generate a new random key"
+msgstr "Haga clic aquí para generar una nueva clave aleatoria"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "No"
+
+msgid "Yes (Alert Message)"
+msgstr "Sí (Mensaje de alerta)"
+
+msgid "Yes (Required)"
+msgstr "Sí (Obligatorio)"
+
+msgid "Save Incorrect Passwords Only"
+msgstr "Guardar sólo contraseñas incorrectas"
+
+# Concerning Image Size
+msgid "Normal"
+msgstr "Normal"
+
+# Concerning Image Size
+msgid "Double"
+msgstr "Doble"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Unavailable"
+msgstr "No disponible"
+
+# Concerning PHP Sessions
+msgid "PHP Sessions"
+msgstr "Sesiones PHP"
+
+msgid "Database"
+msgstr "Base de datos"
+
+msgid "Safer"
+msgstr "Más seguro"
+
+msgid "Login Options"
+msgstr "Opciones de Ingreso"
+
+msgid "Login Captcha"
+msgstr "Ingreso a Captcha"
+
+msgid "Disabled"
+msgstr "Desactivado"
+
+msgid "Enabled"
+msgstr "Activado"
+
+msgid "Show Captcha To"
+msgstr "Mostrar Captcha a los"
+
+msgid "Guests"
+msgstr "Invitados"
+
+msgid "Guests & Subscribers"
+msgstr "Invitados y Suscriptores"
+
+msgid "Everyone Except Admin"
+msgstr "Todo el mundo excepto admin"
+
+msgid "Everyone"
+msgstr "Todo el mundo"
+
+msgid "Same As General Options"
+msgstr "Igual que en Opciones generales"
+
+msgid "Number of Chars"
+msgstr "Número de Caracteres"
+
+msgid "Type of Chars"
+msgstr "Tipo de caracteres"
+
+msgid "Only Numbers"
+msgstr "Números solamente"
+
+msgid "Only Letters"
+msgstr "Sólo letras"
+
+msgid "Numbers & Letters"
+msgstr "Números y letras"
+
+# Concerning random choice
+msgid "Random"
+msgstr "Aleatorio"
+
+msgid "Type of Letters"
+msgstr "Tipo de letras"
+
+msgid "Lowercase"
+msgstr "Minúsculas"
+
+msgid "Uppercase"
+msgstr "Mayúsculas"
+
+msgid "Mixed"
+msgstr "Mezclado"
+
+msgid "Font Usage"
+msgstr "Uso de fuentes"
+
+msgid "Yes - One Font For All"
+msgstr "Sí - Una Fuente para Todos"
+
+msgid "Yes - Different Fonts"
+msgstr "Sí - Diferentes Fuentes"
+
+msgid "Available Fonts"
+msgstr "Fuentes disponibles"
+
+msgid "Font"
+msgstr "Fuentes"
+
+msgid "Char Size"
+msgstr "Tamaño de caracteres"
+
+# Concerning character size
+msgid "Very Small"
+msgstr "Muy  pequeño"
+
+# Concerning character size
+msgid "Small"
+msgstr "Pequeño"
+
+# Concerning character size
+msgid "Medium"
+msgstr "Mediano"
+
+# Concerning character size
+msgid "Large"
+msgstr "Grande"
+
+# Concerning character size
+msgid "Very Large"
+msgstr "Muy grande"
+
+msgid "Char Color"
+msgstr "Color de caracteres"
+
+msgid "Specific Color"
+msgstr "Color específico"
+
+msgid "One Color For All"
+msgstr "Un color para Todos"
+
+msgid "Different Colors"
+msgstr "Diferentes Colores"
+
+msgid "Colorful Chars"
+msgstr "Caracteres de colores"
+
+msgid "Char Rotation"
+msgstr "Rotación de caracteres"
+
+msgid "Background"
+msgstr "Fondo"
+
+msgid "Single Color"
+msgstr "Colores individuales"
+
+msgid "Mosaic"
+msgstr "Mosaico"
+
+msgid "Image"
+msgstr "Imagen"
+
+msgid "Image Palette"
+msgstr "Paleta de imagen"
+
+msgid "Available BG Images"
+msgstr "Imágenes BG disponibles"
+
+# Concerning availability of images (All Images)
+msgid "All"
+msgstr "Todos"
+
+msgid "Extra Drawing"
+msgstr "Dibujo adicional"
+
+# Concerning Extra Drawing
+msgid "None"
+msgstr "Ninguno"
+
+msgid "Lines"
+msgstr "Líneas"
+
+msgid "Circles"
+msgstr "Círculos"
+
+msgid "Lines & Circles"
+msgstr "Líneas & Círculos"
+
+msgid "Grid"
+msgstr "Rejilla"
+
+msgid "Transparent Lines"
+msgstr "Líneas transparentes"
+
+msgid "Horizontal"
+msgstr "Horizontal"
+
+msgid "Vertical"
+msgstr "Vertical"
+
+msgid "Horizontal & Vertical"
+msgstr "Horizontal y Vertical"
+
+msgid "Line-Transparency Level"
+msgstr "Línea - Nivel de transparencia"
+
+msgid "Captcha Layer"
+msgstr "Capa de Captcha"
+
+msgid "Single Layer"
+msgstr "Capa Sencilla"
+
+msgid "Double Layer"
+msgstr "Doble Capa"
+
+msgid "Difficulty Level"
+msgstr "Nivel de dificultad"
+
+msgid "Very Easy"
+msgstr "Muy fácil"
+
+msgid "Easy"
+msgstr "Fácil"
+
+msgid "Moderate"
+msgstr "Moderado"
+
+msgid "Hard"
+msgstr "Difícil"
+
+msgid "Very Hard"
+msgstr "Muy difícil"
+
+msgid "Too Hard"
+msgstr "Demasiado Hard"
+
+msgid "Impossible"
+msgstr "Imposible"
+
+msgid "Custom"
+msgstr "Personalizado"
+
+# Concerning settings application
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "Preview"
+msgstr "Previsualizar"
+
+msgid "Click here to apply selected profile"
+msgstr "Clic aquí para aplicar perfil seleccionado"
+
+msgid "Click here to preview Login Captcha"
+msgstr "Haga clic aquí para obtener una vista previa del Ingreso a Captcha"
+
+msgid "Register Options"
+msgstr "Opciones Registro"
+
+msgid "Register Captcha"
+msgstr "Registrar Captcha"
+
+msgid "Click here to preview Register Captcha"
+msgstr "Haga clic aquí para obtener una vista previa Registrarse Captcha"
+
+msgid "Password Recovery Options"
+msgstr "Opciones de recuperación contraseña"
+
+msgid "Password Recovery Captcha"
+msgstr "Recuperación de contraseña Captcha"
+
+msgid "Click here to preview Password Recovery Captcha"
+msgstr "Clic aquí para obtener una vista previa "
+
+msgid "Comment Options"
+msgstr "Opciones  Comentario"
+
+msgid "Comment Captcha"
+msgstr "Captcha de comentario"
+
+msgid "Click here to preview Comment Captcha"
+msgstr "clic aquí para obtener una vista previa Comentario Captcha"
+
+msgid "Blocking Options"
+msgstr "Opciones de bloqueo"
+
+msgid "Banned IP Addresses"
+msgstr "Direcciones IP bloqueadas"
+
+msgid "You can use * in 3rd or 4th part of IP address to block the entire group"
+msgstr "Puede utilizar * en la tercera o cuarta parte de la dirección IP para bloquear el grupo entero"
+
+msgid "Examples"
+msgstr "Ejemplos"
+
+msgid "Apply To"
+msgstr "Aplicar para"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Click here to save settings"
+msgstr "Haga clic aquí para guardar la configuración"
+
+msgid "Reset"
+msgstr "Restablecer"
+
+msgid "Click here to reset settings"
+msgstr "Haga clic aquí para restablecer la configuración"
+
+msgid "Options"
+msgstr "Opciones"
+
+msgid "Hall of Shame"
+msgstr "Salón de la Vergüenza"
+
+msgid "Log"
+msgstr "Entrar"
+
+msgid "No Records Selected"
+msgstr "No hay registros seleccionados:"
+
+msgid "An error occurred"
+msgstr "Se ha producido un error"
+
+msgid "Record(s) successfully deleted"
+msgstr "Registro (s) eliminado correctamente"
+
+msgid "IP(s) successfully added to 'Banned IP Addresses' List"
+msgstr "IP (s) agregado con éxito a la lista 'Direcciones IP no permitidas'"
+
+msgid "No IPs Selected"
+msgstr "No hay direcciones IP seleccionadas"
+
+msgid "Pages"
+msgstr "Páginas"
+
+msgid "Page"
+msgstr "Página"
+
+msgid "Go to page"
+msgstr "Ir a página"
+
+msgid "Entries Per Page"
+msgstr "Comentarios por página"
+
+msgid "Sort By"
+msgstr "Ordenar por"
+
+msgid "Spam Probability"
+msgstr "Probabilidad de spam"
+
+msgid "% Failure"
+msgstr "% de Falla"
+
+msgid "Number of Total Fails"
+msgstr "Número total de fallas"
+
+msgid "Number of Total Trials"
+msgstr "Número de ensayos totales"
+
+msgid "Last Date"
+msgstr "Última Fecha"
+
+msgid "IP Address"
+msgstr "Dirección IP"
+
+msgid "Select All / None"
+msgstr "Seleccionar Todo / Ninguno"
+
+# Serial Number (No)
+msgid "S/N"
+msgstr "No"
+
+msgid "Banned"
+msgstr "Prohibido"
+
+# Tag <br> needs to be preserved
+msgid "Last Date<br>& Time"
+msgstr "Última fecha<br>& Tiempo"
+
+# Tag <br> needs to be preserved
+msgid "# Current<br>Fails"
+msgstr "# Fallas<br>actuales"
+
+# Tag <br> needs to be preserved
+msgid "# Current<br>Trials"
+msgstr "# Ensayos<br>Actuales"
+
+# Tag <br> needs to be preserved
+msgid "# Total<br>Fails"
+msgstr "# Total de<br>fallas"
+
+# Tag <br> needs to be preserved
+msgid "# Total<br>Trials"
+msgstr "# Total de<br>Ensayos"
+
+msgid "Average Spam<br>Probability"
+msgstr "Promedio<br>Probabilidad de spam"
+
+msgid "Click here to get details about this IP"
+msgstr "Haga clic aquí para obtener detalles acerca de esta IP"
+
+msgid "Click here to view logs of this IP"
+msgstr "Haga clic aquí para ver los registros de esta IP"
+
+msgid "Click here to delete the selected HoS record(s)"
+msgstr "Haga clic aquí para eliminar los registros HoS seleccionado (s)"
+
+msgid "Delete Selected"
+msgstr "Eliminar seleccionados"
+
+msgid "Click here to add the selected IP(s) into 'Banned IP Addresses' list"
+msgstr "Haga clic aquí para añadir el IP (s) seleccionado en la lista de 'Direcciones IP no permitidas'"
+
+msgid "Ban Selected IP(s)"
+msgstr "No permitir IP (s) seleccionado"
+
+msgid "Click here to export Hall of Shame to CSV file"
+msgstr "Clic aquí para exportar Salón de la Vergüenza al archivo CSV"
+
+msgid "Export to CSV"
+msgstr "Exportar a CSV"
+
+msgid "Click here to erase all HoS records"
+msgstr "Haga clic aquí para borrar todos los registros HoS"
+
+msgid "Clear HoS File"
+msgstr "Eliminar archivo HoS"
+
+msgid "Are you sure that you want to delete the selected records?"
+msgstr "¿Está seguro que desea eliminar los registros seleccionados?"
+
+msgid "Are you sure that you want to block the selected IP(s)?"
+msgstr "¿Está seguro que quiere bloquear la IP (s) seleccionada?"
+
+msgid "Are you sure that you want to erase the entire HoS file?"
+msgstr "¿Está seguro que quiere borrar todo el archivo HoS?"
+
+msgid "No Logs Selected"
+msgstr "No hay Registros Seleccionados"
+
+msgid "Log(s) successfully deleted"
+msgstr "Registro(s) eliminado correctamente"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "All Types"
+msgstr "Todos los tipos"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "Result"
+msgstr "Resultado"
+
+msgid "All Results"
+msgstr "Todos los Resultados"
+
+msgid "Success"
+msgstr "Éxito"
+
+msgid "Fail"
+msgstr "Falla"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "All Dates"
+msgstr "Todas las fechas"
+
+msgid "Date & Time"
+msgstr "Fecha y hora"
+
+# Tag <br> needs to be preserved
+msgid "IP Address<br>(Proxy)"
+msgstr "Dirección IP<br>(Proxy)"
+
+# Tag <br> needs to be preserved
+msgid "Captcha<br>(# Refreshes)"
+msgstr "Captcha<br>(# Refrescos)"
+
+# Tag <br> needs to be preserved
+msgid "Response Time<br>(# Given Chars)"
+msgstr "Tiempo de respuesta<br>(# Caracteres Dados)"
+
+# Tag <br> needs to be preserved
+msgid "Result<br>(% Spam P.)"
+msgstr "Resultado<br>(% del Spam P.)"
+
+msgid "Additional Info"
+msgstr "Información adicional"
+
+msgid "Click here to erase the selected logs"
+msgstr "Clic aquí para borrar los registros seleccionados"
+
+msgid "Click here to erase all logs"
+msgstr "Clic aquí para borrar todos los registros"
+
+msgid "Click here to export logs to CSV file"
+msgstr "Clic aquí para exportar los registros a un archivo CSV"
+
+msgid "Delete Log File"
+msgstr "Eliminar archivos de registro"
+
+msgid "Are you sure that you want to delete the selected log entries?"
+msgstr "¿Está seguro de que desea eliminar las entradas de registro seleccionadas?"
+
+msgid "Are you sure that you want to delete ALL log entries?"
+msgstr "¿Está seguro que desea eliminar todas las entradas de registro?"
+
+msgid "Show/Hide more details"
+msgstr "Mostrar/Ocultar más detalles"
+
+msgid "SUCCESS"
+msgstr "ÉXITO"
+
+msgid "FAIL"
+msgstr "FALLA"
+
+msgid "BANNED"
+msgstr "PROHIBIDO"
+
+msgid "LOGIN"
+msgstr "ENTRADA"
+
+msgid "REGISTER"
+msgstr "REGISTRO"
+
+msgid "PASSWORD RECOVERY"
+msgstr "RECUPERACIÓN  DE CONTRASEÑA"
+
+msgid "COMMENT"
+msgstr "COMENTARIO"
+
