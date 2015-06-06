@@ -585,4 +585,66 @@ function blcap_create_csv_hos ()
 	return $result;		
 }
 
+function blcap_detect_os ($ua = "")
+{
+	if ($ua === "") $ua = $_SERVER["HTTP_USER_AGENT"];
+
+	$ua = strtolower ($ua);
+
+	$android = (stripos ($ua, 'android') !== false ? true : false);
+
+	$linux = (stripos ($ua, 'linux') !== false ? true : false);
+
+	$mac = (stripos ($ua, 'macintosh') !== false ? true : false);
+
+	$win = (stripos ($ua, 'windows') !== false ? true : false);
+
+	$blackberry = (stripos ($ua, 'blackberry') !== false ? true : false);
+
+	$iphone = (stripos ($ua, 'iphone') !== false ? true : false);
+
+	$palm = (stripos ($ua, 'palm') !== false ? true : false);
+
+	$ipad = (stripos ($ua, 'ipad') !== false ? true : false);
+
+	if ($android) return "Android"; 
+	else if ($linux) return "Linux";
+	else if ($mac) return "Macintosh";
+	else if ($win) return "Windows";
+	else if ($android) return "Android";
+	else if ($blackberry) return "BlackBerry";
+	else if ($iphone) return "iPhone";
+	else if ($palm) return "Palm";
+	else if ($ipad) return "iPad";
+	else return "Unknown";
+}
+
+function blcap_detect_browser ($ua = "")
+{
+	if ($ua === "") $ua = $_SERVER["HTTP_USER_AGENT"];
+
+	$ua = strtolower ($ua);
+
+	$chrome = (stripos ($ua, 'chrome') ? true : false);
+
+	$firefox = (stripos ($ua, 'firefox') !== false ? true : false);
+
+	$mozilla = (stripos ($ua, 'mozilla') !== false ? true : false);
+
+	$msie = (stripos ($ua, 'msie') !== false ? true : false);
+
+	$opera = (stripos ($ua, 'opera') ? true : false);
+	//$opera = preg_match ("/\bOpera\b/i", $ua);
+
+	$safari = (stripos ($ua, 'safari') !== false ? true : false);
+
+	if ($chrome) return "Chrome";
+	else if ($firefox) return "Firefox";
+	else if ($msie) return "Internet Explorer";
+	else if ($opera) return "Opera";
+	else if ($safari) return "Safari";
+	else if ($mozilla) return "Firefox";
+	else return "Unknown";
+}
+
 ?>

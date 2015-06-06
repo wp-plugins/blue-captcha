@@ -398,6 +398,20 @@
 			$info = $res[$i]["info"];
 			$more = $res[$i]["more"];
 
+			$agent_pos = strpos ($more, '#@');
+			if ($agent_pos !== false && $agent_pos >= 0)
+			{
+				$user_agent_str = substr ($more, $agent_pos + 2);
+				$os = blcap_detect_os ($user_agent_str);
+				$browser = blcap_detect_browser ($user_agent_str);
+				$agent_info = "<b>OS: " . $os . " &nbsp; | &nbsp; Browser: " . $browser . "</b>";
+			}
+			else
+			{
+				$user_agent_str = "";
+				$agent_info = "";
+			}
+
 			$more_arr = explode ("#", $more);
 			$totalchars = (isset ($more_arr[0]) ? $more_arr[0] : "");
 			$pos = (isset ($more_arr[1]) ? $more_arr[1] : "");
@@ -463,6 +477,12 @@
 				}
 			}
 
+			if ($agent_info != "")
+			{
+				$info_special = $agent_info . "<br />" . $info_special;
+			}
+
+			$http_user_agent_td_info = $user_agent_str != "" ? " title=\"" .  str_replace ("\"", "''", $user_agent_str) . "\"" : "";
 
 			echo "<tr class=\"$chclass\">\n";
 
@@ -474,7 +494,7 @@
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">$totaltime<br>($totalchars)</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">" . __($type, "blue-captcha") . "</font></div></td>\n";
 			echo "<td><div align=\"center\"><font color=\"$rescolor\">" . __($capres, "blue-captcha") . "<br>($pos)</font></div></td>\n";
-			echo "<td><div align=\"left\"><font color=\"$rescolor\">$info_special</font></div></td>\n";
+			echo "<td" . $http_user_agent_td_info . "><div align=\"left\"><font color=\"$rescolor\">$info_special</font></div></td>\n";
 	
 			echo "</tr>\n";
 		}

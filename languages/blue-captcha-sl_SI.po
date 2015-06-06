@@ -1,0 +1,751 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Blue Captcha\n"
+"POT-Creation-Date: 2013-12-08 17:20+0200\n"
+"PO-Revision-Date: 2015-05-31 16:06+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Leon Roskar <info@ikonio.si>\n"
+"Language-Team: Leon Roškar <leon@mojpc.net>\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+"Language: sl_SI\n"
+"X-Generator: Poedit 1.6.4\n"
+
+msgid "Visit my blue stuff page at"
+msgstr "Obiščite modro stran za več stvari: "
+
+msgid "where you can find documentation about Blue Captcha"
+msgstr "Tukaj lahko najdete tudi dokumentacijo za Blue Captcha."
+
+msgid "By Jotis Kokkalis"
+msgstr "Avtor: Jotis Kokkalis - Trnsaltor/Prevajalec: Leon Roškar - Slovenija"
+
+msgid "This plugin is free and will always be free"
+msgstr "Ta vtičnik je brezplačen in ostal bo brezplačen za stalno."
+
+msgid "However, if this plugin has protected you from spammers,"
+msgstr "Če vas je ta vtičnik zavaroval pred spamerji,"
+
+msgid "has helped you in some way or if you just like it, then"
+msgstr "vam na nek način pomagal ali vam je všeč,"
+
+msgid "you could donate one dollar or two. Any donation will be highly"
+msgstr "potem lahko donirate kak Evro ali dva. Vsaka donacija je zelo"
+
+msgid "appreciated and will help in further development of this project."
+msgstr "dobrodošla in bo pomagala pri nadaljnjem razvoju tega projekta."
+
+msgid "The entire project was proudly created with NotePad"
+msgstr "Ta projekt je bil ponosno ustvarjen z NotePad (beležnico)."
+
+msgid "This program is free software; you can redistribute it and/or modify it"
+msgstr ""
+"Ta program je prosta programska oprema; lahko ga razširjate in / ali "
+"spreminjate"
+
+msgid "under the terms of the GNU General Public License, version 2,"
+msgstr "pod pogoji GNU General Public License, version 2,"
+
+msgid "as published by the Free Software Foundation."
+msgstr "kot jih je Free Software Foundation objavila."
+
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr "Ta program se razširja v upanju, da bo uporaben,"
+
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr "vendar BREZ KAKRŠNEKOLI GARANCIJE; tudi brez implicitnega jamstva"
+
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU"
+msgstr "PRODAJO ali PRIMERNOSTI ZA DOLOČEN NAMEN. Oglejte si GNU"
+
+msgid "General Public License for more details."
+msgstr "General Public Licenca za več podrobnosti."
+
+msgid "You should have received a copy of the GNU General Public License,"
+msgstr "Vi bi morali prejeti kopijo GNU General Public Licence,"
+
+msgid "along with this program; if not, write to the Free Software Foundation,"
+msgstr "skupaj s tem programom; če ne, pišite na Free Software Foundation,"
+
+msgid "Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+msgstr "Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"
+
+msgid "Special Thanks To The Following Contributors"
+msgstr "Posebna zahvala gre naslednjim sodelujočim:"
+
+msgid "Uninstall"
+msgstr "Deinstaliraj"
+
+msgid "Click here to uninstall plugin"
+msgstr "Klikni tukaj za deinstalacijo vtičnika"
+
+msgid "Are you sure that you want to uninstall Blue Captcha Plugin?"
+msgstr "Ali si prepričan, da želiš deinstalirat Blue Capcha vtičnik?"
+
+msgid "Blue Captcha has been successfully uninstalled."
+msgstr "Blue Captcha je bila uspešno deinstalirana."
+
+msgid "You may now deactivate and delete plugin."
+msgstr "Zdaj lahko deaktivirate in izbrišete vtičnik."
+
+msgid "Click to refresh Captcha Image"
+msgstr "Klikni za osvežitev Capcha slike."
+
+msgid "Refresh"
+msgstr "Osveži"
+
+msgid "Enter Captcha here"
+msgstr "Vstavi Captcho tukaj."
+
+msgid "You have entered a Wrong CAPTCHA."
+msgstr "Vnesli ste napačno CAPTCHO"
+
+msgid "Go back and try again."
+msgstr "Idi nazaj in poskusi ponovno."
+
+msgid "Click"
+msgstr "Klik"
+
+msgid "here"
+msgstr "tukaj"
+
+msgid "to go back and try again."
+msgstr "idi nazaj in poskusi znova"
+
+# Concerning General Options
+msgid "General"
+msgstr "Splošno"
+
+msgid "Login"
+msgstr "Prijava"
+
+msgid "Register"
+msgstr "Registracija"
+
+msgid "Password Recovery"
+msgstr "Obnova gesla"
+
+msgid "Comment Posting"
+msgstr "Komentarji postov"
+
+msgid "Blocking"
+msgstr "Blokada"
+
+msgid "General Options"
+msgstr "Splošne nastavitve"
+
+msgid "Plugin Is Active"
+msgstr "Vtičnik je aktiven"
+
+msgid "Make Empty Captcha Check Before Form Submission"
+msgstr "Sprazni Captcho preveri pred oddajo"
+
+msgid "Keep Comment After Failed Captcha"
+msgstr "Obdrži komentar po napaki Captche"
+
+msgid "Ignore Case Sensitivity In Characters"
+msgstr "Ignoriraj občutljivost na velikost znakov"
+
+msgid "IP Informer URL"
+msgstr "IP informacija URL"
+
+msgid "Allow Pingbacks & Trackbacks"
+msgstr "Dovoli Ping nazaj in sledenje nazaj"
+
+msgid "Keep Actions In Log"
+msgstr "Shranjuj dejanja v LOG (dnevnik)"
+
+msgid "Save Additional Info In Log"
+msgstr "Shrani dodatna dejanja v LOG (dnevnik) "
+
+msgid "Save Passwords In Log"
+msgstr "Shrani Gesla v LOG (dnevnik)"
+
+msgid "Image Size In Double Layer"
+msgstr "Velikost slike v dvojnem nivoju"
+
+msgid "Captcha Location On Comment Form"
+msgstr "Lokacija Captcha v obrazcu komentarji"
+
+msgid "Default"
+msgstr "Privzeto"
+
+msgid "Define At"
+msgstr "Opredeli na"
+
+msgid "Refresh Type"
+msgstr "Osveži tip"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "Icon (Under Captcha Image)"
+msgstr "Ikona (pod Captcha sliko)"
+
+msgid "Icon (Right Side of Captcha Image)"
+msgstr "Ikona ( Desno od Captcha slike)"
+
+msgid "Refreshing Captcha Image"
+msgstr "Osveževanje Captcha slike"
+
+msgid "Keep Captcha Data In"
+msgstr "Obdrži Captcha podatke v"
+
+msgid "Extra Protection Key"
+msgstr "Dodatni zaščitni ključ"
+
+msgid "Auto Generate New Key Daily"
+msgstr "Avto generiranje novega dnevnega ključa"
+
+msgid "Generate New Key"
+msgstr "Generiraj nov ključ"
+
+msgid "Click here to generate a new random key"
+msgstr "Klikni tukaj za generiranje novega naključnega ključa"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Yes (Alert Message)"
+msgstr "Da (Opozorilno sporočilo)"
+
+msgid "Yes (Required)"
+msgstr "Da (Privzeto)"
+
+msgid "Save Incorrect Passwords Only"
+msgstr "Shrani samo napačna gesla"
+
+# Concerning Image Size
+msgid "Normal"
+msgstr "Normalno"
+
+# Concerning Image Size
+msgid "Double"
+msgstr "Dvojno"
+
+msgid "Available"
+msgstr "Na voljo"
+
+msgid "Unavailable"
+msgstr "Ni na voljo"
+
+# Concerning PHP Sessions
+msgid "PHP Sessions"
+msgstr "PHP seja"
+
+msgid "Database"
+msgstr "Baza podatkov"
+
+msgid "Safer"
+msgstr "Varnejši"
+
+msgid "Login Options"
+msgstr "Prijava - možnosti"
+
+msgid "Login Captcha"
+msgstr "Prijavna Captcha"
+
+msgid "Disabled"
+msgstr "Izklopljeno"
+
+msgid "Enabled"
+msgstr "Vklopljeno"
+
+msgid "Show Captcha To"
+msgstr "Prikaži Captcho v"
+
+msgid "Guests"
+msgstr "Gostje"
+
+msgid "Guests & Subscribers"
+msgstr "Gostje in Naročniki"
+
+msgid "Everyone Except Admin"
+msgstr "Vsi razen Admin"
+
+msgid "Everyone"
+msgstr "Vsi"
+
+msgid "Same As General Options"
+msgstr "Enako kot splošne nastavitve"
+
+msgid "Number of Chars"
+msgstr "Število znakov"
+
+msgid "Type of Chars"
+msgstr "Vrsta znakov"
+
+msgid "Only Numbers"
+msgstr "Samo številke"
+
+msgid "Only Letters"
+msgstr "Samo črke"
+
+msgid "Numbers & Letters"
+msgstr "Številke in črke"
+
+# Concerning random choice
+msgid "Random"
+msgstr "Naključno"
+
+msgid "Type of Letters"
+msgstr "Vrsta črk"
+
+msgid "Lowercase"
+msgstr "Male črke"
+
+msgid "Uppercase"
+msgstr "Velike črke"
+
+msgid "Mixed"
+msgstr "Mešano"
+
+msgid "Font Usage"
+msgstr "Uporabljena pisava"
+
+msgid "Yes - One Font For All"
+msgstr "Da - Ena pisava za vse"
+
+msgid "Yes - Different Fonts"
+msgstr "Da - Različne pisave"
+
+msgid "Available Fonts"
+msgstr "Pisave na voljo"
+
+msgid "Font"
+msgstr "Pisava"
+
+msgid "Char Size"
+msgstr "Velikost znakov"
+
+# Concerning character size
+msgid "Very Small"
+msgstr "Zelo mali"
+
+# Concerning character size
+msgid "Small"
+msgstr "Mali"
+
+# Concerning character size
+msgid "Medium"
+msgstr "Srednje"
+
+# Concerning character size
+msgid "Large"
+msgstr "Veliki"
+
+# Concerning character size
+msgid "Very Large"
+msgstr "Zelo veliki"
+
+msgid "Char Color"
+msgstr "Barva znakov"
+
+msgid "Specific Color"
+msgstr "Določena barva"
+
+msgid "One Color For All"
+msgstr "Ena barva za vse"
+
+msgid "Different Colors"
+msgstr "Različne barve"
+
+msgid "Colorful Chars"
+msgstr "Polno bavni znaki"
+
+msgid "Char Rotation"
+msgstr "Rotacija znakov"
+
+msgid "Background"
+msgstr "Ozadje"
+
+msgid "Single Color"
+msgstr "Ena barva"
+
+msgid "Mosaic"
+msgstr "Mozaik"
+
+msgid "Image"
+msgstr "Slika"
+
+msgid "Image Palette"
+msgstr "Paleta slik"
+
+msgid "Available BG Images"
+msgstr "Dostopne BG slike"
+
+# Concerning availability of images (All Images)
+msgid "All"
+msgstr "Vse"
+
+msgid "Extra Drawing"
+msgstr "Posebno risanje"
+
+# Concerning Extra Drawing
+msgid "None"
+msgstr "Nič"
+
+msgid "Lines"
+msgstr "Linije"
+
+msgid "Circles"
+msgstr "Krogi"
+
+msgid "Lines & Circles"
+msgstr "Linije in krogi"
+
+msgid "Grid"
+msgstr "Mreža"
+
+msgid "Transparent Lines"
+msgstr "Prosojne linije"
+
+msgid "Horizontal"
+msgstr "Vodoravno"
+
+msgid "Vertical"
+msgstr "Navpično"
+
+msgid "Horizontal & Vertical"
+msgstr "Vodoravno in navpično"
+
+msgid "Line-Transparency Level"
+msgstr "Linije - Nivo prosojnosti"
+
+msgid "Captcha Layer"
+msgstr "Captcha nivo"
+
+msgid "Single Layer"
+msgstr "Enojni nivo"
+
+msgid "Double Layer"
+msgstr "Dvojni nivo"
+
+msgid "Difficulty Level"
+msgstr "Stopnja težavnosti"
+
+msgid "Very Easy"
+msgstr "Zelo enostavno"
+
+msgid "Easy"
+msgstr "Enostavno"
+
+msgid "Moderate"
+msgstr "Srednje"
+
+msgid "Hard"
+msgstr "Težko"
+
+msgid "Very Hard"
+msgstr "Zelo težko"
+
+msgid "Too Hard"
+msgstr "Izredno težko"
+
+msgid "Impossible"
+msgstr "Nemogoče"
+
+msgid "Custom"
+msgstr "Po izboru"
+
+# Concerning settings application
+msgid "Apply"
+msgstr "Uporabi"
+
+msgid "Preview"
+msgstr "Predogled"
+
+msgid "Click here to apply selected profile"
+msgstr "Klikni tukaj za uporabo izbranega profila"
+
+msgid "Click here to preview Login Captcha"
+msgstr "Klikni tukaj za predogled prijavne Captche"
+
+msgid "Register Options"
+msgstr "Možnosti registracije"
+
+msgid "Register Captcha"
+msgstr "Registracija captche"
+
+msgid "Click here to preview Register Captcha"
+msgstr "Klikni tukaj za predogled registrirane captche."
+
+msgid "Password Recovery Options"
+msgstr "Možnost obnove gesla"
+
+msgid "Password Recovery Captcha"
+msgstr "Captcha za obnovo gesla"
+
+msgid "Click here to preview Password Recovery Captcha"
+msgstr "Klikni tukaj za predogled Captche obnova gesla"
+
+msgid "Comment Options"
+msgstr "Opcija komentarjev"
+
+msgid "Comment Captcha"
+msgstr "Komentarji Captcha"
+
+msgid "Click here to preview Comment Captcha"
+msgstr "Klikni tukaj za predogled Captche komentarjev"
+
+msgid "Blocking Options"
+msgstr "Možnosti blokade"
+
+msgid "Banned IP Addresses"
+msgstr "Blokiran IP naslov"
+
+msgid ""
+"You can use * in 3rd or 4th part of IP address to block the entire group"
+msgstr "Lahko uporabite  3. ali 4. del IP naslova za blokado celotne skupine"
+
+msgid "Examples"
+msgstr "Primer"
+
+msgid "Apply To"
+msgstr "Uporabi za"
+
+msgid "Save"
+msgstr "Shrani"
+
+msgid "Click here to save settings"
+msgstr "Klini tukaj za spravilo nastavitev"
+
+msgid "Reset"
+msgstr "Ponastavi"
+
+msgid "Click here to reset settings"
+msgstr "Klikni tukaj za osnovno nastavitev"
+
+msgid "Options"
+msgstr "Možnosti"
+
+msgid "Hall of Shame"
+msgstr "Dvorana sramu"
+
+msgid "Log"
+msgstr "LOG (dnevnik)"
+
+msgid "No Records Selected"
+msgstr "Ni izbranih zapisov"
+
+msgid "An error occurred"
+msgstr "Prišlo je do napake"
+
+msgid "Record(s) successfully deleted"
+msgstr "Zapisi zanesljivo zbrisani"
+
+msgid "IP(s) successfully added to 'Banned IP Addresses' List"
+msgstr "IP zanesljivo dodan na listo blokiranih naslovov."
+
+msgid "No IPs Selected"
+msgstr "IP ni izbran"
+
+msgid "Pages"
+msgstr "Strani"
+
+msgid "Page"
+msgstr "Stran"
+
+msgid "Go to page"
+msgstr "Pojdi na stran"
+
+msgid "Entries Per Page"
+msgstr "Vnosi v stran"
+
+msgid "Sort By"
+msgstr "Zloži po"
+
+msgid "Spam Probability"
+msgstr "Vrjetnost spama!"
+
+msgid "% Failure"
+msgstr "% neuspešno"
+
+msgid "Number of Total Fails"
+msgstr "Skupno število - neuspešno"
+
+msgid "Number of Total Trials"
+msgstr "Skupno število - uspešno"
+
+msgid "Last Date"
+msgstr "Zadnji datum"
+
+msgid "IP Address"
+msgstr "IP naslov"
+
+msgid "Select All / None"
+msgstr "Izberi vse / Nič"
+
+# Serial Number (No)
+msgid "S/N"
+msgstr "S/N"
+
+msgid "Banned"
+msgstr "Blokiran"
+
+# Tag <br> needs to be preserved
+msgid "Last Date<br>& Time"
+msgstr "Zadnji datum<br>in čas"
+
+# Tag <br> needs to be preserved
+msgid "# Current<br>Fails"
+msgstr "#Trnutno<br>neuspešno"
+
+# Tag <br> needs to be preserved
+msgid "# Current<br>Trials"
+msgstr "#Trenutno<br>uspešno"
+
+# Tag <br> needs to be preserved
+msgid "# Total<br>Fails"
+msgstr "#Skupno<br>neuspešno"
+
+# Tag <br> needs to be preserved
+msgid "# Total<br>Trials"
+msgstr "#Skupno<br>uspešno"
+
+msgid "Average Spam<br>Probability"
+msgstr "Povprečno spam<br>verjetnost"
+
+msgid "Click here to get details about this IP"
+msgstr "Klikni tukaj za podrobnosti o tem IP naslovu"
+
+msgid "Click here to view logs of this IP"
+msgstr "Klikni tukaj za LOG (dnevnik) tega IP naslova "
+
+msgid "Click here to delete the selected HoS record(s)"
+msgstr "Klikni tukaj za izbris izbranega DS zapisa(ov)"
+
+msgid "Delete Selected"
+msgstr "Briši izbrano"
+
+msgid "Click here to add the selected IP(s) into 'Banned IP Addresses' list"
+msgstr "Klikni tukaj, da dodaš izbrane IP naslove na listo blokiranih"
+
+msgid "Ban Selected IP(s)"
+msgstr "Blokiraj izbrane IP-je"
+
+msgid "Click here to export Hall of Shame to CSV file"
+msgstr "Klikni tukaj za izvoz Dvorane sramu v CSV datoteko"
+
+msgid "Export to CSV"
+msgstr "Izvozi v CSV"
+
+msgid "Click here to erase all HoS records"
+msgstr "Klikni tukaj za brisanje vseh DS zapisov"
+
+msgid "Clear HoS File"
+msgstr "Briši DS datoteke"
+
+msgid "Are you sure that you want to delete the selected records?"
+msgstr "Ali si prepričan, da želiš zbrisat izbrane zapise?"
+
+msgid "Are you sure that you want to block the selected IP(s)?"
+msgstr "Ali si prepričan, da želiš blokirat izbrane IP-je?"
+
+msgid "Are you sure that you want to erase the entire HoS file?"
+msgstr "Ali si prepričan, da želiš izbrisat izbrane DS datoteke?"
+
+msgid "No Logs Selected"
+msgstr "Ni izbranih LOG-ov"
+
+msgid "Log(s) successfully deleted"
+msgstr "LOG-i zanesljivo izbrisani."
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "All Types"
+msgstr "Vsi tipi"
+
+msgid "Comment"
+msgstr "Komentar"
+
+msgid "Result"
+msgstr "Rezultat"
+
+msgid "All Results"
+msgstr "Vsi rezultati"
+
+msgid "Success"
+msgstr "Uspešno"
+
+msgid "Fail"
+msgstr "ne uspešno"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "All Dates"
+msgstr "Vsi podatki"
+
+msgid "Date & Time"
+msgstr "Datum in čas"
+
+# Tag <br> needs to be preserved
+msgid "IP Address<br>(Proxy)"
+msgstr "IP naslov<br>(Proxy)"
+
+# Tag <br> needs to be preserved
+msgid "Captcha<br>(# Refreshes)"
+msgstr "Captcha<br>(#Osveženo)"
+
+# Tag <br> needs to be preserved
+msgid "Response Time<br>(# Given Chars)"
+msgstr "Odzivni čas<br>(#daj znak)"
+
+# Tag <br> needs to be preserved
+msgid "Result<br>(% Spam P.)"
+msgstr "Rezultat<br>(%Spam P.)"
+
+msgid "Additional Info"
+msgstr "Dodatne info."
+
+msgid "Click here to erase the selected logs"
+msgstr "Klikni tukaj za brisanje izbranih Log-ov"
+
+msgid "Click here to erase all logs"
+msgstr "Klikni tukaj za brisanje vseh Log-ov"
+
+msgid "Click here to export logs to CSV file"
+msgstr "Klikni tukaj za izvoz Log-ov v CSV datoteko"
+
+msgid "Delete Log File"
+msgstr "Briši Log datoteko"
+
+msgid "Are you sure that you want to delete the selected log entries?"
+msgstr "Ali ste prepričani, da želite izbrisati izbrane vnose v LOG (dnevnik)?"
+
+msgid "Are you sure that you want to delete ALL log entries?"
+msgstr "Ali ste prepričani, da želite izbrisati vse vnose v LOG (dnevnik)?"
+
+msgid "Show/Hide more details"
+msgstr "Prikaži/skrij več podrobnosti"
+
+msgid "SUCCESS"
+msgstr "USPEŠNO"
+
+msgid "FAIL"
+msgstr "NE USPEŠNO"
+
+msgid "BANNED"
+msgstr "BLOKIRAN"
+
+msgid "LOGIN"
+msgstr "PRIJAVA"
+
+msgid "REGISTER"
+msgstr "REGISTRACIJA"
+
+msgid "PASSWORD RECOVERY"
+msgstr "POVRNITEV GESLA"
+
+msgid "COMMENT"
+msgstr "KOMENTAR"
+
+msgid "Enable Translation"
+msgstr "Vklopi prevod"

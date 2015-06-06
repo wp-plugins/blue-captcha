@@ -4,26 +4,26 @@
 Plugin Name: Blue Captcha
 Plugin URI: http://wordpress.org/extend/plugins/blue-captcha/
 Description: Blue Captcha
-Version: 1.7.3
+Version: 1.7.4
 Author: Jotis Kokkalis (BlueCoder)
 Author URI: http://mybluestuff.blogspot.com/
 */
 
 /*  
-	By Jotis Kokkalis, (C) 2012-2014
+By Jotis Kokkalis, (C) 2012-2015
 
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License, version 2, as 
-	published by the Free Software Foundation.
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License, version 2, as 
+published by the Free Software Foundation.
 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-	General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software Foundation,
-	Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
 error_reporting (E_ALL);
@@ -35,13 +35,14 @@ function blcap_errorhandler ($errno, $errstr, $errfile, $errline)
 }
 set_error_handler ("blcap_errorhandler", E_ALL);
 
-if (!defined('WP_CONTENT_URL')) {
-   define('WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
+if (!defined ("WP_CONTENT_URL"))
+{
+	define ("WP_CONTENT_URL", get_option ("siteurl") . "/wp-content");
 }
 
 function blcap_check ()
 {
-	if (!function_exists ("gd_info") || !extension_loaded ("gd") )
+	if (!function_exists ("gd_info") || !extension_loaded ("gd"))
 	{
 		$message = "";
 		$message = $message . "<table class='widefat page fixed' align='center'>\n";
@@ -67,7 +68,7 @@ function blcap_check ()
 		$message = $message . "<tr><td><div align='center'><h3>BLUE CAPTCHA : Plugin is not installed properly. Try to reinstall it.</h3></div></td></tr>\n";
 		$message = $message . "</table>\n";
 		echo $message;
-        die (0);
+        	die (0);
 	}	
 }
 
@@ -82,7 +83,7 @@ function blcap_install ()
 	$blcap_cur_version = "";
 	$blcap_cur_version = get_option ("blcap_version");
 	
-	$blcap_version = "1.7.3";
+	$blcap_version = "1.7.4";
 	add_option ("blcap_version", $blcap_version);
 	update_option ("blcap_version", $blcap_version);
 	
@@ -292,6 +293,15 @@ function blcap_main ()
 
 	echo "<table border=\"0\" align=\"center\" width=\"40%\">\n";
 
+	echo "<tr>\n";
+	echo "<td>Leon Roskar &nbsp; (<a href=\"http://www.qb.si/\" target=\"_blank\">http://www.qb.si</a>)</td>";
+	echo "<td>Slovenian Language Translation</td>\n";
+	echo "</tr>\n";
+
+	echo "<tr>\n";
+	echo "<td>Borisa Djuraskovic &nbsp; (<a href=\"http://www.webhostinghub.com/\" target=\"_blank\">http://www.webhostinghub.com</a>)</td>";
+	echo "<td>Serbo-Croatian Language Translation</td>\n";
+	echo "</tr>\n";
 
 	echo "<tr>\n";
 	echo "<td>João Victor T. Magalhães</td>";
@@ -314,7 +324,6 @@ function blcap_main ()
 	echo "</tr>\n";
 
 	echo "</table>\n";
-	
 
 	echo "<hr style=\"color: cyan; width: 50%;\" />\n";
 
@@ -597,7 +606,7 @@ function blcap_loginform ()
 				$rf_tag = "title=\"$title\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
 				if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
 				{
-					$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+					$refresh_img_url = WP_CONTENT_URL . "/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
 					$special_type = $captcha_refresh_type == "2" ? "<br />" : " ";
 					$rf_span = "<span>" . $special_type . "<img src=\"$refresh_img_url\" title=\"$title\" alt=\"$refresh_display\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" /></span>";
 				}
@@ -796,7 +805,7 @@ function blcap_loginact ()
 
 				$pos = blcap_calc_spam_probability ($total_time, $totalchars, $proxy, $refresh, $user_captcha);
 
-				$more = $totalchars . "#" . $pos;
+				$more = $totalchars . "#" . $pos . "#@" . $_SERVER["HTTP_USER_AGENT"];
 		        
 				if ($success == true) $result = "SUCCESS";
 				else $result = "FAIL";
@@ -980,7 +989,7 @@ function blcap_registerform ()
 				$rf_tag = "title=\"$title\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
 				if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
 				{
-					$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+					$refresh_img_url = WP_CONTENT_URL . "/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
 					$special_type = $captcha_refresh_type == "2" ? "<br />" : " ";
 					$rf_span = "<span>" . $special_type . "<img src=\"$refresh_img_url\" title=\"$title\" alt=\"$refresh_display\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" /></span>";
 				}
@@ -1168,7 +1177,7 @@ function blcap_registerflt ($err)
 
 				$pos = blcap_calc_spam_probability ($total_time, $totalchars, $proxy, $refresh, $user_captcha);
 
-				$more = $totalchars . "#" . $pos;
+				$more = $totalchars . "#" . $pos . "#@" . $_SERVER["HTTP_USER_AGENT"];
                 
 				if ($success == true) $result = "SUCCESS";
 				else $result = "FAIL";
@@ -1354,7 +1363,7 @@ function blcap_lostpasswordform ()
 				$rf_tag = "title=\"$title\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
 				if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
 				{
-					$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+					$refresh_img_url = WP_CONTENT_URL . "/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
 					$special_type = $captcha_refresh_type == "2" ? "<br />" : " ";
 					$rf_span = "<span>" . $special_type . "<img src=\"$refresh_img_url\" title=\"$title\" alt=\"$refresh_display\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" /></span>";
 				}
@@ -1537,7 +1546,7 @@ function blcap_lostpasswordact ()
 
 				$pos = blcap_calc_spam_probability ($total_time, $totalchars, $proxy, $refresh, $user_captcha);
 
-				$more = $totalchars . "#" . $pos;
+				$more = $totalchars . "#" . $pos . "#@" . $_SERVER["HTTP_USER_AGENT"];
 
 				if ($success == true) $result = "SUCCESS";
 				else $result = "FAIL";
@@ -1733,7 +1742,7 @@ function blcap_commentform ()
 				$rf_tag = "title=\"$title\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" ";
 				if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
 				{
-					$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+					$refresh_img_url = WP_CONTENT_URL . "/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
 					$special_type = $captcha_refresh_type == "2" ? "<br />" : " ";
 					$rf_span = "<span>" . $special_type . "<img src=\"$refresh_img_url\" title=\"$title\" alt=\"$refresh_display\" onclick=\"blcap_refresh_captcha();\" onmouseover=\"style.cursor='pointer';\" /></span>";
 				}
@@ -1854,7 +1863,7 @@ function blcap_commentform ()
 
 						if ($captcha_refresh_type == "2" || $captcha_refresh_type == "3")
 						{
-							$refresh_img_url = get_option ("siteurl") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
+							$refresh_img_url = WP_CONTENT_URL . "/plugins/" . plugin_basename (dirname (__FILE__)) . "/bg/bluerefresh1.png";
 							echo "\t\tvar imgrefresh = document.createElement (\"img\");\n";
 							echo "\t\timgrefresh.setAttribute (\"src\", \"$refresh_img_url\");\n";
 							echo "\t\timgrefresh.setAttribute (\"onclick\", \"blcap_refresh_captcha();\");\n";
@@ -2145,7 +2154,7 @@ function blcap_commentflt ($subcomment)
                     
 				$pos = blcap_calc_spam_probability ($total_time, $totalchars, $proxy, $refresh, $user_captcha);
 
-				$more = $totalchars . "#" . $pos;
+				$more = $totalchars . "#" . $pos . "#@" . $_SERVER["HTTP_USER_AGENT"];
                 
 				if ($success == true) $result = "SUCCESS";
 				else $result = "FAIL";

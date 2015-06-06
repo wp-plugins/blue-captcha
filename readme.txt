@@ -4,8 +4,8 @@ Author URI: http://mybluestuff.blogspot.gr
 Donate link: http://mybluestuff.blogspot.gr/p/donate_21.html
 Tags: captcha, recaptcha, security, protection, safety, spam, antispam, anti-spam, spammer, login, comments, register, password recovery, blue captcha
 Requires at least: 2.8.6
-Tested up to: 4.0
-Stable tag: 1.7.3
+Tested up to: 4.2.2
+Stable tag: 1.7.4
 License: GPLv2
 
 Blue Captcha is a powerful and highly customized WordPress plugin that effectively protects your WP blogs from spammers and unwanted persons.
@@ -41,7 +41,7 @@ You can visit <a href="http://mybluestuff.blogspot.com/p/blue-captcha.html">Blue
 
 = Blue Captcha Translation =
 
-Blue Captcha is now available in Greek, Spanish, Russian & Italian.
+Blue Captcha is now available in Greek, Spanish, Russian, Italian, Brazilian-Portuguese, Serbo-Croatian & Slovenian.
 
 I would be very grateful if someone is willing to translate Blue Captcha to another language.
 For those interested, the template translation file ("blue-captcha.pot") is located on "languages" folder of blue-captcha plugin.
@@ -55,7 +55,9 @@ None for Now
 
 == Contribution ==
 Special Thanks To The Following Contributors:
-<br />
+<br /><br />
+Leon Roskar (http://www.qb.si) => Slovenian Translation<br />
+Borisa Djuraskovic (http://www.webhostinghub.com) => Serbo-Croatian Translation<br />
 João Victor T. Magalhães => Brazilian Portuguese Translation<br />
 Ericka Morales Hernández (http://todoriesgo.net) => Italian Translation<br />
 Alex Balashov => Russian Translation<br />
@@ -76,6 +78,13 @@ Andrew Kurtis (http://www.webhostinghub.com) => Spanish Translation<br />
 12. Typical Brute Force Attack spotted in Log File
 
 == Changelog ==
+
+= 1.7.4 =
+* 06 Jun 2015
+* Operating System & Browser information (HTTP_USER_AGENT) added in Log File
+* WP-CONTENT hardcoded string was fixed
+* Translation to Serbo-Croatian Language (sr_RS) was added - Translation by Borisa Djuraskovic
+* Translation to Slovenian Language (sl_SI) was added - Translation by Leon Roskar
 
 = 1.7.3 =
 * 12 Sep 2014

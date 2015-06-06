@@ -318,8 +318,11 @@ if ($cid != "preview")
 	}
 }
 
+
+$wp_content = defined ('WP_CONTENT_URL') ? substr (WP_CONTENT_URL, strlen (get_option('siteurl'))) : "/wp-content";
 // plugin directory is "blue-captcha" usually
-$path = realpath (".") . "/wp-content/plugins/" . plugin_basename (dirname (__FILE__)) . "/";
+$path = realpath (".") . $wp_content . "/plugins/" . plugin_basename (dirname (__FILE__)) . "/";
+
 
 header ("Content-type: image/png");
 
